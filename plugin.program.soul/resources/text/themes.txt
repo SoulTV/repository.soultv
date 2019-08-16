@@ -1,0 +1,5 @@
+name="Example Theme"
+url="http://"
+icon="http://"
+fanart="http://"
+description="A short description of the theme."

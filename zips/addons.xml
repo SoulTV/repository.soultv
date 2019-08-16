@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+<addon id="service.subtitles.subscene"
+       name="Subscene.com"
+       version="1.7.3"
+       provider-name="CrowleyAJ,appelgran">
+    <requires>
+        <import addon="xbmc.python" version="2.14.0"/>
+    </requires>
+    <extension point="xbmc.subtitle.module"
+               library="service.py"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Get subtitles from Subscene.com</summary>
+        <description lang="en">Subscene.com provides subtitles in more than 50 languages, mainly in English, Arabic, Brazilian Portuguese, Farsi, Indonesian and Vietnamese.
+Other languages with a great number of subtitles are: Danish, French, Swedish, Dutch, Italian, Norwegian and Spanish.</description>
+        <disclaimer lang="en"/>
+        <platform>all</platform>
+        <language/>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <forum>http://forum.xbmc.org/showthread.php?tid=184854</forum>
+        <website/>
+        <email/>
+        <source>https://github.com/manacker/service.subtitles.subscene</source>
+    </extension>
+</addon>
+
+<addon id="plugin.program.soul" name="[COLOR grey]Soul[/COLOR] Wizard" version="0.5.0" provider-name="Soul">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="startup.py" start="startup" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">[COLOR grey]Soul[/COLOR] Wizard</summary>
+    <description lang="en">[COLOR grey]Soul[/COLOR] Wizard offers many maintenance features, selective add-on data saving, and automated build installs.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="service.subtitles.subscene2"
+       name="Subscene.com"
+       version="1.7.2.7"
+       provider-name="CrowleyAJ, thuongtin.com">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.subtitle.module"
+               library="service.py"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Get subtitles from Subscene.com</summary>
+        <description lang="en">Subscene.com provides subtitles in more than 50 languages, mainly in English, Arabic, Brazilian Portuguese, Farsi, Indonesian and Vietnamese.
+Other languages with a great number of subtitles are: Danish, French, Swedish, Dutch, Italian, Norwegian and Spanish.</description>
+        <disclaimer lang="en"/>
+        <platform>all</platform>
+        <language/>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <forum>http://forum.xbmc.org/showthread.php?tid=184854</forum>
+        <website/>
+        <email/>
+        <source>https://github.com/manacker/service.subtitles.subscene</source>
+    </extension>
+</addon>
+
+	<addon id="script.skin.helper.service" name="Skin Helper Service" version="1.1.31" provider-name="marcelveldt, cartman.dos">
+	<requires>
+		<import addon="xbmc.python" version="2.13.0"/>
+		<import addon="xbmc.addon" version="12.0.0"/>
+        <import addon="script.module.simplejson" version="3.3.0"/>
+        <import addon="script.module.simplecache" version="1.0.0"/>
+        <import addon="script.module.metadatautils" version="1.0.0"/>
+        <import addon="script.module.cherrypy" version="11.0.0"/>
+	</requires>
+
+    <extension point="kodi.context.item">
+        <menu id="kodi.core.main">
+            <item library="resources\lib\context_animatedart.py">
+              <label>32024</label>
+              <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.EnableAnimatedPosters)) + Container.Content(movies)</visible>
+            </item>
+            <item library="resources\lib\context_pvr.py">
+                <label>32023</label>
+                <description>PVR artwork Configuration</description>
+                <visible>
+                    !String.IsEmpty(Window(Home).Property(SkinHelper.EnablePvrThumbs)) +
+                    [Window.IsActive(MyPVRChannels.xml) |
+                    Window.IsActive(MyPVRGuide.xml) | Window.IsActive(MyPVRRecordings.xml) |
+                    Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRSearch.xml)]
+                </visible>
+            </item>
+            <item library="resources\lib\context_music.py">
+                <label>32023</label>
+                <description>Music artwork Configuration</description>
+                <visible>
+                    !String.IsEmpty(Window(Home).Property(SkinHelper.EnableMusicArt)) +
+                    [Container.Content(albums) | Container.Content(artists) | Container.Content(songs)]
+                </visible>
+            </item>
+        </menu>
+	</extension>
+
+    <extension point="xbmc.python.library" library="default.py" />
+	<extension point="xbmc.python.pluginsource" library="plugin.py">
+    </extension>
+	<extension library="service.py" point="xbmc.service" start="login" />
+
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Helper service for Kodi skins</summary>
+        <description>Helper service for Kodi skins</description>
+		<language></language>
+		<platform>all</platform>
+		<license>GPL v2.0</license>
+		<forum>http://forum.kodi.tv/showthread.php?tid=235676</forum>
+		<website></website>
+		<source>https://github.com/cartmandos/script.skin.helper.service</source>
+	</extension>
+</addon>
+
+<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0" provider-name="SoulTV">
+    <extension point="xbmc.addon.repository" name="Soul TV Repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/SoulTV/repository.soultv/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/SoulTV/repository.soultv/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/SoulTV/repository.soultv/master/zips/</datadir>
+        </dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/123Venom/zips/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/123Venom/zips/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/123Venom/zips/master/</datadir>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.addons4kodi/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/a4k-openproject/repository.addons4kodi/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.addons4kodi/master/zips/</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/nixgates/nixgates/master/packages/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/nixgates/nixgates/master/packages/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/nixgates/nixgates/master/packages</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/</datadir>
+		</dir>
+
+		<dir>
+		    <info compressed="false">https://raw.githubusercontent.com/cartmandos/repository.bingie/master/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/cartmandos/repository.bingie/master/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/cartmandos/repository.bingie/master/</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://github.com/gaiaorigin/gaiaorigin/raw/master/common/addons.xml?v=5.0.0</info>
+			<checksum>https://github.com/gaiaorigin/gaiaorigin/raw/master/common/addons.xml.md5?v=5.0.0</checksum>
+			<datadir zip="true">https://github.com/gaiaorigin/gaiaorigin/raw/master/common/</datadir>
+		</dir>
+
+		<dir>
+		    <info compressed="false">https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml?v=5.0.0</info>
+		    <checksum>https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml.md5?v=5.0.0</checksum>
+		    <datadir zip="true">https://github.com/gaiaorigin/gaiaorigin/raw/master/</datadir>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jewbmx/repo/master/zips/</datadir>
+            <hashes>false</hashes>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/</datadir>
+		</dir>
+
+		<dir>
+		    <info compressed="false">https://repo.orionoid.com/addons.xml?v=3.3.0</info>
+		    <checksum>https://repo.orionoid.com/addons.xml.md5?v=3.3.0</checksum>
+		    <datadir zip="true">https://repo.orionoid.com</datadir>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://the-crew.xyz/_zips/addons.xml</info>
+            <checksum>https://the-crew.xyz/_zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://the-crew.xyz/_zips/</datadir>
+		</dir>
+
+		<dir>
+		    <info compressed="false">https://raw.githubusercontent.com/Sandmann79/xbmc/master/packages/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/Sandmann79/xbmc/master/packages/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/Sandmann79/xbmc/master/packages/</datadir>
+		</dir>
+
+		<dir>
+		    <info>https://raw.githubusercontent.com/rmrector/repository.rector.stuff/master/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/rmrector/repository.rector.stuff/master/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/rmrector/repository.rector.stuff/master/</datadir>
+		</dir>
+
+		<dir>
+		    <info compressed="false">https://raw.githubusercontent.com/aenemapy/aenemapyrepo/master/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/aenemapy/aenemapyrepo/master/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/aenemapy/aenemapyrepo/master/zips/</datadir>
+		</dir>
+
+		<dir>
+			<info>https://github.com/CastagnaIT/repository.castagnait/raw/master/addons.xml</info>
+			<checksum>https://github.com/CastagnaIT/repository.castagnait/raw/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://github.com/CastagnaIT/repository.castagnait/raw/master/zip</datadir>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/denimnani/zips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/denimnani/zips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/denimnani/zips/master/</datadir>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/Guilouz/repository.guilouz/master/_repo/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Guilouz/repository.guilouz/master/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://github.com/Guilouz/repository.guilouz/raw/master/_repo</datadir>
+            <hashes>false</hashes>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/</datadir>
+		</dir>
+
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/</datadir>
+		</dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/</datadir>
+        </dir>
+
+        <dir>
+		    <info compressed="false">https://raw.githubusercontent.com/skyfsza/repository.auramod/master/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/skyfsza/repository.auramod/master/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/skyfsza/repository.auramod/master/</datadir>
+        </dir>
+
+        <dir>
+			<info compressed="false">https://raw.githubusercontent.com/DxCx/repo.plugin.video.9anime/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/DxCx/repo.plugin.video.9anime/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/DxCx/repo.plugin.video.9anime/master</datadir>
+			<hashes>false</hashes>
+        </dir>
+
+        <dir>
+		    <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+        </dir>
+
+        <dir>
+              <info compressed="false">https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml</info>
+              <checksum>https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml.md5</checksum>
+              <datadir zip="true">https://raw.githubusercontent.com/I-A-C/zips/master/</datadir>
+        </dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
+        </dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
+        </dir>
+
+        <dir>
+            <info compressed="false">http://builds.kodiuk.tv/development/kodiukrepo/_zips/addons.xml</info>
+            <checksum>http://builds.kodiuk.tv/development/kodiukrepo/_zips/addons.xml.md5</checksum>
+            <datadir zip="true">http://builds.kodiuk.tv/development/kodiukrepo/_zips</datadir>
+            <hashes>false</hashes>
+        </dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Proximus2000/mb-support/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Proximus2000/mb-support/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://github.com/Proximus2000/mb-support/raw/master/zips</datadir>
+        </dir>
+
+        <dir>
+			<info compressed="false">https://raw.githubusercontent.com/mbebe/blomqvist/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/mbebe/blomqvist/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://github.com/mbebe/blomqvist/raw/master/zips</datadir>
+        </dir>
+
+        <dir>
+		    <info compressed="false">https://www.onenation.appboxes.co/repository/repofiles/addons.xml</info>
+		    <checksum>https://www.onenation.appboxes.co/repository/repofiles/addons.xml.md5</checksum>
+		    <datadir zip="true">https://www.onenation.appboxes.co/repository/repofiles/</datadir>
+        </dir>
+
+        <dir>
+	         <info compressed="false">https://raw.githubusercontent.com/mrkodz/mrkodz.github.io/master/Plugins/addons.xml</info>
+	         <checksum>https://raw.githubusercontent.com/mrkodz/mrkodz.github.io/master/Plugins/addons.xml.md5</checksum>
+	         <datadir zip="true">https://raw.githubusercontent.com/mrkodz/mrkodz.github.io/master/Plugins/</datadir>
+        </dir>
+
+        <dir>
+             <info compressed="false">https://raw.githubusercontent.com/Tikipeter/repository.tikipeter/master/addons.xml</info>
+             <checksum>https://raw.githubusercontent.com/Tikipeter/repository.tikipeter/master/addons.xml.md5</checksum>
+             <datadir zip="true">https://raw.githubusercontent.com/Tikipeter/repository.tikipeter/master/zip</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Soul TV Test</summary>
+        <description>Soul TV Test</description>
+        <disclaimer>We don't condone or intend for this repo to be used in an illegal capacity</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+
+<addon id="plugin.video.wabc"
+       name="WABC Programs"
+       version="3.0.11"
+       provider-name="t1m">
+  <requires>
+    <import addon="xbmc.python" version="2.20.0"/>
+    <import addon="script.module.t1mlib" version="1.0.18"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">WABC Programs</summary>
+    <description lang="en">WABC Programs in HD from the flagship ABC station in New York.</description>
+    <disclaimer lang="en">Feel free to use this script. For information visit the wiki.</disclaimer>
+    <platform>all</platform>
+    <language>en</language>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum>http://forum.kodi.tv/showthread.php?tid=234448</forum>
+    <website>www.abc.com</website>
+    <email></email>
+    <source>https://github.com/learningit/Kodi-plugins-source</source>
+  </extension>
+</addon>
+
+<addon id="plugin.video.seren" version="1.0.24.0" name="Seren" provider-name="Nixgates">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.requests" version="2.19.1" />
+		<import addon="script.module.beautifulsoup4" version="4.5.3"/>
+		<import addon="script.module.metahandler" version="1.0.0" />
+		<import addon="plugin.video.youtube" version="6.2.0"/>
+		<import addon="script.module.addon.signals" version="0.0.1"/>
+		<import addon="script.module.dateutil" version="2.7.3"/>
+<!--		<import addon="script.module.inputstreamhelper" version="0.3.3"/> #### Not yet big boy ####-->
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="seren.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Seren - This Addon is currently in beta. Please be aware there may be bugs present</summary>
+		<description lang="en">
+		</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum></forum>
+		<website></website>
+		<source></source>
+		<disclaimer lang="en">The author of this addon takes no responsibility for any 3rd party intergration or modification of this software, please ensure your use of this software abides by your local and insterstate laws.</disclaimer>
+		<assets>
+			<icon>ico-fox-gold-final.png</icon>
+			<fanart>fanart-fox-gold-final.png</fanart>
+		</assets>
+		<news>
+Changelog 1.0.24:
+Fix Automatic Episode Resume
+
+Changelog 1.0.23:
+Fixed disable/enabled of providers
+Clean up some missed logging
+
+Changelog 1.0.22:
+Fixed Background Scraping Display style
+
+Changelog 1.0.21:
+Fixed issue with Custom Providers refresh not honoring disabled status (Actually this time)
+Added try/except for property/progress updates in getSources module
+Fixed issue with source dicts being stringed during source select
+Added onClick callback for source select
+
+Changelog 1.0.20:
+Fixed Source Select selecting wrong source
+Fixed issue with Custom Providers refresh not honoring disabled status
+
+Changelog 1.0.19:
+Further adjustments of background overlay to better suit brighter fanart images
+
+Changelog 1.0.18:
+Added Overlay to custom windows
+Added re-worked versions of artwork
+Seren Fanart now applies to all items that are missing fanart
+
+Changelog 1.0.17:
+Adjust poster size in Source Select
+Added setting "Auto try next link on resolve failure (Source Select)"
+
+Changelog 1.0.16:
+Cleaned up and re-worked provider database sync function
+Fixed issue with providers not showing on initial install of providers
+
+Changelog 1.0.15:
+Local torrent database restructued to increase speeds and handling of entries
+Increased visibility of selected item in source select view
+Fixed hosters providers not scraping episodes
+Hosters now display the release title of the source if available
+Re-work of Seren artwork
+
+Changelog 1.0.14:
+Fixed Shuffle Play
+Adjusted contrast levels for new windows
+
+Changelog 1.0.13:
+All custom windows have been migrated over to XML based windows
+Tidied code within getSources endpoint
+Failure to resolve an item with source select active now returns the user to the source select window
+Improvements to trakt bookmarks occuring
+Added notification at RD auth to check if users account is premium and advise accordingly
+Adjusted Premiumize Automatic Cloud Removal to support new Fair Usage system
+Premiumize percentage threshold is now maximum GBs of used storage
+Fixed appending seasons to current playlist
+
+Changelog 1.0.12:
+Fixed issues with show year returning INT
+
+Changelog 1.0.11:
+Fixed removal of hidden items during sync
+
+Changelog 1.0.10:
+Fixed Hiding show from episode items
+
+Changelog 1.0.9:
+Fixed Date Display issue with Up Next notification
+Menu caching is now optional within Seren settings, defaulted to On
+Show year meta information now gathered from Trakt instead of TVDB (meta missing on some titles)
+Changes to search menu to provide better usability
+Increasesd title identification
+
+Changelog 1.0.8:
+Improvements to title identification
+Improvements to window handling on playback failure/cancellation
+Disabled Kodi menu caching for all directories
+Moved playback resume execution closer to start of playback
+Fixed IMDB meta confirmation for movies
+
+Changelog 1.0.7:
+Adjusted Trakt Manager method to better suit new URLS
+Fixed Smartplay playlist builder not honoring hide un-aired setting
+Further improvements to show pack filter
+
+Changelog 1.0.6:
+Change movie items action to the correct action
+Changing trakt account now raises an initial sync process.
+Removing trakt account removes all watched status and collected status from local database
+Authorising trakt for the first time raises an initial sync process to occur
+Added trakt_username column to the Trakt Sync activities database
+Added migration for existing trakt users
+Unsuccesful attempts to mark/unmark watched status on items is now notified and logged
+Fixed issue with pre-emptive scraping failing when set to background task style scraping
+TV module functions now use a shared instance of the Trakt Sync database class
+Movie modules functions now use a shared instance of the Trakt Sync database class
+
+Changelog 1.0.5:
+Rollback changes to initial playlist creation due to issues with skin widgets
+
+Changelog 1.0.4:
+Added workaround for getSources api call
+Fixed more URL issues in seren.py breaking play style
+
+Changelog 1.0.3:
+Fixed issue cloud scraping for movie items caused by URL changes
+Fixed Source Select List (Movies) issues due to URL changes
+Fixed issues caused in player module from URL change
+Fixed issues caused in smartPlay from URL change
+
+Changelog 1.0.2:
+Fixed issue with Trakt Sync Database repeatedly downgrading/upgrading
+
+Changelog 1.0.1:
+Fix slow trakt sync speeds caused by maximum SQL statements variable not resetting
+Fix issues with list style source select and URL changes
+Fixed date display in list style source select window
+
+Changelog 1.0.0:
+Removed Building Playlist process, seren now moves straight to scraping and fills in the playlist in the background
+Re-worked smartplay module
+Moving forward, Seren's versioning should now match semantic versioning
+Complete restructure of actionArgs for Seren API endpoints
+Fixed issues with trakt manager when in a mixed episode list
+Fixed Trakt Sync failing with exceptionally large libraries
+
+Changelog 0.2.38:
+Fixed issue with marking items as watched locally
+
+Changelog 0.2.37:
+Fixed Episode File Size setting visibility
+Fixed getSources module displaying checking local database when setting is disabled
+Removed logging of some superficial errors in Trakt Sync and Next Up menu
+Reduced minimum of percentage watched before marked as watched locally
+Fixed issue where seasons would not display for shows with odd season number conventions
+
+Changelog 0.2.36:
+Fixed visibility of Premiumize Account Settings
+Provider update check timeout increased to hourly
+Addon update checks timeout increased to daily
+Drastic increases to trakt sync speeds
+Added fallbacks for possible network failures in trakt syncing process
+Fixed default tuple length in getSources
+Fixed Real-Debrid Cloud Sources breaking due to missing size key
+Disabled cache assist when cloud files are present during scrape process
+Adjusted scrobble check for player module to occur only when successfully scrobbled to trakt
+Added fallback for trakt scrobbling to playbackended player callback
+Removed duplicate trakt prompt on auth failure
+Un-cached Sources in manual cache assist are now sorted by seeds descending
+Added Browse Season option to episode context menu
+Added ability to shuffle play show from an episode item
+Fixed setting retrieval for Apple devices
+Movies and episodes now have seperate file size limits
+Source select view now defaults to list
+Fixed delayed playback failed dialog from Kodi
+Fixed issue with appending next season to active playlist
+Escaped ampersand characters in settings file
+Fixed issue where item meta information would not update unless a Trakt account was authorised
+Disabled caching of results if no sources are found
+Fixed missing settings check for Local Torrent Cache inspection.
+Fixed CM options not showing if context menu addon not installed
+
+		</news>
+	</extension>
+</addon>
+
+<!-- BINGIE -->
+<addon id="skin.titan.bingie" version="1.0.3.0" name="Titan BINGIE" provider-name="cartman.dos">
+	<requires>
+		<import version="5.14.0" addon="xbmc.gui"/>
+		<import addon="script.bingie.helper" version="1.0.0"/>
+		<import addon="script.skinshortcuts" version="0.6.5"/>
+		<import addon="script.skin.helper.service" version="1.0.0"/>
+        <import addon="script.skin.helper.widgets" version="1.0.0"/>
+        <import addon="script.skin.helper.backgrounds" version="1.0.0"/>
+        <import addon="resource.images.skinbackgrounds.titanium" version="1.0.0"/>
+        <import addon="resource.images.skinicons.wide" version="1.0.0"/>
+        <import addon="resource.images.backgroundoverlays.basic" version="1.0.0"/>
+	</requires>
+	<extension point="xbmc.gui.skin" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
+		<res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">BINGIE... The new Titan skin for Kodi Leia.</summary>
+		<description>Titan is back for Kodi Leia with the new BINGIE layout!</description>
+		<platform>all</platform>
+		<license>GPL v2.0</license>
+		<forum>https://forum.kodi.tv/showthread.php?tid=334820</forum>
+		<website>https://forum.kodi.tv/showthread.php?tid=334820</website>
+		<email></email>
+		<source>https://github.com/cartmandos/skin.titan.bingie/</source>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+			<screenshot>resources/screenshot000.jpg</screenshot>
+			<screenshot>resources/screenshot001.jpg</screenshot>
+			<screenshot>resources/screenshot002.jpg</screenshot>
+			<screenshot>resources/screenshot003.jpg</screenshot>
+			<screenshot>resources/screenshot004.jpg</screenshot>
+			<screenshot>resources/screenshot005.jpg</screenshot>
+			<screenshot>resources/screenshot006.jpg</screenshot>
+			<screenshot>resources/screenshot007.jpg</screenshot>
+			<screenshot>resources/screenshot008.jpg</screenshot>
+			<screenshot>resources/screenshot009.jpg</screenshot>
+            <screenshot>resources/screenshot010.jpg</screenshot>
+		</assets>
+		<news>
+			[B]Titan BINGIE v1[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=334820
+		</news>
+	</extension>
+</addon>
+
+<addon id="service.subloader"
+    name="SubLoader" version="0.1.2" provider-name="DenimNani">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+  </requires>
+  <extension point="xbmc.service" library="monitor.py" start="login"></extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Automatic subtitles on play</summary>
+    <description lang="en">Auto download the best subtitle automatically as soon you start the video.
+Special thanks to OpenSubtitles.org for providing a great source of subtitles.
+The SubLoader uses some code from the great addon Autosubs, special thanks to Zeljko Ametovic and schumi2004.</description>
+    <platform>all</platform>
+    <language>en</language>
+    <license>GPL</license>
+    <website>https://github.com/denimnani</website>
+	<assets>
+		<icon>iconsubloader.png</icon>
+		<fanart>fanartsubloader.png</fanart>
+		<screenshot>resources/media/screenshots/screenshot1subLoader.jpg</screenshot>
+		<screenshot>fanartsubloader.png</screenshot>
+	</assets>
+    <source>https://github.com/denimnani/service.subloader</source>
+    <forum></forum>
+    <email></email>
+	<news>0.1.2     17.06.2019
+Added a unique User Agent from Opensubtitles.org.
+
+0.1.1     12.06.2019
+Fixed release detection bug.
+Fixed typo.
+
+0.1.0     10.06.2019
+Fixed instalation bug.
+Fixed notifications bug.
+Started Beta convergence.
+Added default behavior selection.
+Added auto donwload any subtitle if no match found.
+Updated settings xml.
+Updated strings po.
+Release type detection improved.
+
+0.0.9
+Release type detection improved.
+More clean up.</news>
+  </extension>
+</addon>
+
+<addon id="service.subtitles.opensubtitles_by_opensubtitles"
+       name="OpenSubtitles.org by OpenSubtitles"
+       version="5.2.14"
+       provider-name="amet, opensubtitles">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.subtitle.module"
+             library="service.py" />
+  <extension point="xbmc.addon.metadata">
+    <summary>OpenSubtitles by OpenSubtitles.org</summary>
+    <description lang="en">Anonymously search and download subtitles for movies and TV-Series from OpenSubtitles.org without log-in. Search in 75 languages, 4.000.000+ subtitles, daily updates. </description>
+	<description lang="at">Pelis and Subtítulos TV en munches llingües, milenta de subtítulos traducíos y xubíos caldía. Descarga llibre dende la fonte, sofitu API, millones d'usuarios.</description>
+	<description lang="br">Istitloù Filmoù ha TV e meur a yezh, miliadoù a istitloù troet hag uskarget bemdez. Pellgargadenn digoust diouzh ar vammenn, skoazell an API, millionoù a implijerien.</description>
+	<description lang="ca">Subtítols de films i televisió en múltiples idiomes, milers de subtítols traduïts carregats diàriament. Descàrrega gratuïta des de la font, suport de l'API, amb milions d'usuaris.</description>
+	<description lang="cs">Titulky k filmům a seriálům v mnoha jazycích, denně tisíce nahraných přeložených titulků. Stažení zadarmo přímo od zdroje, podpora API, milióny uživatelů.</description>
+	<description lang="de">Film- und TV-Untertitel in vielen Sprachen, täglicher Upload von tausenden übersetzten Untertiteln. Freier Download von der Quelle, API-Unterstützung, Millionen Nutzer</description>
+	<description lang="el">Ταινίες και Σειρές σε όλες τις γλώσσες, χιλιάδες μεταφρασμένοι υπότιτλοι ανεβαίνουν καθημερινά, κατεβάστε δωρεάν , υποστήριξη API από εκατομμύρια χρήστες</description>
+	<description lang="eo">Filmaj kaj Televidaj subtekstoj en multaj lingvoj, miloj da tradukitaj subtekstoj ĉiutage alŝutataj. Senpaga elŝuto de fonto, API-subteno, miloj da uzantoj.</description>
+	<description lang="es">Películas y Subtítulos en diversos idiomas, miles de subtítulos traducidos subidos diariamente. Descarge gratis, soporte API, millones de usuarios.</description>
+	<description lang="et">Sadu Filmi ja TV Serjaalide subtiitrid erinevates keeltes laetakse üles igapäev. tasuta allalaadimine ja abi, rohkem kui miljon kasutajat.</description>
+	<description lang="eu">Film eta Telebista azpitituluak hizkuntza anitzetan, milaka azpititulu itzuliak igotzen dira egunero. Doan jaitsi iturburutik, API sostengua, milioika erabiltzaile.</description>
+	<description lang="fi">Tekstityksiä useilla kielillä elokuviin ja TV-Sarjoihin, tuhansia uusia tekstityksiä päivittäin, ilmainen lataus, API tuki, miljoonia käyttäjiä.</description>
+	<description lang="fr">Les sous-titres de film et téléfilm en plusieurs langues, des milliers de sous-titres traduits tous les jours. Bénéficiez de téléchargements gratuits depuis la source, du support API, une d'une communauté de millions d'utilisateurs.</description>
+	<description lang="hi">मूवी और टीवी उपशीर्षक कई भाषाओं में अनुवाद उपशीर्षक के हजारों दैनिक अपलोड की गई। मुफ्त डाउनलोड स्रोत से , एपीआई समर्थन, उपयोगकर्ताओं के लाखों लोगों की ।</description>
+	<description lang="hr">Titlovi za filmove i TV na mnogim jezicima, tisuće prijevoda postavljenih svaki dan. Besplatno preuzimanje s izvora, podrška za API, milijuni korisnika.</description>
+	<description lang="hu">Film és TV feliratok több nyelven, naponta több ezer lefordított felirat feltöltés. Ingyenes letöltés a forrástól, API támogatás, több millió felhasználó.</description>
+	<description lang="id">Subjudul film dan serial TV dalam multibahasa, ribuan subjudul diterjemah dan diunggah setiap harinya. Pengunduhan gratis dari sumber, didukung fitur antarmuka pemrograman aplikasi, dan jutaan pengguna.</description>
+	<description lang="is">Textar fyrir myndir og sjónvarpsþ. á mörgum tungumálum, þúsundir af þýddum textum upphlaðið daglega. Frítt niðurhal frá síðu, API stuðningur, milljónir notenda.</description>
+	<description lang="it">Sottotitoli di Film e TV in più lingue,migliaia di sottotitoli tradotti caricati ogni giorno.Download gratuito,supporto API, milioni di utenti.</description>
+	<description lang="ja">映画やテレビの字幕をさまざまな言語で。毎日数多くの翻訳字幕がアップロードされています。ソースを無料ダウンロード、API 対応、数百万を超えるユーザー。</description>
+	<description lang="ka">სუბტიტრები ფილმებისა და ტვ-სთვის მრავალ ენაზე. ათასობიტ თარგმნილი სუბტიტრის ატვირთვა ყოველდღიურად. უდასო ჩამოტვირტვა წყაროდან, API მხარდაჭერა, მილიონობით მომხმარებელი</description>
+	<description lang="km">អត្ថបទរឿងសម្រាប់ ខ្សែភាពយន្ត និងកម្មវិធីទូរទស្សន៍​ ជាភាសាជាច្រើន រួមនឹងអត្ថបទរឿងបកប្រែរាប់ពាន់​រឿង​ដែល​ត្រូវបាន​អ័ពឡូដជារៀងរាល់ថ្ងៃ។ ទាញយកដោយឥតគិតថ្លៃពីប្រភពដើម គាំទ្រ API និងមានអ្នកប្រើប្រាស់រាប់លាននាក់។ </description>
+	<description lang="ko">Movie and TV Subtitles in multiple languages, thousands of translated subtitles uploaded daily. Free download from source, API support, millions of users.</description>
+	<description lang="ms">Sarikata TV dan Movie dalam pelbagai bahasa, ribuan terjemahan sarikata dimuat-naik setiap hari.Muat-turun percuma dari sumber utama, sokongan API, jutaan pengguna.</description>
+	<description lang="nl">Ondertitels voor films en tv-series in meerdere talen, dagelijks upload van duizenden vertaalde ondertitels. Gratis downloaden van de bron, API ondersteuning, miljoenen gebruikers.</description>
+	<description lang="no">Undertekster for film og TV på mange språk, med tusener av nye oversettelser hver dag. Vi har gratis nedlasting av undertekster, API-support, og mange millioner brukere.</description>
+	<description lang="pt-br">Milhares de legendas para filmes e seriados de TV, em vários idiomas, são traduzidas e enviadas diariamente. Download grátis, suporte API e milhões de usuários.</description>
+	<description lang="pl">Napisy do filmów i seriali w wielu językach. Tysiące napisów dodawanych codziennie. Darmowe pobranie, miliony użytkowników.</description>
+	<description lang="pt">Legendas de filmes e séries de TV em vários idiomas, milhares de legendas traduzidas e enviadas diariamente. Download grátis a partir da fonte, suporte API, milhões de utilizadores.</description>
+	<description lang="ro">Subtitrari pentru filme in multe limbi, mii de subtitrari traduse si încărcate in fiecare zi. Descărca gratuit de la sursă, suport API, milioane de utilizatori.</description>
+	<description lang="ru">Кино и ТВ субтитры на нескольких языках, тысячи переведенными субтитрами загружены ежедневно. Бесплатно скачать из исходных текстов, поддержка API, миллионы пользователей.</description>
+	<description lang="sk">Titulky pre filmy a TV seriály, denne nahratých tisíce titulkov preložených vo viacerých jazykoch. Sťahuj zadarmo zo zdroja, podpora API, milióny používateľov.</description>
+	<description lang="sl">Filmski in televizijski podnapisi v mnogo jezikih, na tisoče prevedenih podnapisov dnevno. Brezplačen prenos iz vira, podpora API, miljoni uporabnikov.</description>
+	<description lang="sq">Titra filmash dhe serialesh në shumë gjuhë, mijëra titra të përkthyera që vendosen çdo ditë. Shkarko nga burimi, apo nga mbështetja e API-së, miliona përdorues.</description>
+	<description lang="sr">Titlovi za filmove i TV na mnogim jezicima, hiljade prevoda okačenih svakodnevno. Besplatno skidanje sa izvora, podrška za API, milioni korisnika.</description>
+	<description lang="sv">Filmer och Tv-undertexter med olika språk, tusentals översatta undertexter uppladdade dagligen. Gratis nerladdning från källor, API support, miljoner av användare.</description>
+	<description lang="tr">Her gün eklenen, pek çok dildeki binlerce film ve dizi altyazısı. Kaynağından ücretsiz indirme, API desteği ve milyonlarca kullanıcı.</description>
+	<description lang="uz">Film va TV Taglavhalari ko'p tillarda, minglab tarjima qilingan taglavhalar har kuni tizimga yuklanadi. Bepul resursdan yuklab oling, API qo'llaydi, millionlab foydalanuvchilar.</description>
+	<description lang="zh">多语种的电影及剧集字幕，每日更新千余条翻译好的字幕。免费下载，提供API接口，已拥有上百万的用户。</description>
+    <disclaimer>Works without log-in</disclaimer>
+	<news>
+Improved add-on by OpenSubtitles.org
+v5.2.14 (2017-01-23)
+- Users are able to download subtitles as anonymous without authentication. Added localized descriptions, media files
+- New feature: Users are able to check for subtitles when Kodi is not playing, by using the manual search or by standing on an item and opening the subtitles search dialog (By key or by an external addon)  | @burekas
+	</news>
+    <platform>all</platform>
+	<language></language>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum>https://forum.opensubtitles.org/viewtopic.php?f=8&amp;t=15847</forum>
+    <website>http://www.opensubtitles.org</website>
+    <email>admin [at] opensubtitles {dot} org</email>
+	<assets>
+	    <icon>resources/media/os_logo_512x512.png</icon>
+	    <fanart>resources/media/os_fanart.jpg</fanart>
+		<screenshot>resources/media/screenshot_1.jpg</screenshot>
+		<screenshot>resources/media/screenshot_2.jpg</screenshot>
+		<screenshot>resources/media/screenshot_3.jpg</screenshot>
+	</assets>
+    <source>https://github.com/opensubtitles/service.subtitles.opensubtitles_by_opensubtitles</source>
+  </extension>
+</addon>
+
+<addon id="service.subtitles.thuongtin"
+       name="ThuongTin.Subtitles"
+       version="1.0.1"
+       provider-name="CrowleyAJ, thuongtin.com, amet, opensubtitles">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.subtitle.module"
+               library="service.py"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Get subtitles from Subscene.com and Opensubtitles.org</summary>
+        <description lang="en">Search and download subtitles for movies and TV-Series from OpenSubtitles.org. Search in 75 languages, 4.000.000+ subtitles, daily updates.</description>
+        <disclaimer lang="en"/>
+        <platform>all</platform>
+        <language/>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <website/>
+        <email/>
+    </extension>
+</addon>
+
+<addon id="script.module.cherrypy"
+       name="CherryPy Kodi module"
+       version="11.0.1"
+       provider-name="marcelveldt, CherryPy Team">
+    <requires>
+        <import addon="xbmc.python" version="2.24.0"/>
+        <import addon="script.module.six" version="1.9.0"/>
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+        <summary>CherryPy webserver packaged as Kodi module</summary>
+        <description>CherryPy is a pythonic, object-oriented web framework
+            CherryPy allows developers to build web applications in much the same way they would build any other object-oriented Python program. This results in smaller source code developed in less time.
+            CherryPy is now more than ten years old and it is has proven to be very fast and stable. It is being used in production by many sites, from the simplest to the most demanding.
+        </description>
+        <license>BSD</license>
+        <source>https://github.com/marcelveldt/script.module.cherrypy</source>
+        <platform>all</platform>
+    </extension>
+</addon>
+</addons>
