@@ -103,9 +103,9 @@ AUTOINSTALL    = 'Yes'
 # Addon ID for the repository
 REPOID         = 'repository.soultv'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML   = 'https://github.com/SoulTV/repository.soultv/raw/master/_repo/addons.xml'
+REPOADDONXML   = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL     = 'https://soultv.github.io/repository.soultv/'
+REPOZIPURL     = 'https://soultv.github.io/repo/'
 #########################################################
 
 #########################################################
