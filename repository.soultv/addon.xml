@@ -44,12 +44,6 @@
 		</dir>
 
 		<dir>
-		    <info compressed="false">https://raw.githubusercontent.com/cartmandos/repository.bingie/master/addons.xml</info>
-		    <checksum>https://raw.githubusercontent.com/cartmandos/repository.bingie/master/addons.xml.md5</checksum>
-		    <datadir zip="true">https://raw.githubusercontent.com/cartmandos/repository.bingie/master/</datadir>
-		</dir>
-
-		<dir>
 			<info compressed="false">https://github.com/gaiaorigin/gaiaorigin/raw/master/common/addons.xml?v=5.0.0</info>
 			<checksum>https://github.com/gaiaorigin/gaiaorigin/raw/master/common/addons.xml.md5?v=5.0.0</checksum>
 			<datadir zip="true">https://github.com/gaiaorigin/gaiaorigin/raw/master/common/</datadir>
