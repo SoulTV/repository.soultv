@@ -284,6 +284,12 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
              <checksum>https://raw.githubusercontent.com/Tempest0580/temptv/master/zips/addons.xml.md5</checksum>
 	         <datadir zip="true">https://raw.githubusercontent.com/Tempest0580/temptv/master/zips/</datadir>
         </dir>
+
+        <dir>
+             <info compressed="false">http://noledynasty.xyz/_zips/addons.xml</info>
+             <checksum>http://noledynasty.xyz/_zips/addons.xml.md5</checksum>
+             <datadir zip="true">http://noledynasty.xyz/_zips/</datadir>
+        </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Soul TV Repository</summary>
