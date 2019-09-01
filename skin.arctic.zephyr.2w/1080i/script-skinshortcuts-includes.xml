@@ -9,7 +9,6 @@
 			<thumb>special://home/userdata/Soul Images/airing.png</thumb>
 			<property name="labelID">livetv</property>
 			<property name="defaultID">livetv</property>
-			<property name="translatedPath">ActivateWindow(TVGuide)</property>
 			<onclick>SetFocus(302)</onclick>
 			<property name="path">SetFocus(302)</property>
 			<property name="list">SetFocus(302)</property>
@@ -26,8 +25,12 @@
 			<thumb>special://home/userdata/Soul Images/airing.png</thumb>
 			<property name="labelID">livetv--0</property>
 			<property name="defaultID">livetv</property>
-			<visible>False</visible>
-			<onclick>noop</onclick>
+			<onclick>SetFocus(302)</onclick>
+			<property name="path">SetFocus(302)</property>
+			<property name="list">SetFocus(302)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">livetv-0</property>
+			<property name="group">mainmenu</property>
 			<property name="hasSubmenu">True</property>
 		</item>
 		<item id="3">
@@ -38,7 +41,6 @@
 			<thumb>special://home/userdata/Soul Images/search.png</thumb>
 			<property name="labelID">137</property>
 			<property name="defaultID">137</property>
-			<property name="translatedPath">Skin.SetString(SearchTerm)</property>
 			<onclick>Skin.Reset(SearchTerm)</onclick>
 			<property name="path">Skin.Reset(SearchTerm)</property>
 			<property name="list">Skin.Reset(SearchTerm)</property>
@@ -57,11 +59,6 @@
 			<thumb>special://home/userdata/Soul Images/icon.png</thumb>
 			<property name="labelID">10000</property>
 			<property name="defaultID">10000</property>
-			<property name="widget.backgroundWidget">Addon</property>
-			<property name="widgetName.backgroundWidget">Continue Watching</property>
-			<property name="widgetType.backgroundWidget">episodes</property>
-			<property name="widgetTarget.backgroundWidget">videos</property>
-			<property name="widgetPath.backgroundWidget">plugin://plugin.video.seren/?action=showsNextUp&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
 			<onclick>SetProperty(submenuVisibility,$INFO[Container(301).ListItem.Property(submenuVisibility)],home)</onclick>
 			<property name="path">SetProperty(submenuVisibility,$INFO[Container(301).ListItem.Property(submenuVisibility)],home)</property>
 			<property name="list">SetProperty(submenuVisibility,$INFO[Container(301).ListItem.Property(submenuVisibility)],home)</property>
@@ -85,11 +82,6 @@
 			<thumb>special://home/userdata/Soul Images/tv.png</thumb>
 			<property name="labelID">tvshows</property>
 			<property name="defaultID">31864</property>
-			<property name="widget.backgroundWidget">Addon</property>
-			<property name="widgetName.backgroundWidget">New Shows by Gary</property>
-			<property name="widgetType.backgroundWidget">videos</property>
-			<property name="widgetTarget.backgroundWidget">videos</property>
-			<property name="widgetPath.backgroundWidget">plugin://plugin.video.seren/?action=showsGary&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
 			<onclick>SetFocus(302)</onclick>
 			<property name="path">SetFocus(302)</property>
 			<property name="list">SetFocus(302)</property>
@@ -106,11 +98,6 @@
 			<thumb>special://home/userdata/Soul Images/movies.png</thumb>
 			<property name="labelID">movies</property>
 			<property name="defaultID">31865</property>
-			<property name="widget.backgroundWidget">Addon</property>
-			<property name="widgetName.backgroundWidget">Seren - Latest Releases by Gilad &amp; Alex</property>
-			<property name="widgetType.backgroundWidget">movies</property>
-			<property name="widgetTarget.backgroundWidget">videos</property>
-			<property name="widgetPath.backgroundWidget">plugin://plugin.video.seren/?action=moviesLatest&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
 			<onclick>SetFocus(302)</onclick>
 			<property name="path">SetFocus(302)</property>
 			<property name="list">SetFocus(302)</property>
@@ -127,7 +114,6 @@
 			<thumb>special://home/userdata/Soul Images/addonsgif.gif</thumb>
 			<property name="labelID">24001</property>
 			<property name="defaultID">24001</property>
-			<property name="translatedPath">ActivateWindow(AddonBrowser)</property>
 			<onclick>SetFocus(302)</onclick>
 			<property name="path">SetFocus(302)</property>
 			<property name="list">SetFocus(302)</property>
@@ -187,102 +173,68 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">1</property>
-			<label> TvTap (Time-shift)</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
-			<property name="labelID">script.module.tt</property>
-			<property name="defaultID">script.module.tt</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://script.module.tt",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
-			<property name="list">plugin://script.module.tt</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[22020]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/tvguide.png</icon>
+			<thumb />
+			<property name="labelID">22020</property>
+			<property name="defaultID">22020</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVGuide)</onclick>
+			<property name="path">ActivateWindow(TVGuide)</property>
+			<property name="list">TVGuide</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">1</property>
-			<label>usTVgo</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">ustvgo</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=ustvgoNavigator</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[19163]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/bookmark-star.png</icon>
+			<thumb />
+			<property name="labelID">19163</property>
+			<property name="defaultID">19163</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVRecordings)</onclick>
+			<property name="path">ActivateWindow(TVRecordings)</property>
+			<property name="list">TVRecordings</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">1</property>
-			<label>AcronaiTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">acronaitv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=acronaitv_menu</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[19040]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/timer.png</icon>
+			<thumb />
+			<property name="labelID">19040</property>
+			<property name="defaultID">19040</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVTimers)</onclick>
+			<property name="path">ActivateWindow(TVTimers)</property>
+			<property name="list">TVTimers</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">1</property>
-			<label>TempTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.temptv%2ficon.png/</thumb>
-			<property name="labelID">plugin.video.temptv</property>
-			<property name="defaultID">plugin.video.temptv</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
-			<property name="list">plugin://plugin.video.temptv</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
-			<property name="group">livetv</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">1</property>
-			<label>The Crew - IPTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_whitehat.png/</thumb>
-			<property name="labelID">thecrew-iptv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
-			<property name="list">plugin://plugin.video.thecrew/?action=whitehat</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
-			<property name="group">livetv</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">1</property>
-			<label>Scrubs v2 - IPTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">scrubsv2-iptv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=iptvChannels</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[137]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/search.png</icon>
+			<thumb />
+			<property name="labelID">137</property>
+			<property name="defaultID">137</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVSearch)</onclick>
+			<property name="path">ActivateWindow(TVSearch)</property>
+			<property name="list">TVSearch</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -306,68 +258,132 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/tvguide.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-			<property name="path">ActivateWindow(TVGuide)</property>
-			<property name="list">TVGuide</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label> TvTap (Time-shift)</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
+			<property name="labelID">script.module.tt</property>
+			<property name="defaultID">script.module.tt</property>
+			<onclick>ActivateWindow(Videos,"plugin://script.module.tt",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
+			<property name="list">plugin://script.module.tt</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[19163]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/bookmark-star.png</icon>
-			<thumb />
-			<property name="labelID">19163</property>
-			<property name="defaultID">19163</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVRecordings)</onclick>
-			<property name="path">ActivateWindow(TVRecordings)</property>
-			<property name="list">TVRecordings</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label>UsaTv GO</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">usatvgo</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=ustvgoNavigator</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[19040]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/timer.png</icon>
-			<thumb />
-			<property name="labelID">19040</property>
-			<property name="defaultID">19040</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVTimers)</onclick>
-			<property name="path">ActivateWindow(TVTimers)</property>
-			<property name="list">TVTimers</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label>AcronaiTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">acronaitv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=arconai_cable</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[137]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/search.png</icon>
-			<thumb />
-			<property name="labelID">137</property>
-			<property name="defaultID">137</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVSearch)</onclick>
-			<property name="path">ActivateWindow(TVSearch)</property>
-			<property name="list">TVSearch</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label>Pluto TV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">plutotv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=pluto</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">2</property>
+			<label>TempTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.temptv%2ficon.png/</thumb>
+			<property name="labelID">plugin.video.temptv</property>
+			<property name="defaultID">plugin.video.temptv</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
+			<property name="list">plugin://plugin.video.temptv</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">2</property>
+			<label>The Crew - IPTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_whitehat.png/</thumb>
+			<property name="labelID">thecrew-iptv</property>
+			<property name="defaultID" />
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
+			<property name="list">plugin://plugin.video.thecrew/?action=whitehat</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">2</property>
+			<label>The Crew - Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_bluehat.png/</thumb>
+			<property name="labelID">thecrew-sports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</property>
+			<property name="list">plugin://plugin.video.thecrew/?action=bluehat</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">2</property>
+			<label>Scrubs v2 - IPTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
+			<property name="labelID">scrubsv2-iptv</property>
+			<property name="defaultID" />
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
+			<property name="list">plugin://plugin.video.scrubsv2/?action=iptvChannels</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -396,13 +412,12 @@
 			<thumb>special://home/userdata/Soul Images/tv.png</thumb>
 			<property name="labelID">myshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</property>
+			<property name="widgetAspect">Small Landscape</property>
 			<property name="widget">Addon</property>
 			<property name="widgetName">Finish Watching</property>
 			<property name="widgetType">episodes</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetPath">plugin://plugin.video.seren/?action=onDeckShows&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Small Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=myShows</property>
@@ -419,13 +434,12 @@
 			<thumb>special://home/userdata/Soul Images/movies.png</thumb>
 			<property name="labelID">mymovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<property name="widget">Addon</property>
 			<property name="widgetName">Finish Watching</property>
 			<property name="widgetType">movies</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetPath">plugin://plugin.video.seren/?action=onDeckMovies&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=myMovies</property>
@@ -442,7 +456,6 @@
 			<thumb>special://home/userdata/Soul Images/trakt.png</thumb>
 			<property name="labelID">plugin.video.openmeta/my_trakt</property>
 			<property name="defaultID">plugin.video.openmeta/my_trakt</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/my_trakt</property>
@@ -475,7 +488,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">serentvshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsHome</property>
@@ -492,7 +504,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">soultvshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=soultvshowHome</property>
@@ -509,7 +520,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.venom%2fresources%2fartwork%2fvenom%2fnetworks.png/</thumb>
 			<property name="labelID">originals-tvmaze</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</property>
 			<property name="list">plugin://plugin.video.venom/?action=originals</property>
@@ -526,7 +536,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.venom%2fresources%2fartwork%2fvenom%2fnetworks.png/</thumb>
 			<property name="labelID">networks-tvmaze</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</property>
 			<property name="list">plugin://plugin.video.venom/?action=tvNetworks</property>
@@ -543,7 +552,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">networks-seren</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNetworks</property>
@@ -560,7 +568,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.openmeta%2fresources%2fmedia%2ftv.png/</thumb>
 			<property name="labelID">plugin.video.openmeta/tv</property>
 			<property name="defaultID">plugin.video.openmeta/tv</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/tv</property>
@@ -593,7 +600,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">serenmovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesHome</property>
@@ -610,7 +616,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">soulmovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=soulmovieHome</property>
@@ -627,7 +632,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.openmeta%2fresources%2fmedia%2fmovies.png/</thumb>
 			<property name="labelID">plugin.video.openmeta/movies</property>
 			<property name="defaultID">plugin.video.openmeta/movies</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/movies</property>
@@ -644,7 +648,6 @@
 			<thumb />
 			<property name="labelID">search</property>
 			<property name="defaultID">search</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://search/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://search/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://search/",return)</property>
 			<property name="list">addons://search/</property>
@@ -661,7 +664,6 @@
 			<thumb />
 			<property name="labelID">1037</property>
 			<property name="defaultID">1037</property>
-			<property name="translatedPath">ActivateWindow(Videos,addons://sources/video/,return)</property>
 			<onclick>ActivateWindow(Videos,addons://sources/video/,return)</onclick>
 			<property name="path">ActivateWindow(Videos,addons://sources/video/,return)</property>
 			<property name="list">addons://sources/video/</property>
@@ -678,7 +680,6 @@
 			<thumb />
 			<property name="labelID">myadd-ons</property>
 			<property name="defaultID">myadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://user/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://user/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://user/",return)</property>
 			<property name="list">addons://user/</property>
@@ -695,7 +696,6 @@
 			<thumb />
 			<property name="labelID">currentlydownloadingadd-ons</property>
 			<property name="defaultID">currentlydownloadingadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://downloading/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://downloading/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://downloading/",return)</property>
 			<property name="list">addons://downloading/</property>
@@ -712,7 +712,6 @@
 			<thumb />
 			<property name="labelID">recentlyupdated</property>
 			<property name="defaultID">recentlyupdated</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://recently_updated/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://recently_updated/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://recently_updated/",return)</property>
 			<property name="list">addons://recently_updated/</property>
@@ -729,7 +728,6 @@
 			<thumb />
 			<property name="labelID">installfromrepository</property>
 			<property name="defaultID">installfromrepository</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://repos/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://repos/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://repos/",return)</property>
 			<property name="list">addons://repos/</property>
@@ -746,7 +744,6 @@
 			<thumb />
 			<property name="labelID">installfromzipfile</property>
 			<property name="defaultID">installfromzipfile</property>
-			<property name="translatedPath">installfromzip,return)</property>
 			<onclick>installfromzip,return)</onclick>
 			<property name="path">installfromzip,return)</property>
 			<property name="list">installfromzip,return)</property>
@@ -763,7 +760,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.netflix%2fresources%2ficon.png/</thumb>
 			<property name="labelID">plugin.video.netflix</property>
 			<property name="defaultID">plugin.video.netflix</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</property>
 			<property name="list">plugin://plugin.video.netflix</property>
@@ -777,10 +773,9 @@
 			<label>Amazon VOD</label>
 			<label2>Favourite</label2>
 			<icon>special://skin/extras/icons/folder.png</icon>
-			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.video.amazon-test/icon.png</thumb>
+			<thumb>special://home/addons/plugin.video.amazon-test/icon.png</thumb>
 			<property name="labelID">plugin.video.amazon-test/</property>
 			<property name="defaultID">plugin.video.amazon-test/</property>
-			<property name="translatedPath">ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</property>
 			<onclick>ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</property>
 			<property name="list">plugin://plugin.video.amazon-test/</property>
@@ -1061,7 +1056,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">clearcaches</property>
 			<property name="defaultID">colordarkgrey-totalcleanup-colorspringgreen-b-317-63mb-b-color-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</property>
@@ -1079,7 +1073,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">speedtest</property>
 			<property name="defaultID">colordarkgrey-runspeedtest-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</property>
@@ -1097,7 +1090,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">updateaddons</property>
 			<property name="defaultID">colordarkgrey-forceupdateaddons-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</property>
@@ -1115,7 +1107,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.program.soul%2ficon.png/</thumb>
 			<property name="labelID">plugin.program.soul</property>
 			<property name="defaultID">plugin.program.soul</property>
-			<property name="translatedPath">ActivateWindow(Programs,"plugin://plugin.program.soul",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Programs,"plugin://plugin.program.soul",return)</onclick>
 			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.soul",return)</property>
@@ -1167,7 +1158,6 @@
 			<thumb />
 			<property name="labelID">1036</property>
 			<property name="defaultID">1036</property>
-			<property name="translatedPath">ActivateWindow(Favourites)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Favourites)</onclick>
 			<property name="path">ActivateWindow(Favourites)</property>
@@ -1219,8 +1209,6 @@
 			<thumb />
 			<property name="labelID">movies</property>
 			<property name="defaultID">movies</property>
-			<property name="translatedPath">DefaultSearch-Movies</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</onclick>
 			<property name="path">plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</property>
@@ -1237,7 +1225,6 @@
 			<thumb />
 			<property name="labelID">youtube</property>
 			<property name="defaultID">youtube</property>
-			<property name="widgetAspect">Landscape</property>
 			<onclick>DefaultSearch-Youtube</onclick>
 			<property name="path">DefaultSearch-Youtube</property>
 			<property name="list">DefaultSearch-Youtube</property>
@@ -1254,8 +1241,6 @@
 			<thumb />
 			<property name="labelID">netflix</property>
 			<property name="defaultID">netflix</property>
-			<property name="translatedPath">DefaultSearch-Netflix</property>
-			<property name="widgetAspect">Landscape</property>
 			<onclick>DefaultSearch-Netflix</onclick>
 			<property name="path">DefaultSearch-Netflix</property>
 			<property name="list">DefaultSearch-Netflix</property>
@@ -1269,17 +1254,14 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[31381]</label>
+			<label>Last Played Channels</label>
 			<label2 />
 			<icon>DefaultAddonPVRClient.png</icon>
 			<thumb />
 			<property name="labelID">31381</property>
 			<property name="defaultID">31381</property>
-			<property name="translatedPath">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">lastplayed</property>
-			<property name="widgetSortorder">descending</property>
 			<onclick>pvr://channels/tv/*?view=lastplayed</onclick>
 			<property name="path">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="list">pvr://channels/tv/*?view=lastplayed</property>
@@ -1290,26 +1272,24 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">1</property>
-			<label>Favourites</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://DefaultFile.png/</thumb>
-			<property name="labelID">favourites</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
-			<property name="widget">plugin://script.skin.helper.widgets/?action=favouriteslisting</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="type">movies</property>
-			<property name="background">DefaultMovies.png</property>
-			<property name="widgetName">Favourites</property>
-			<property name="widgetTarget">videos</property>
+			<label>Recent recordings</label>
+			<label2 />
+			<icon>special://skin/extras/icons/tv.png</icon>
+			<thumb>DefaultTVShows.png</thumb>
+			<property name="labelID">recentrecordings</property>
+			<property name="defaultID">recentrecordings</property>
+			<property name="widgetAspect">Small Landscape</property>
+			<property name="translatedPath">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
+			<property name="widget">plugin://script.skin.helper.widgets/?action=pvrlisting</property>
+			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
+			<property name="type">pvr</property>
+			<property name="background">DefaultTVShows.png</property>
+			<property name="widgetName">Recent recordings</property>
+			<property name="widgetTarget">pvr</property>
 			<property name="backgroundName" />
-			<property name="list">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">name</property>
-			<property name="widgetSortorder">ascending</property>
-			<onclick>ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
+			<property name="list">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
+			<onclick>ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</onclick>
+			<property name="path">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
 			<property name="group">livetv.1</property>
 			<property name="isSubmenu">True</property>
@@ -1317,17 +1297,14 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[31381]</label>
+			<label>Last Played Channels</label>
 			<label2 />
 			<icon>DefaultAddonPVRClient.png</icon>
 			<thumb />
 			<property name="labelID">31381</property>
 			<property name="defaultID">31381</property>
-			<property name="translatedPath">pvr://channels/tv/*?view=lastplayed</property>
-			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">lastplayed</property>
-			<property name="widgetSortorder">descending</property>
 			<property name="widgetTarget">videos</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>pvr://channels/tv/*?view=lastplayed</onclick>
 			<property name="path">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="list">pvr://channels/tv/*?view=lastplayed</property>
@@ -1338,24 +1315,16 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">2</property>
-			<label>Recent Recordings</label>
-			<label2>Custom item</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb>DefaultTVShows.png</thumb>
-			<property name="labelID">recentrecordings</property>
-			<property name="defaultID">recentrecordings</property>
-			<property name="translatedPath">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
-			<property name="widget">plugin://script.skin.helper.widgets/?action=pvrlisting</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="type">pvr</property>
-			<property name="background">DefaultTVShows.png</property>
-			<property name="widgetName">Recent recordings</property>
-			<property name="widgetTarget">pvr</property>
-			<property name="backgroundName" />
-			<property name="list">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Small Landscape</property>
-			<onclick>ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</onclick>
-			<property name="path">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
+			<label>Favourites</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://DefaultFile.png/</thumb>
+			<property name="labelID">favourites</property>
+			<property name="defaultID" />
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
+			<property name="list">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0.1</property>
 			<property name="isSubmenu">True</property>
@@ -1369,13 +1338,8 @@
 			<thumb />
 			<property name="labelID">weather</property>
 			<property name="defaultID">weather</property>
-			<property name="translatedPath">Weather</property>
-			<property name="widgetTarget">videos</property>
-			<onclick>Weather</onclick>
-			<property name="path">Weather</property>
-			<property name="list">Weather</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137)</visible>
-			<property name="group">137.1</property>
+			<visible>[False] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137)</visible>
+			<onclick>noop</onclick>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="1">
@@ -1387,7 +1351,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recentlyaired</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsMyRecentEpisodes",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Small Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsMyRecentEpisodes",return)</onclick>
@@ -1406,9 +1369,8 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">continuewatching</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</property>
-			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Small Landscape</property>
+			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNextUp</property>
@@ -1438,7 +1400,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">newbygary</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsGary",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsGary",return)</onclick>
@@ -1457,8 +1418,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">trending</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsTrending&amp;page=1</property>
@@ -1475,9 +1434,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recommendedforyou</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsRecommended</property>
@@ -1494,8 +1450,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">newbytrakt</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNew</property>
@@ -1564,7 +1518,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">latestreleasesbygilad-alex</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest",return)</onclick>
@@ -1583,8 +1536,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">latest4kreleases</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesLatest4k</property>
@@ -1601,9 +1552,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recommendedforyou</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesRecommended</property>
@@ -1620,9 +1568,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">rottentomatoesbestmoviesoftheyear</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesRTBestofyear</property>
@@ -1730,16 +1675,16 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">1</property>
-			<label> TvTap (Time-shift)</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
-			<property name="labelID">script.module.tt</property>
-			<property name="defaultID">script.module.tt</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://script.module.tt",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
-			<property name="list">plugin://script.module.tt</property>
+			<label>$LOCALIZE[22020]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/tvguide.png</icon>
+			<thumb />
+			<property name="labelID">22020</property>
+			<property name="defaultID">22020</property>
+			<visible>System.HasPVRAddon</visible>
+			<onclick>ActivateWindow(TVGuide)</onclick>
+			<property name="path">ActivateWindow(TVGuide)</property>
+			<property name="list">TVGuide</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
@@ -1747,16 +1692,16 @@
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">1</property>
-			<label>usTVgo</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">ustvgo</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=ustvgoNavigator</property>
+			<label>$LOCALIZE[19163]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/bookmark-star.png</icon>
+			<thumb />
+			<property name="labelID">19163</property>
+			<property name="defaultID">19163</property>
+			<visible>System.HasPVRAddon</visible>
+			<onclick>ActivateWindow(TVRecordings)</onclick>
+			<property name="path">ActivateWindow(TVRecordings)</property>
+			<property name="list">TVRecordings</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
@@ -1764,16 +1709,16 @@
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">1</property>
-			<label>AcronaiTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">acronaitv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=acronaitv_menu</property>
+			<label>$LOCALIZE[19040]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/timer.png</icon>
+			<thumb />
+			<property name="labelID">19040</property>
+			<property name="defaultID">19040</property>
+			<visible>System.HasPVRAddon</visible>
+			<onclick>ActivateWindow(TVTimers)</onclick>
+			<property name="path">ActivateWindow(TVTimers)</property>
+			<property name="list">TVTimers</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
@@ -1781,50 +1726,16 @@
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">1</property>
-			<label>TempTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.temptv%2ficon.png/</thumb>
-			<property name="labelID">plugin.video.temptv</property>
-			<property name="defaultID">plugin.video.temptv</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
-			<property name="list">plugin://plugin.video.temptv</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">livetv</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">1</property>
-			<label>The Crew - IPTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_whitehat.png/</thumb>
-			<property name="labelID">thecrew-iptv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
-			<property name="list">plugin://plugin.video.thecrew/?action=whitehat</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">livetv</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">1</property>
-			<label>Scrubs v2 - IPTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">scrubsv2-iptv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=iptvChannels</property>
+			<label>$LOCALIZE[137]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/search.png</icon>
+			<thumb />
+			<property name="labelID">137</property>
+			<property name="defaultID">137</property>
+			<visible>System.HasPVRAddon</visible>
+			<onclick>ActivateWindow(TVSearch)</onclick>
+			<property name="path">ActivateWindow(TVSearch)</property>
+			<property name="list">TVSearch</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
@@ -1851,102 +1762,68 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">1</property>
-			<label> TvTap (Time-shift)</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
-			<property name="labelID">script.module.tt</property>
-			<property name="defaultID">script.module.tt</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://script.module.tt",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
-			<property name="list">plugin://script.module.tt</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[22020]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/tvguide.png</icon>
+			<thumb />
+			<property name="labelID">22020</property>
+			<property name="defaultID">22020</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVGuide)</onclick>
+			<property name="path">ActivateWindow(TVGuide)</property>
+			<property name="list">TVGuide</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">1</property>
-			<label>usTVgo</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">ustvgo</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=ustvgoNavigator",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=ustvgoNavigator</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[19163]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/bookmark-star.png</icon>
+			<thumb />
+			<property name="labelID">19163</property>
+			<property name="defaultID">19163</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVRecordings)</onclick>
+			<property name="path">ActivateWindow(TVRecordings)</property>
+			<property name="list">TVRecordings</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">1</property>
-			<label>AcronaiTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">acronaitv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=acronaitv_menu",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=acronaitv_menu</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[19040]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/timer.png</icon>
+			<thumb />
+			<property name="labelID">19040</property>
+			<property name="defaultID">19040</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVTimers)</onclick>
+			<property name="path">ActivateWindow(TVTimers)</property>
+			<property name="list">TVTimers</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">1</property>
-			<label>TempTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.temptv%2ficon.png/</thumb>
-			<property name="labelID">plugin.video.temptv</property>
-			<property name="defaultID">plugin.video.temptv</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
-			<property name="list">plugin://plugin.video.temptv</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
-			<property name="group">livetv</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">1</property>
-			<label>The Crew - IPTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_whitehat.png/</thumb>
-			<property name="labelID">thecrew-iptv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
-			<property name="list">plugin://plugin.video.thecrew/?action=whitehat</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
-			<property name="group">livetv</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">1</property>
-			<label>Scrubs v2 - IPTV</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-			<property name="labelID">scrubsv2-iptv</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
-			<property name="list">plugin://plugin.video.scrubsv2/?action=iptvChannels</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<label>$LOCALIZE[137]</label>
+			<label2>Live TV</label2>
+			<icon>special://skin/extras/icons/search.png</icon>
+			<thumb />
+			<property name="labelID">137</property>
+			<property name="defaultID">137</property>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
+			<onclick>ActivateWindow(TVSearch)</onclick>
+			<property name="path">ActivateWindow(TVSearch)</property>
+			<property name="list">TVSearch</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -1955,17 +1832,14 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[31381]</label>
+			<label>Last Played Channels</label>
 			<label2 />
 			<icon>DefaultAddonPVRClient.png</icon>
 			<thumb />
 			<property name="labelID">31381</property>
 			<property name="defaultID">31381</property>
-			<property name="translatedPath">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">lastplayed</property>
-			<property name="widgetSortorder">descending</property>
 			<onclick>pvr://channels/tv/*?view=lastplayed</onclick>
 			<property name="path">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="list">pvr://channels/tv/*?view=lastplayed</property>
@@ -1976,26 +1850,24 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">1</property>
-			<label>Favourites</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://DefaultFile.png/</thumb>
-			<property name="labelID">favourites</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
-			<property name="widget">plugin://script.skin.helper.widgets/?action=favouriteslisting</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="type">movies</property>
-			<property name="background">DefaultMovies.png</property>
-			<property name="widgetName">Favourites</property>
-			<property name="widgetTarget">videos</property>
+			<label>Recent recordings</label>
+			<label2 />
+			<icon>special://skin/extras/icons/tv.png</icon>
+			<thumb>DefaultTVShows.png</thumb>
+			<property name="labelID">recentrecordings</property>
+			<property name="defaultID">recentrecordings</property>
+			<property name="widgetAspect">Small Landscape</property>
+			<property name="translatedPath">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
+			<property name="widget">plugin://script.skin.helper.widgets/?action=pvrlisting</property>
+			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
+			<property name="type">pvr</property>
+			<property name="background">DefaultTVShows.png</property>
+			<property name="widgetName">Recent recordings</property>
+			<property name="widgetTarget">pvr</property>
 			<property name="backgroundName" />
-			<property name="list">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">name</property>
-			<property name="widgetSortorder">ascending</property>
-			<onclick>ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
+			<property name="list">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
+			<onclick>ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</onclick>
+			<property name="path">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv.1</property>
 			<property name="isSubmenu">True</property>
@@ -2005,17 +1877,14 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[31381]</label>
+			<label>Last Played Channels</label>
 			<label2 />
 			<icon>DefaultAddonPVRClient.png</icon>
 			<thumb />
 			<property name="labelID">31381</property>
 			<property name="defaultID">31381</property>
-			<property name="translatedPath">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">lastplayed</property>
-			<property name="widgetSortorder">descending</property>
 			<onclick>pvr://channels/tv/*?view=lastplayed</onclick>
 			<property name="path">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="list">pvr://channels/tv/*?view=lastplayed</property>
@@ -2026,26 +1895,24 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">1</property>
-			<label>Favourites</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://DefaultFile.png/</thumb>
-			<property name="labelID">favourites</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
-			<property name="widget">plugin://script.skin.helper.widgets/?action=favouriteslisting</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="type">movies</property>
-			<property name="background">DefaultMovies.png</property>
-			<property name="widgetName">Favourites</property>
-			<property name="widgetTarget">videos</property>
+			<label>Recent recordings</label>
+			<label2 />
+			<icon>special://skin/extras/icons/tv.png</icon>
+			<thumb>DefaultTVShows.png</thumb>
+			<property name="labelID">recentrecordings</property>
+			<property name="defaultID">recentrecordings</property>
+			<property name="widgetAspect">Small Landscape</property>
+			<property name="translatedPath">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
+			<property name="widget">plugin://script.skin.helper.widgets/?action=pvrlisting</property>
+			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
+			<property name="type">pvr</property>
+			<property name="background">DefaultTVShows.png</property>
+			<property name="widgetName">Recent recordings</property>
+			<property name="widgetTarget">pvr</property>
 			<property name="backgroundName" />
-			<property name="list">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">name</property>
-			<property name="widgetSortorder">ascending</property>
-			<onclick>ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
+			<property name="list">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
+			<onclick>ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</onclick>
+			<property name="path">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv)</visible>
 			<property name="group">livetv.1</property>
 			<property name="isSubmenu">True</property>
@@ -2072,16 +1939,15 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/tvguide.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-			<property name="path">ActivateWindow(TVGuide)</property>
-			<property name="list">TVGuide</property>
+			<label> TvTap (Time-shift)</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
+			<property name="labelID">script.module.tt</property>
+			<property name="defaultID">script.module.tt</property>
+			<onclick>ActivateWindow(Videos,"plugin://script.module.tt",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
+			<property name="list">plugin://script.module.tt</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
@@ -2089,16 +1955,16 @@
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[19163]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/bookmark-star.png</icon>
-			<thumb />
-			<property name="labelID">19163</property>
-			<property name="defaultID">19163</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVRecordings)</onclick>
-			<property name="path">ActivateWindow(TVRecordings)</property>
-			<property name="list">TVRecordings</property>
+			<label>UsaTv GO</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">usatvgo</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=ustvgoNavigator</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
@@ -2106,16 +1972,16 @@
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[19040]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/timer.png</icon>
-			<thumb />
-			<property name="labelID">19040</property>
-			<property name="defaultID">19040</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVTimers)</onclick>
-			<property name="path">ActivateWindow(TVTimers)</property>
-			<property name="list">TVTimers</property>
+			<label>AcronaiTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">acronaitv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=arconai_cable</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
@@ -2123,16 +1989,81 @@
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[137]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/search.png</icon>
-			<thumb />
-			<property name="labelID">137</property>
-			<property name="defaultID">137</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVSearch)</onclick>
-			<property name="path">ActivateWindow(TVSearch)</property>
-			<property name="list">TVSearch</property>
+			<label>Pluto TV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">plutotv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=pluto</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">2</property>
+			<label>TempTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.temptv%2ficon.png/</thumb>
+			<property name="labelID">plugin.video.temptv</property>
+			<property name="defaultID">plugin.video.temptv</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
+			<property name="list">plugin://plugin.video.temptv</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">2</property>
+			<label>The Crew - IPTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_whitehat.png/</thumb>
+			<property name="labelID">thecrew-iptv</property>
+			<property name="defaultID" />
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
+			<property name="list">plugin://plugin.video.thecrew/?action=whitehat</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">2</property>
+			<label>The Crew - Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_bluehat.png/</thumb>
+			<property name="labelID">thecrew-sports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</property>
+			<property name="list">plugin://plugin.video.thecrew/?action=bluehat</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">2</property>
+			<label>Scrubs v2 - IPTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
+			<property name="labelID">scrubsv2-iptv</property>
+			<property name="defaultID" />
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
+			<property name="list">plugin://plugin.video.scrubsv2/?action=iptvChannels</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
@@ -2159,68 +2090,132 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/tvguide.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-			<property name="path">ActivateWindow(TVGuide)</property>
-			<property name="list">TVGuide</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label> TvTap (Time-shift)</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
+			<property name="labelID">script.module.tt</property>
+			<property name="defaultID">script.module.tt</property>
+			<onclick>ActivateWindow(Videos,"plugin://script.module.tt",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://script.module.tt",return)</property>
+			<property name="list">plugin://script.module.tt</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[19163]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/bookmark-star.png</icon>
-			<thumb />
-			<property name="labelID">19163</property>
-			<property name="defaultID">19163</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVRecordings)</onclick>
-			<property name="path">ActivateWindow(TVRecordings)</property>
-			<property name="list">TVRecordings</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label>UsaTv GO</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">usatvgo</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=ustvgoNavigator</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[19040]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/timer.png</icon>
-			<thumb />
-			<property name="labelID">19040</property>
-			<property name="defaultID">19040</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVTimers)</onclick>
-			<property name="path">ActivateWindow(TVTimers)</property>
-			<property name="list">TVTimers</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label>AcronaiTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">acronaitv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=arconai_cable</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[137]</label>
-			<label2>Live TV</label2>
-			<icon>special://skin/extras/icons/search.png</icon>
-			<thumb />
-			<property name="labelID">137</property>
-			<property name="defaultID">137</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
-			<onclick>ActivateWindow(TVSearch)</onclick>
-			<property name="path">ActivateWindow(TVSearch)</property>
-			<property name="list">TVSearch</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<label>Pluto TV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
+			<property name="labelID">plutotv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</property>
+			<property name="list">plugin://plugin.video.temptv/?action=pluto</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">2</property>
+			<label>TempTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.temptv%2ficon.png/</thumb>
+			<property name="labelID">plugin.video.temptv</property>
+			<property name="defaultID">plugin.video.temptv</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</property>
+			<property name="list">plugin://plugin.video.temptv</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">2</property>
+			<label>The Crew - IPTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_whitehat.png/</thumb>
+			<property name="labelID">thecrew-iptv</property>
+			<property name="defaultID" />
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</property>
+			<property name="list">plugin://plugin.video.thecrew/?action=whitehat</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">2</property>
+			<label>The Crew - Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_bluehat.png/</thumb>
+			<property name="labelID">thecrew-sports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</property>
+			<property name="list">plugin://plugin.video.thecrew/?action=bluehat</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
+			<property name="group">livetv--0</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">2</property>
+			<label>Scrubs v2 - IPTV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
+			<property name="labelID">scrubsv2-iptv</property>
+			<property name="defaultID" />
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</property>
+			<property name="list">plugin://plugin.video.scrubsv2/?action=iptvChannels</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -2229,17 +2224,14 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[31381]</label>
+			<label>Last Played Channels</label>
 			<label2 />
 			<icon>DefaultAddonPVRClient.png</icon>
 			<thumb />
 			<property name="labelID">31381</property>
 			<property name="defaultID">31381</property>
-			<property name="translatedPath">pvr://channels/tv/*?view=lastplayed</property>
-			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">lastplayed</property>
-			<property name="widgetSortorder">descending</property>
 			<property name="widgetTarget">videos</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>pvr://channels/tv/*?view=lastplayed</onclick>
 			<property name="path">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="list">pvr://channels/tv/*?view=lastplayed</property>
@@ -2250,24 +2242,16 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">2</property>
-			<label>Recent Recordings</label>
-			<label2>Custom item</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb>DefaultTVShows.png</thumb>
-			<property name="labelID">recentrecordings</property>
-			<property name="defaultID">recentrecordings</property>
-			<property name="translatedPath">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
-			<property name="widget">plugin://script.skin.helper.widgets/?action=pvrlisting</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="type">pvr</property>
-			<property name="background">DefaultTVShows.png</property>
-			<property name="widgetName">Recent recordings</property>
-			<property name="widgetTarget">pvr</property>
-			<property name="backgroundName" />
-			<property name="list">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Small Landscape</property>
-			<onclick>ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</onclick>
-			<property name="path">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
+			<label>Favourites</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://DefaultFile.png/</thumb>
+			<property name="labelID">favourites</property>
+			<property name="defaultID" />
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
+			<property name="list">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">livetv--0.1</property>
 			<property name="isSubmenu">True</property>
@@ -2277,17 +2261,14 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[31381]</label>
+			<label>Last Played Channels</label>
 			<label2 />
 			<icon>DefaultAddonPVRClient.png</icon>
 			<thumb />
 			<property name="labelID">31381</property>
 			<property name="defaultID">31381</property>
-			<property name="translatedPath">pvr://channels/tv/*?view=lastplayed</property>
-			<property name="widgetAspect">Square</property>
-			<property name="widgetSortby">lastplayed</property>
-			<property name="widgetSortorder">descending</property>
 			<property name="widgetTarget">videos</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>pvr://channels/tv/*?view=lastplayed</onclick>
 			<property name="path">pvr://channels/tv/*?view=lastplayed</property>
 			<property name="list">pvr://channels/tv/*?view=lastplayed</property>
@@ -2298,24 +2279,16 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">2</property>
-			<label>Recent Recordings</label>
-			<label2>Custom item</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb>DefaultTVShows.png</thumb>
-			<property name="labelID">recentrecordings</property>
-			<property name="defaultID">recentrecordings</property>
-			<property name="translatedPath">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
-			<property name="widget">plugin://script.skin.helper.widgets/?action=pvrlisting</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="type">pvr</property>
-			<property name="background">DefaultTVShows.png</property>
-			<property name="widgetName">Recent recordings</property>
-			<property name="widgetTarget">pvr</property>
-			<property name="backgroundName" />
-			<property name="list">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Small Landscape</property>
-			<onclick>ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</onclick>
-			<property name="path">ActivateWindow(TvChannels,plugin://script.skin.helper.widgets/?action=recordings,return)</property>
+			<label>Favourites</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://DefaultFile.png/</thumb>
+			<property name="labelID">favourites</property>
+			<property name="defaultID" />
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</property>
+			<property name="list">plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),livetv-0)</visible>
 			<property name="group">livetv--0.1</property>
 			<property name="isSubmenu">True</property>
@@ -2367,13 +2340,8 @@
 			<thumb />
 			<property name="labelID">weather</property>
 			<property name="defaultID">weather</property>
-			<property name="translatedPath">Weather</property>
-			<property name="widgetTarget">videos</property>
-			<onclick>Weather</onclick>
-			<property name="path">Weather</property>
-			<property name="list">Weather</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">137.1</property>
+			<visible>False</visible>
+			<onclick>noop</onclick>
 			<property name="isSubmenu">True</property>
 		</item>
 	</include>
@@ -2387,13 +2355,8 @@
 			<thumb />
 			<property name="labelID">weather</property>
 			<property name="defaultID">weather</property>
-			<property name="translatedPath">Weather</property>
-			<property name="widgetTarget">videos</property>
-			<onclick>Weather</onclick>
-			<property name="path">Weather</property>
-			<property name="list">Weather</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-137)</visible>
-			<property name="group">137.1</property>
+			<visible>[False] + String.IsEqual(Window(10000).Property(submenuVisibility),num-137)</visible>
+			<onclick>noop</onclick>
 			<property name="isSubmenu">True</property>
 		</item>
 	</include>
@@ -2407,13 +2370,12 @@
 			<thumb>special://home/userdata/Soul Images/tv.png</thumb>
 			<property name="labelID">myshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</property>
+			<property name="widgetAspect">Small Landscape</property>
 			<property name="widget">Addon</property>
 			<property name="widgetName">Finish Watching</property>
 			<property name="widgetType">episodes</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetPath">plugin://plugin.video.seren/?action=onDeckShows&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Small Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=myShows</property>
@@ -2430,13 +2392,12 @@
 			<thumb>special://home/userdata/Soul Images/movies.png</thumb>
 			<property name="labelID">mymovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<property name="widget">Addon</property>
 			<property name="widgetName">Finish Watching</property>
 			<property name="widgetType">movies</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetPath">plugin://plugin.video.seren/?action=onDeckMovies&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=myMovies</property>
@@ -2453,7 +2414,6 @@
 			<thumb>special://home/userdata/Soul Images/trakt.png</thumb>
 			<property name="labelID">plugin.video.openmeta/my_trakt</property>
 			<property name="defaultID">plugin.video.openmeta/my_trakt</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/my_trakt</property>
@@ -2472,13 +2432,12 @@
 			<thumb>special://home/userdata/Soul Images/tv.png</thumb>
 			<property name="labelID">myshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</property>
+			<property name="widgetAspect">Small Landscape</property>
 			<property name="widget">Addon</property>
 			<property name="widgetName">Finish Watching</property>
 			<property name="widgetType">episodes</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetPath">plugin://plugin.video.seren/?action=onDeckShows&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Small Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=myShows</property>
@@ -2495,13 +2454,12 @@
 			<thumb>special://home/userdata/Soul Images/movies.png</thumb>
 			<property name="labelID">mymovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<property name="widget">Addon</property>
 			<property name="widgetName">Finish Watching</property>
 			<property name="widgetType">movies</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetPath">plugin://plugin.video.seren/?action=onDeckMovies&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
-			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=myMovies</property>
@@ -2518,7 +2476,6 @@
 			<thumb>special://home/userdata/Soul Images/trakt.png</thumb>
 			<property name="labelID">plugin.video.openmeta/my_trakt</property>
 			<property name="defaultID">plugin.video.openmeta/my_trakt</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/my_trakt</property>
@@ -2537,7 +2494,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recentlyaired</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsMyRecentEpisodes",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Small Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsMyRecentEpisodes",return)</onclick>
@@ -2556,9 +2512,8 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">continuewatching</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</property>
-			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Small Landscape</property>
+			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNextUp</property>
@@ -2590,7 +2545,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recentlyaired</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsMyRecentEpisodes",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Small Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsMyRecentEpisodes",return)</onclick>
@@ -2609,9 +2563,8 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">continuewatching</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</property>
-			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Small Landscape</property>
+			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNextUp</property>
@@ -2659,7 +2612,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">serentvshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsHome</property>
@@ -2676,7 +2628,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">soultvshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=soultvshowHome</property>
@@ -2693,7 +2644,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.venom%2fresources%2fartwork%2fvenom%2fnetworks.png/</thumb>
 			<property name="labelID">originals-tvmaze</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</property>
 			<property name="list">plugin://plugin.video.venom/?action=originals</property>
@@ -2710,7 +2660,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.venom%2fresources%2fartwork%2fvenom%2fnetworks.png/</thumb>
 			<property name="labelID">networks-tvmaze</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</property>
 			<property name="list">plugin://plugin.video.venom/?action=tvNetworks</property>
@@ -2727,7 +2676,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">networks-seren</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNetworks</property>
@@ -2744,7 +2692,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.openmeta%2fresources%2fmedia%2ftv.png/</thumb>
 			<property name="labelID">plugin.video.openmeta/tv</property>
 			<property name="defaultID">plugin.video.openmeta/tv</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/tv</property>
@@ -2779,7 +2726,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">serentvshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsHome</property>
@@ -2796,7 +2742,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">soultvshows</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soultvshowHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=soultvshowHome</property>
@@ -2813,7 +2758,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.venom%2fresources%2fartwork%2fvenom%2fnetworks.png/</thumb>
 			<property name="labelID">originals-tvmaze</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=originals",return)</property>
 			<property name="list">plugin://plugin.video.venom/?action=originals</property>
@@ -2830,7 +2774,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.venom%2fresources%2fartwork%2fvenom%2fnetworks.png/</thumb>
 			<property name="labelID">networks-tvmaze</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvNetworks",return)</property>
 			<property name="list">plugin://plugin.video.venom/?action=tvNetworks</property>
@@ -2847,7 +2790,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">networks-seren</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworks",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNetworks</property>
@@ -2864,7 +2806,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.openmeta%2fresources%2fmedia%2ftv.png/</thumb>
 			<property name="labelID">plugin.video.openmeta/tv</property>
 			<property name="defaultID">plugin.video.openmeta/tv</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/tv",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/tv</property>
@@ -2883,7 +2824,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">newbygary</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsGary",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsGary",return)</onclick>
@@ -2902,8 +2842,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">trending</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsTrending&amp;page=1</property>
@@ -2920,9 +2858,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recommendedforyou</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsRecommended</property>
@@ -2939,8 +2874,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">newbytrakt</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNew</property>
@@ -3011,7 +2944,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">newbygary</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsGary",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsGary",return)</onclick>
@@ -3030,8 +2962,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">trending</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsTrending&amp;page=1",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsTrending&amp;page=1</property>
@@ -3048,9 +2978,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recommendedforyou</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsRecommended",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsRecommended</property>
@@ -3067,8 +2994,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">newbytrakt</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNew",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=showsNew</property>
@@ -3155,7 +3080,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">serenmovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesHome</property>
@@ -3172,7 +3096,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">soulmovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=soulmovieHome</property>
@@ -3189,7 +3112,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.openmeta%2fresources%2fmedia%2fmovies.png/</thumb>
 			<property name="labelID">plugin.video.openmeta/movies</property>
 			<property name="defaultID">plugin.video.openmeta/movies</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/movies</property>
@@ -3224,7 +3146,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">serenmovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesHome</property>
@@ -3241,7 +3162,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">soulmovies</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=soulmovieHome",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=soulmovieHome</property>
@@ -3258,7 +3178,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.openmeta%2fresources%2fmedia%2fmovies.png/</thumb>
 			<property name="labelID">plugin.video.openmeta/movies</property>
 			<property name="defaultID">plugin.video.openmeta/movies</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.openmeta/movies",return)</property>
 			<property name="list">plugin://plugin.video.openmeta/movies</property>
@@ -3277,7 +3196,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">latestreleasesbygilad-alex</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest",return)</onclick>
@@ -3296,8 +3214,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">latest4kreleases</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesLatest4k</property>
@@ -3314,9 +3230,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recommendedforyou</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesRecommended</property>
@@ -3333,9 +3246,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">rottentomatoesbestmoviesoftheyear</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesRTBestofyear</property>
@@ -3406,7 +3316,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">latestreleasesbygilad-alex</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest",return)</property>
 			<property name="widgetTarget">videos</property>
 			<property name="widgetAspect">Landscape</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest",return)</onclick>
@@ -3425,8 +3334,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">latest4kreleases</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesLatest4k",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesLatest4k</property>
@@ -3443,9 +3350,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">recommendedforyou</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRecommended",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesRecommended</property>
@@ -3462,9 +3366,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 			<property name="labelID">rottentomatoesbestmoviesoftheyear</property>
 			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortby">random</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesRTBestofyear",return)</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesRTBestofyear</property>
@@ -3535,7 +3436,6 @@
 			<thumb />
 			<property name="labelID">search</property>
 			<property name="defaultID">search</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://search/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://search/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://search/",return)</property>
 			<property name="list">addons://search/</property>
@@ -3552,7 +3452,6 @@
 			<thumb />
 			<property name="labelID">1037</property>
 			<property name="defaultID">1037</property>
-			<property name="translatedPath">ActivateWindow(Videos,addons://sources/video/,return)</property>
 			<onclick>ActivateWindow(Videos,addons://sources/video/,return)</onclick>
 			<property name="path">ActivateWindow(Videos,addons://sources/video/,return)</property>
 			<property name="list">addons://sources/video/</property>
@@ -3569,7 +3468,6 @@
 			<thumb />
 			<property name="labelID">myadd-ons</property>
 			<property name="defaultID">myadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://user/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://user/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://user/",return)</property>
 			<property name="list">addons://user/</property>
@@ -3586,7 +3484,6 @@
 			<thumb />
 			<property name="labelID">currentlydownloadingadd-ons</property>
 			<property name="defaultID">currentlydownloadingadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://downloading/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://downloading/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://downloading/",return)</property>
 			<property name="list">addons://downloading/</property>
@@ -3603,7 +3500,6 @@
 			<thumb />
 			<property name="labelID">recentlyupdated</property>
 			<property name="defaultID">recentlyupdated</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://recently_updated/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://recently_updated/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://recently_updated/",return)</property>
 			<property name="list">addons://recently_updated/</property>
@@ -3620,7 +3516,6 @@
 			<thumb />
 			<property name="labelID">installfromrepository</property>
 			<property name="defaultID">installfromrepository</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://repos/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://repos/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://repos/",return)</property>
 			<property name="list">addons://repos/</property>
@@ -3637,7 +3532,6 @@
 			<thumb />
 			<property name="labelID">installfromzipfile</property>
 			<property name="defaultID">installfromzipfile</property>
-			<property name="translatedPath">installfromzip,return)</property>
 			<onclick>installfromzip,return)</onclick>
 			<property name="path">installfromzip,return)</property>
 			<property name="list">installfromzip,return)</property>
@@ -3654,7 +3548,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.netflix%2fresources%2ficon.png/</thumb>
 			<property name="labelID">plugin.video.netflix</property>
 			<property name="defaultID">plugin.video.netflix</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</property>
 			<property name="list">plugin://plugin.video.netflix</property>
@@ -3668,10 +3561,9 @@
 			<label>Amazon VOD</label>
 			<label2>Favourite</label2>
 			<icon>special://skin/extras/icons/folder.png</icon>
-			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.video.amazon-test/icon.png</thumb>
+			<thumb>special://home/addons/plugin.video.amazon-test/icon.png</thumb>
 			<property name="labelID">plugin.video.amazon-test/</property>
 			<property name="defaultID">plugin.video.amazon-test/</property>
-			<property name="translatedPath">ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</property>
 			<onclick>ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</property>
 			<property name="list">plugin://plugin.video.amazon-test/</property>
@@ -3690,7 +3582,6 @@
 			<thumb />
 			<property name="labelID">search</property>
 			<property name="defaultID">search</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://search/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://search/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://search/",return)</property>
 			<property name="list">addons://search/</property>
@@ -3707,7 +3598,6 @@
 			<thumb />
 			<property name="labelID">1037</property>
 			<property name="defaultID">1037</property>
-			<property name="translatedPath">ActivateWindow(Videos,addons://sources/video/,return)</property>
 			<onclick>ActivateWindow(Videos,addons://sources/video/,return)</onclick>
 			<property name="path">ActivateWindow(Videos,addons://sources/video/,return)</property>
 			<property name="list">addons://sources/video/</property>
@@ -3724,7 +3614,6 @@
 			<thumb />
 			<property name="labelID">myadd-ons</property>
 			<property name="defaultID">myadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://user/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://user/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://user/",return)</property>
 			<property name="list">addons://user/</property>
@@ -3741,7 +3630,6 @@
 			<thumb />
 			<property name="labelID">currentlydownloadingadd-ons</property>
 			<property name="defaultID">currentlydownloadingadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://downloading/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://downloading/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://downloading/",return)</property>
 			<property name="list">addons://downloading/</property>
@@ -3758,7 +3646,6 @@
 			<thumb />
 			<property name="labelID">recentlyupdated</property>
 			<property name="defaultID">recentlyupdated</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://recently_updated/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://recently_updated/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://recently_updated/",return)</property>
 			<property name="list">addons://recently_updated/</property>
@@ -3775,7 +3662,6 @@
 			<thumb />
 			<property name="labelID">installfromrepository</property>
 			<property name="defaultID">installfromrepository</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://repos/",return)</property>
 			<onclick>ActivateWindow(10040,"addons://repos/",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://repos/",return)</property>
 			<property name="list">addons://repos/</property>
@@ -3792,7 +3678,6 @@
 			<thumb />
 			<property name="labelID">installfromzipfile</property>
 			<property name="defaultID">installfromzipfile</property>
-			<property name="translatedPath">installfromzip,return)</property>
 			<onclick>installfromzip,return)</onclick>
 			<property name="path">installfromzip,return)</property>
 			<property name="list">installfromzip,return)</property>
@@ -3809,7 +3694,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.netflix%2fresources%2ficon.png/</thumb>
 			<property name="labelID">plugin.video.netflix</property>
 			<property name="defaultID">plugin.video.netflix</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.netflix",return)</property>
 			<property name="list">plugin://plugin.video.netflix</property>
@@ -3823,10 +3707,9 @@
 			<label>Amazon VOD</label>
 			<label2>Favourite</label2>
 			<icon>special://skin/extras/icons/folder.png</icon>
-			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.video.amazon-test/icon.png</thumb>
+			<thumb>special://home/addons/plugin.video.amazon-test/icon.png</thumb>
 			<property name="labelID">plugin.video.amazon-test/</property>
 			<property name="defaultID">plugin.video.amazon-test/</property>
-			<property name="translatedPath">ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</property>
 			<onclick>ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</property>
 			<property name="list">plugin://plugin.video.amazon-test/</property>
@@ -4252,7 +4135,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">clearcaches</property>
 			<property name="defaultID">colordarkgrey-totalcleanup-colorspringgreen-b-317-63mb-b-color-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</property>
@@ -4270,7 +4152,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">speedtest</property>
 			<property name="defaultID">colordarkgrey-runspeedtest-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</property>
@@ -4288,7 +4169,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">updateaddons</property>
 			<property name="defaultID">colordarkgrey-forceupdateaddons-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</property>
@@ -4306,7 +4186,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.program.soul%2ficon.png/</thumb>
 			<property name="labelID">plugin.program.soul</property>
 			<property name="defaultID">plugin.program.soul</property>
-			<property name="translatedPath">ActivateWindow(Programs,"plugin://plugin.program.soul",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Programs,"plugin://plugin.program.soul",return)</onclick>
 			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.soul",return)</property>
@@ -4358,7 +4237,6 @@
 			<thumb />
 			<property name="labelID">1036</property>
 			<property name="defaultID">1036</property>
-			<property name="translatedPath">ActivateWindow(Favourites)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Favourites)</onclick>
 			<property name="path">ActivateWindow(Favourites)</property>
@@ -4595,7 +4473,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">clearcaches</property>
 			<property name="defaultID">colordarkgrey-totalcleanup-colorspringgreen-b-317-63mb-b-color-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</property>
@@ -4613,7 +4490,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">speedtest</property>
 			<property name="defaultID">colordarkgrey-runspeedtest-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</property>
@@ -4631,7 +4507,6 @@
 			<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 			<property name="labelID">updateaddons</property>
 			<property name="defaultID">colordarkgrey-forceupdateaddons-color</property>
-			<property name="translatedPath">PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</onclick>
 			<property name="path">PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</property>
@@ -4649,7 +4524,6 @@
 			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.program.soul%2ficon.png/</thumb>
 			<property name="labelID">plugin.program.soul</property>
 			<property name="defaultID">plugin.program.soul</property>
-			<property name="translatedPath">ActivateWindow(Programs,"plugin://plugin.program.soul",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Programs,"plugin://plugin.program.soul",return)</onclick>
 			<property name="path">ActivateWindow(Programs,"plugin://plugin.program.soul",return)</property>
@@ -4701,7 +4575,6 @@
 			<thumb />
 			<property name="labelID">1036</property>
 			<property name="defaultID">1036</property>
-			<property name="translatedPath">ActivateWindow(Favourites)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Favourites)</onclick>
 			<property name="path">ActivateWindow(Favourites)</property>
@@ -4761,8 +4634,6 @@
 			<thumb />
 			<property name="labelID">movies</property>
 			<property name="defaultID">movies</property>
-			<property name="translatedPath">DefaultSearch-Movies</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</onclick>
 			<property name="path">plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</property>
@@ -4779,7 +4650,6 @@
 			<thumb />
 			<property name="labelID">youtube</property>
 			<property name="defaultID">youtube</property>
-			<property name="widgetAspect">Landscape</property>
 			<onclick>DefaultSearch-Youtube</onclick>
 			<property name="path">DefaultSearch-Youtube</property>
 			<property name="list">DefaultSearch-Youtube</property>
@@ -4796,8 +4666,6 @@
 			<thumb />
 			<property name="labelID">netflix</property>
 			<property name="defaultID">netflix</property>
-			<property name="translatedPath">DefaultSearch-Netflix</property>
-			<property name="widgetAspect">Landscape</property>
 			<onclick>DefaultSearch-Netflix</onclick>
 			<property name="path">DefaultSearch-Netflix</property>
 			<property name="list">DefaultSearch-Netflix</property>
@@ -4832,8 +4700,6 @@
 			<thumb />
 			<property name="labelID">movies</property>
 			<property name="defaultID">movies</property>
-			<property name="translatedPath">DefaultSearch-Movies</property>
-			<property name="widgetTarget">videos</property>
 			<onclick>plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</onclick>
 			<property name="path">plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</property>
 			<property name="list">plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=</property>
@@ -4850,7 +4716,6 @@
 			<thumb />
 			<property name="labelID">youtube</property>
 			<property name="defaultID">youtube</property>
-			<property name="widgetAspect">Landscape</property>
 			<onclick>DefaultSearch-Youtube</onclick>
 			<property name="path">DefaultSearch-Youtube</property>
 			<property name="list">DefaultSearch-Youtube</property>
@@ -4867,8 +4732,6 @@
 			<thumb />
 			<property name="labelID">netflix</property>
 			<property name="defaultID">netflix</property>
-			<property name="translatedPath">DefaultSearch-Netflix</property>
-			<property name="widgetAspect">Landscape</property>
 			<onclick>DefaultSearch-Netflix</onclick>
 			<property name="path">DefaultSearch-Netflix</property>
 			<property name="list">DefaultSearch-Netflix</property>
@@ -4920,7 +4783,7 @@
 			<param name="smallsquarecondition" value="false" />
 			<param name="squarecondition" value="false" />
 			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="true" />
+			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
 		</include>
 		<include content="Object_SearchList_Template">
@@ -4934,7 +4797,7 @@
 			<param name="smallsquarecondition" value="false" />
 			<param name="squarecondition" value="false" />
 			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="true" />
+			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
 		</include>
 	</include>
@@ -5044,40 +4907,6 @@
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
-			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[6])</visible>
-			<onup>302</onup>
-			<onback condition="Window.IsVisible(Home)">301</onback>
-			<ondown>noop</ondown>
-		</include>
-		<include content="Object_Widget_Spotlight">
-			<param name="labelinclude" value="Defs_Null" />
-			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
-			<param name="label2" value="ListItem.TvShowTitle" />
-			<param name="target" value="" />
-			<param name="content" value="" />
-			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
-			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="false" />
-			<param name="iconcondition" value="false" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv)</visible>
-			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[7])</visible>
-			<onup>302</onup>
-			<onback condition="Window.IsVisible(Home)">301</onback>
-			<ondown>noop</ondown>
-		</include>
-		<include content="Object_Widget_Spotlight">
-			<param name="labelinclude" value="Defs_Null" />
-			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
-			<param name="label2" value="ListItem.TvShowTitle" />
-			<param name="target" value="" />
-			<param name="content" value="" />
-			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
-			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="false" />
-			<param name="iconcondition" value="false" />
 			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv--0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv--0)</visible>
 			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[1])</visible>
 			<onup>302</onup>
@@ -5148,6 +4977,74 @@
 			<param name="iconcondition" value="false" />
 			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv--0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv--0)</visible>
 			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[5])</visible>
+			<onup>302</onup>
+			<onback condition="Window.IsVisible(Home)">301</onback>
+			<ondown>noop</ondown>
+		</include>
+		<include content="Object_Widget_Spotlight">
+			<param name="labelinclude" value="Defs_Null" />
+			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
+			<param name="label2" value="ListItem.TvShowTitle" />
+			<param name="target" value="" />
+			<param name="content" value="" />
+			<param name="smallsquarecondition" value="false" />
+			<param name="squarecondition" value="false" />
+			<param name="smalllandscapecondition" value="false" />
+			<param name="landscapecondition" value="false" />
+			<param name="iconcondition" value="false" />
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv--0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv--0)</visible>
+			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[6])</visible>
+			<onup>302</onup>
+			<onback condition="Window.IsVisible(Home)">301</onback>
+			<ondown>noop</ondown>
+		</include>
+		<include content="Object_Widget_Spotlight">
+			<param name="labelinclude" value="Defs_Null" />
+			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
+			<param name="label2" value="ListItem.TvShowTitle" />
+			<param name="target" value="" />
+			<param name="content" value="" />
+			<param name="smallsquarecondition" value="false" />
+			<param name="squarecondition" value="false" />
+			<param name="smalllandscapecondition" value="false" />
+			<param name="landscapecondition" value="false" />
+			<param name="iconcondition" value="false" />
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv--0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv--0)</visible>
+			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[7])</visible>
+			<onup>302</onup>
+			<onback condition="Window.IsVisible(Home)">301</onback>
+			<ondown>noop</ondown>
+		</include>
+		<include content="Object_Widget_Spotlight">
+			<param name="labelinclude" value="Defs_Null" />
+			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
+			<param name="label2" value="ListItem.TvShowTitle" />
+			<param name="target" value="" />
+			<param name="content" value="" />
+			<param name="smallsquarecondition" value="false" />
+			<param name="squarecondition" value="false" />
+			<param name="smalllandscapecondition" value="false" />
+			<param name="landscapecondition" value="false" />
+			<param name="iconcondition" value="false" />
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv--0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv--0)</visible>
+			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[8])</visible>
+			<onup>302</onup>
+			<onback condition="Window.IsVisible(Home)">301</onback>
+			<ondown>noop</ondown>
+		</include>
+		<include content="Object_Widget_Spotlight">
+			<param name="labelinclude" value="Defs_Null" />
+			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
+			<param name="label2" value="ListItem.TvShowTitle" />
+			<param name="target" value="" />
+			<param name="content" value="" />
+			<param name="smallsquarecondition" value="false" />
+			<param name="squarecondition" value="false" />
+			<param name="smalllandscapecondition" value="false" />
+			<param name="landscapecondition" value="false" />
+			<param name="iconcondition" value="false" />
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-livetv--0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv--0)</visible>
+			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[9])</visible>
 			<onup>302</onup>
 			<onback condition="Window.IsVisible(Home)">301</onback>
 			<ondown>noop</ondown>
@@ -5636,7 +5533,7 @@
 		<include content="View_Cast_Toplabel">
 			<param name="groupid" value="17501" />
 			<param name="id" value="13101" />
-			<param name="label" value="$LOCALIZE[31381]" />
+			<param name="label" value="Last Played Channels" />
 			<visible>String.IsEqual(Container(301).ListItem.Property(id),1)</visible>
 		</include>
 		<include content="Object_Widget_Spotlight">
@@ -5653,8 +5550,8 @@
 			<param name="target" value="videos" />
 			<param name="content" value="pvr://channels/tv/*?view=lastplayed" />
 			<param name="limit" value="" />
-			<param name="sortby" value="lastplayed" />
-			<param name="sortorder" value="descending" />
+			<param name="sortby" value="" />
+			<param name="sortorder" value="" />
 			<param name="smallsquarecondition" value="false" />
 			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
@@ -5672,84 +5569,12 @@
 		<include content="View_Cast_Toplabel">
 			<param name="groupid" value="17502" />
 			<param name="id" value="13102" />
-			<param name="label" value="Favourites" />
+			<param name="label" value="Recent recordings" />
 			<visible>String.IsEqual(Container(301).ListItem.Property(id),1)</visible>
 		</include>
 		<include content="Object_Widget_Spotlight">
 			<param name="controltype" value="list" />
 			<param name="id" value="13102" />
-			<param name="top" value="52" />
-			<param name="left" value="0" />
-			<param name="right" value="-30" />
-			<param name="height" value="item_cast_height" />
-			<param name="orientation" value="horizontal" />
-			<param name="labelinclude" value="Defs_Null" />
-			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
-			<param name="label2" value="ListItem.TvShowTitle" />
-			<param name="target" value="videos" />
-			<param name="content" value="plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]" />
-			<param name="limit" value="" />
-			<param name="sortby" value="name" />
-			<param name="sortorder" value="ascending" />
-			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="true" />
-			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="false" />
-			<param name="iconcondition" value="false" />
-			<onback>SetFocus(13101)</onback>
-			<onback>301</onback>
-			<visible>Integer.IsGreater(Container(13102).NumItems,0) | Container(13102).IsUpdating</visible>
-			<visible>String.IsEqual(Container(301).ListItem.Property(id),1)</visible>
-			<movement>4</movement>
-			<include content="Defs_AutoScroll">
-				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
-			</include>
-		</include>
-		<include content="View_Cast_Toplabel">
-			<param name="groupid" value="27501" />
-			<param name="id" value="23101" />
-			<param name="label" value="$LOCALIZE[31381]" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
-		</include>
-		<include content="Object_Widget_Spotlight">
-			<param name="controltype" value="list" />
-			<param name="id" value="23101" />
-			<param name="top" value="52" />
-			<param name="left" value="0" />
-			<param name="right" value="-30" />
-			<param name="height" value="item_cast_height" />
-			<param name="orientation" value="horizontal" />
-			<param name="labelinclude" value="Defs_Null" />
-			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
-			<param name="label2" value="ListItem.TvShowTitle" />
-			<param name="target" value="videos" />
-			<param name="content" value="pvr://channels/tv/*?view=lastplayed" />
-			<param name="limit" value="" />
-			<param name="sortby" value="lastplayed" />
-			<param name="sortorder" value="descending" />
-			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="true" />
-			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="false" />
-			<param name="iconcondition" value="false" />
-			<onback>SetFocus(23101)</onback>
-			<onback>301</onback>
-			<visible>Integer.IsGreater(Container(23101).NumItems,0) | Container(23101).IsUpdating</visible>
-			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
-			<movement>4</movement>
-			<include content="Defs_AutoScroll">
-				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
-			</include>
-		</include>
-		<include content="View_Cast_Toplabel">
-			<param name="groupid" value="27502" />
-			<param name="id" value="23102" />
-			<param name="label" value="Recent Recordings" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
-		</include>
-		<include content="Object_Widget_Spotlight">
-			<param name="controltype" value="list" />
-			<param name="id" value="23102" />
 			<param name="top" value="52" />
 			<param name="left" value="0" />
 			<param name="right" value="-30" />
@@ -5768,24 +5593,24 @@
 			<param name="smalllandscapecondition" value="true" />
 			<param name="landscapecondition" value="true" />
 			<param name="iconcondition" value="false" />
-			<onback>SetFocus(23101)</onback>
+			<onback>SetFocus(13101)</onback>
 			<onback>301</onback>
-			<visible>Integer.IsGreater(Container(23102).NumItems,0) | Container(23102).IsUpdating</visible>
-			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
+			<visible>Integer.IsGreater(Container(13102).NumItems,0) | Container(13102).IsUpdating</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),1)</visible>
 			<movement>6</movement>
 			<include content="Defs_AutoScroll">
 				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
 			</include>
 		</include>
 		<include content="View_Cast_Toplabel">
-			<param name="groupid" value="37501" />
-			<param name="id" value="33101" />
-			<param name="label" value="Weather" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(id),3)</visible>
+			<param name="groupid" value="27501" />
+			<param name="id" value="23101" />
+			<param name="label" value="Last Played Channels" />
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
 		</include>
 		<include content="Object_Widget_Spotlight">
 			<param name="controltype" value="list" />
-			<param name="id" value="33101" />
+			<param name="id" value="23101" />
 			<param name="top" value="52" />
 			<param name="left" value="0" />
 			<param name="right" value="-30" />
@@ -5795,20 +5620,56 @@
 			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
 			<param name="label2" value="ListItem.TvShowTitle" />
 			<param name="target" value="videos" />
-			<param name="content" value="Weather" />
+			<param name="content" value="pvr://channels/tv/*?view=lastplayed" />
 			<param name="limit" value="" />
 			<param name="sortby" value="" />
 			<param name="sortorder" value="" />
 			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
+			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
-			<onback>SetFocus(33101)</onback>
+			<onback>SetFocus(23101)</onback>
 			<onback>301</onback>
-			<visible>Integer.IsGreater(Container(33101).NumItems,0) | Container(33101).IsUpdating</visible>
-			<visible>String.IsEqual(Container(301).ListItem.Property(id),3)</visible>
-			<movement>6</movement>
+			<visible>Integer.IsGreater(Container(23101).NumItems,0) | Container(23101).IsUpdating</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
+			<movement>4</movement>
+			<include content="Defs_AutoScroll">
+				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
+			</include>
+		</include>
+		<include content="View_Cast_Toplabel">
+			<param name="groupid" value="27502" />
+			<param name="id" value="23102" />
+			<param name="label" value="Favourites" />
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
+		</include>
+		<include content="Object_Widget_Spotlight">
+			<param name="controltype" value="list" />
+			<param name="id" value="23102" />
+			<param name="top" value="52" />
+			<param name="left" value="0" />
+			<param name="right" value="-30" />
+			<param name="height" value="item_cast_height" />
+			<param name="orientation" value="horizontal" />
+			<param name="labelinclude" value="Defs_Null" />
+			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
+			<param name="label2" value="ListItem.TvShowTitle" />
+			<param name="target" value="videos" />
+			<param name="content" value="plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites" />
+			<param name="limit" value="" />
+			<param name="sortby" value="" />
+			<param name="sortorder" value="" />
+			<param name="smallsquarecondition" value="false" />
+			<param name="squarecondition" value="true" />
+			<param name="smalllandscapecondition" value="false" />
+			<param name="landscapecondition" value="false" />
+			<param name="iconcondition" value="false" />
+			<onback>SetFocus(23101)</onback>
+			<onback>301</onback>
+			<visible>Integer.IsGreater(Container(23102).NumItems,0) | Container(23102).IsUpdating</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),2)</visible>
+			<movement>4</movement>
 			<include content="Defs_AutoScroll">
 				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
 			</include>
@@ -5977,7 +5838,7 @@
 			<param name="target" value="videos" />
 			<param name="content" value="plugin://plugin.video.seren/?action=showsRecommended" />
 			<param name="limit" value="" />
-			<param name="sortby" value="random" />
+			<param name="sortby" value="" />
 			<param name="sortorder" value="" />
 			<param name="smallsquarecondition" value="false" />
 			<param name="squarecondition" value="false" />
@@ -6121,7 +5982,7 @@
 			<param name="target" value="videos" />
 			<param name="content" value="plugin://plugin.video.seren/?action=moviesRecommended" />
 			<param name="limit" value="" />
-			<param name="sortby" value="random" />
+			<param name="sortby" value="" />
 			<param name="sortorder" value="" />
 			<param name="smallsquarecondition" value="false" />
 			<param name="squarecondition" value="false" />
@@ -6157,7 +6018,7 @@
 			<param name="target" value="videos" />
 			<param name="content" value="plugin://plugin.video.seren/?action=moviesRTBestofyear" />
 			<param name="limit" value="" />
-			<param name="sortby" value="random" />
+			<param name="sortby" value="" />
 			<param name="sortorder" value="" />
 			<param name="smallsquarecondition" value="false" />
 			<param name="squarecondition" value="false" />
@@ -6182,7 +6043,7 @@
 			<param name="groupid" value="997500" />
 			<param name="id" value="993100" />
 			<param name="label" value="$LOCALIZE[31105]" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
 			<visible>Integer.IsEqual(Container(9989).NumItems,0)</visible>
 		</include>
 		<include content="Object_Widget_Spotlight">
@@ -6209,7 +6070,7 @@
 			<onback>301</onback>
 			<movement>6</movement>
 			<visible>Integer.IsGreater(Container(993100).NumItems,0) | Container(993100).IsUpdating</visible>
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
 			<visible>Integer.IsEqual(Container(9989).NumItems,0)</visible>
 		</include>
 	</include>
@@ -6231,7 +6092,7 @@
 			<param name="titleheight" value="60" />
 			<param name="id" value="23101" />
 			<param name="uid" value="92" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0)</visible>
 		</include>
 		<include content="Home_Vertical_Info">
 			<param name="font" value="font_title" />
@@ -6305,7 +6166,7 @@
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
 			<onup>302</onup>
 			<onback condition="Window.IsVisible(Home)">301</onback>
 			<ondown>noop</ondown>
@@ -6331,58 +6192,7 @@
 			<itemlayout />
 			<focusedlayout />
 			<content limit="25" target="$INFO[Skin.String(widgetTarget)]">$INFO[Skin.String(widgetPath)]</content>
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
-		</control>
-		<control id="5600" type="wraplist">
-			<height>100</height>
-			<top>0</top>
-			<onfocus>SetProperty(SkinHelper.WidgetContainer,5600,Home)</onfocus>
-			<onfocus>SetProperty(ListItemHelper.WidgetContainerId,5600,Home)</onfocus>
-			<onup>301</onup>
-			<ondown>301</ondown>
-			<onback>301</onback>
-			<include content="Defs_AutoScroll">
-				<param name="condition" value="[Control.HasFocus(301) | Control.HasFocus(302)] + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets)" />
-			</include>
-			<orientation>horizontal</orientation>
-			<itemlayout />
-			<focusedlayout />
-			<content limit="25" target="videos">plugin://plugin.video.seren/?action=showsNextUp&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</content>
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000)</visible>
-		</control>
-		<control id="5600" type="wraplist">
-			<height>100</height>
-			<top>0</top>
-			<onfocus>SetProperty(SkinHelper.WidgetContainer,5600,Home)</onfocus>
-			<onfocus>SetProperty(ListItemHelper.WidgetContainerId,5600,Home)</onfocus>
-			<onup>301</onup>
-			<ondown>301</ondown>
-			<onback>301</onback>
-			<include content="Defs_AutoScroll">
-				<param name="condition" value="[Control.HasFocus(301) | Control.HasFocus(302)] + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets)" />
-			</include>
-			<orientation>horizontal</orientation>
-			<itemlayout />
-			<focusedlayout />
-			<content limit="25" target="videos">plugin://plugin.video.seren/?action=showsGary&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</content>
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows)</visible>
-		</control>
-		<control id="5600" type="wraplist">
-			<height>100</height>
-			<top>0</top>
-			<onfocus>SetProperty(SkinHelper.WidgetContainer,5600,Home)</onfocus>
-			<onfocus>SetProperty(ListItemHelper.WidgetContainerId,5600,Home)</onfocus>
-			<onup>301</onup>
-			<ondown>301</ondown>
-			<onback>301</onback>
-			<include content="Defs_AutoScroll">
-				<param name="condition" value="[Control.HasFocus(301) | Control.HasFocus(302)] + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets)" />
-			</include>
-			<orientation>horizontal</orientation>
-			<itemlayout />
-			<focusedlayout />
-			<content limit="25" target="videos">plugin://plugin.video.seren/?action=moviesLatest&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</content>
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),livetv-0) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-137) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-10000) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-24001) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),settings) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),)</visible>
 		</control>
 	</include>
 </includes>
