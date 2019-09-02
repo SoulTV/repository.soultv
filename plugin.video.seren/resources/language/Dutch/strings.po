@@ -4,62 +4,72 @@
 # Addon Provider: Nixgates
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"X-Generator: Poedit 2.2.3\n"
 
 msgctxt "#32001"
 msgid "Discover Movies"
-msgstr ""
+msgstr "Ontdek films"
 
 msgctxt "#32002"
 msgid "My Movies"
-msgstr ""
+msgstr "Mijn Films"
 
 msgctxt "#32003"
 msgid "Discover TV Shows"
-msgstr ""
+msgstr "Ontdek TV-Series"
 
 msgctxt "#32004"
 msgid "My Shows"
-msgstr ""
+msgstr "Mijn TV-Series"
 
 msgctxt "#32005"
 msgid "Auth Trakt"
-msgstr ""
+msgstr "Auth trakt"
 
 msgctxt "#32006"
 msgid "Disconnect Trakt"
-msgstr ""
+msgstr "Ontkoppel Trakt"
 
 msgctxt "#32007"
 msgid "Most Popular"
-msgstr ""
+msgstr "Populair"
 
 msgctxt "#32008"
 msgid "Recommended For You"
-msgstr ""
+msgstr "Aanbevolen voor jou"
 
 msgctxt "#32009"
 msgid "Trending"
-msgstr ""
+msgstr "Trending"
 
 msgctxt "#32010"
 msgid "Most Played"
-msgstr ""
+msgstr "Meest gespeelde"
 
 msgctxt "#32011"
 msgid "Most Watched"
-msgstr ""
+msgstr "Meest bekeken"
 
 msgctxt "#32012"
 msgid "Most Collected"
-msgstr ""
+msgstr "Meest verzameld"
 
 msgctxt "#32013"
 msgid "Most Anticipated"
-msgstr ""
+msgstr "Meest verwacht"
 
 msgctxt "#32014"
 msgid "Recently Updated"
-msgstr ""
+msgstr "Onlangs geüpdatet"
 
 msgctxt "#32015"
 msgid "Box Office Top 10"
@@ -67,23 +77,23 @@ msgstr ""
 
 msgctxt "#32016"
 msgid "Search..."
-msgstr ""
+msgstr "Zoeken..."
 
 msgctxt "#32017"
 msgid "Collection"
-msgstr ""
+msgstr "Collectie"
 
 msgctxt "#32018"
 msgid "Watchlist"
-msgstr ""
+msgstr "Volglijst"
 
 msgctxt "#32019"
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 msgctxt "#32020"
 msgid "Find similar"
-msgstr ""
+msgstr "Zoek soortgelijk"
 
 msgctxt "#32021"
 msgid ""
@@ -91,170 +101,96 @@ msgstr "Color Picker"
 
 msgctxt "#32022"
 msgid "Getting Things Ready"
-msgstr ""
+msgstr "Dingen klaarmaken"
 
 msgctxt "#32023"
 msgid "Real Debrid Auth"
-msgstr ""
+msgstr "Real Debrid autorisatie"
 
 msgctxt "#32024"
 msgid "Open this link in a browser: "
-msgstr ""
+msgstr "Open deze link in een browser: "
 
 msgctxt "#32025"
 msgid "Enter the code: "
-msgstr ""
+msgstr "Voer de code in: "
 
 msgctxt "#32026"
 msgid "Authentication is completed"
-msgstr ""
+msgstr "Authenticatie is voltooid"
 
 msgctxt "#32027"
 msgid "Highlight Color Changed to - "
-msgstr ""
+msgstr "Markeer kleur gewijzigd in - "
 
 msgctxt "#32028"
 msgid "Error Connecting to TMDB"
-msgstr ""
+msgstr "Fout bij verbinding maken met TMDB"
 
 msgctxt "#32029"
 msgid ": Revoked Trakt Auth"
-msgstr ""
+msgstr ": Intrekking van Trakt autorisatie"
 
 msgctxt "#32030"
 msgid "Trakt Successfully Disconnected"
-msgstr ""
+msgstr "Trakt succesvol verbroken"
 
 msgctxt "#32031"
 msgid "Authorize Trakt"
-msgstr ""
+msgstr "Trakt autoriseren"
 
 msgctxt "#32032"
-msgid "Error while authenticating with Trakt.\nPlease try again."
+msgid ""
+"Error while authenticating with Trakt.\n"
+"Please try again."
 msgstr ""
+"Fout tijdens het verifiëren met Trakt.\n"
+"Probeer het opnieuw."
 
 msgctxt "#32033"
 msgid "Failed to Authorize Trakt"
-msgstr ""
+msgstr "Kan Trakt niet autoriseren"
 
 msgctxt "#32034"
 msgid "Please check your Internet Connection"
-msgstr ""
+msgstr "Controleer uw internetverbinding"
 
 msgctxt "#32035"
 msgid "Unknown Error Connecting to Trakt"
-msgstr ""
+msgstr "Onbekende fout bij verbinding maken met Trakt"
 
 msgctxt "#32036"
 msgid "Release Title: "
-msgstr ""
+msgstr "Titel: "
 
 msgctxt "#32037"
 msgid "Host: "
-msgstr ""
+msgstr "Bron: "
 
 msgctxt "#32038"
 msgid "Quality: "
-msgstr ""
+msgstr "Kwaliteit: "
 
 msgctxt "#32039"
 msgid "Search Movies..."
-msgstr ""
+msgstr "Zoeken naar films ..."
 
 msgctxt "#32040"
 msgid "Search Shows..."
-msgstr ""
+msgstr "Zoeken naar series..."
 
 msgctxt "#32041"
 msgid "Tools"
-msgstr ""
+msgstr "Gereedschap"
 
 msgctxt "#32042"
 msgid "Clear Cache"
-msgstr ""
+msgstr "Cache wissen"
 
 msgctxt "#32043"
 msgid "Are you sure you wish to clear the cache?"
-msgstr ""
+msgstr "Weet je zeker dat je de cache wilt wissen?"
 
 msgctxt "#32044"
 msgid "Mark Unwatched"
-msgstr ""
-
-msgctxt "#88888"
-msgid "Discover Soul TV Shows"
-msgstr "Discover Soul TV Shows"
-
-msgctxt "#88887"
-msgid "Discover Soul Movies"
-msgstr "Discover Soul TV Movies"
-
-msgctxt "#99999"
-msgid "Latest Releases by Gilad & Alex"
-msgstr "Latest Releases by Gilad & Alex"
-
-msgctxt "#99998"
-msgid "New Shows by Gary"
-msgstr "New Shows by Gary"
-
-msgctxt "#99997"
-msgid "Netflix"
-msgstr "Netflix"
-
-msgctxt "#99996"
-msgid "Amazon"
-msgstr "Amazon"
-
-msgctxt "#99995"
-msgid "Hulu"
-msgstr "Hulu"
-
-msgctxt "#99994"
-msgid "Spotlight"
-msgstr "Spotlight"
-
-msgctxt "#99993"
-msgid "Spotlight Shows"
-msgstr "Spotlight Shows"
-
-msgctxt "#99992"
-msgid "Spotlight Movies"
-msgstr "Spotlight Movies"
-
-msgctxt "#99991"
-msgid "Shows - Curated by Soul"
-msgstr "Shows - Curated by Soul"
-
-msgctxt "#99990"
-msgid "Movies - Curated by Soul"
-msgstr "Movies - Curated by Soul"
-
-msgctxt "#99989"
-msgid "Latest 4k Releases"
-msgstr "Latest 4k Releases"
-
-msgctxt "#99988"
-msgid "Latest Documentaries"
-msgstr "Latest Documentaries"
-
-msgctxt "#99987"
-msgid "Reddit Selections"
-msgstr "Reddit Selections"
-
-msgctxt "#99986"
-msgid "Netflix Movies"
-msgstr "Netflix Movies"
-
-msgctxt "#99985"
-msgid "Rotten Tomatoes Best Movies of the Year"
-msgstr "Rotten Tomatoes Best Movies of the Year"
-
-msgctxt "#99984"
-msgid "Great Movies You May Have Never Heard Of"
-msgstr "Great Movies You May Have Never Heard Of"
-
-msgctxt "#99983"
-msgid "Pixel Hunter"
-msgstr "Pixel Hunter"
-
-
+msgstr "Markeren als niet-gekeken"

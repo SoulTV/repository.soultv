@@ -63,6 +63,12 @@ class Menus:
         tools.addDirectoryItem(tools.lang(99992), 'moviessoulSpotlight', '', '')
         tools.addDirectoryItem(tools.lang(99984), 'moviesNeverseen', '', '')
         tools.addDirectoryItem(tools.lang(99983), 'moviesPixelHunter', '', '')
+
+        # tools.addDirectoryItem('Years', 'movieYears')
+        if tools.getSetting('searchHistory') == 'false':
+            tools.addDirectoryItem(tools.lang(32016), 'moviesSearch', isFolder=True, isPlayable=False)
+        else:
+            tools.addDirectoryItem(tools.lang(32016), 'moviesSearchHistory')
         tools.closeDirectory('addons')
 
     def moviesLatest(self):
@@ -240,26 +246,7 @@ class Menus:
                     name = tools.italic_string(name)
 
                 args = {'trakt_id': item['ids']['trakt'], 'item_type': 'movie'}
-
                 args = tools.quote(json.dumps(args, sort_keys=True))
-
-                # Begin Building Context Menu Items
-                cm = []
-
-                cm.append((tools.lang(32020),
-                           'Container.Update(%s?action=moviesRelated&actionArgs=%s)' % (
-                               sysaddon, item['ids']['trakt'])))
-                cm.append((tools.lang(32066),
-                           'PlayMedia(%s?action=getSourcesWorkaround&source_select=true&actionArgs=%s)' % (sysaddon, args)))
-                cm.append((tools.lang(33022),
-                           'PlayMedia(%s?action=getSourcesWorkaround&seren_reload=true&actionArgs=%s)' % (sysaddon, args)))
-
-                if tools.getSetting('trakt.auth') != '':
-                    cm.append(('Trakt Manager', 'RunPlugin(%s?action=traktManager&actionArgs=%s)'
-                               % (sysaddon, tools.quote(json.dumps(item['trakt_object'])))))
-
-                if tools.context_addon():
-                    cm = []
 
             except:
                 import traceback
@@ -270,8 +257,7 @@ class Menus:
                 continue
 
             item['info']['title'] = item['info']['originaltitle'] = name
-
-            list_items.append(tools.addDirectoryItem(name, 'getSources', item['info'], item['art'], cm=cm,
+            list_items.append(tools.addDirectoryItem(name, 'getSources', item['info'], item['art'], item['cast'],
                                                      isFolder=False, isPlayable=True, actionArgs=args,
                                                      set_ids=item['ids'], bulk_add=True))
 
@@ -279,14 +265,6 @@ class Menus:
             return list_items
 
         tools.addMenuItems(syshandle, list_items, len(list_items))
-
-    def tmdbListWorker(self, trakt_object):
-        tools.tmdb_sema.acquire()
-        listItem = database.get(TMDBAPI().movieToListItem, 24, trakt_object)
-        # Tried to use IMDB as a scraper source. Fuck it was slow
-        # listItem = database.get(imdb_scraper.trakt_movie_to_list_item, '24', trakt_object)
-        self.itemList.append(listItem)
-        tools.tmdb_sema.release()
 
     def runThreads(self, join=True):
         for thread in self.threadList:
@@ -298,8 +276,10 @@ class Menus:
 
     def is_aired(self, info):
         try:
-            try:air_date = info['aired']
-            except: air_date = info['premiered']
+            try:
+                air_date = info['aired']
+            except:
+                air_date = info['premiered']
 
             if tools.getSetting('general.datedelay') == 'true':
                 air_date = tools.datetime_workaround(air_date, '%Y-%m-%d', date_only=True)
