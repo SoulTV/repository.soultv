@@ -339,6 +339,7 @@ class Menus:
 
             self.itemList = [x for x in self.itemList if x is not None and 'info' in x]
             self.itemList = [i for i in self.itemList if 'info' in i and i['info'].get('premiered', None) is not None]
+            self.itemList = [i for i in self.itemList if 'info' in i and i['info'].get('premiered', '') is not '']
             if sort is None:
                 self.itemList = sorted(self.itemList,
                                        key=lambda i: tools.datetime_workaround(i['info']['premiered'],
