@@ -347,6 +347,12 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
               <checksum>https://raw.githubusercontent.com/zomboided/xbmc.zomboided.plugins/master/addons.xml.md5</checksum>
               <datadir zip="true">https://github.com/zomboided/xbmc.zomboided.plugins/raw/master/plugins/</datadir>
         </dir>
+
+        <dir>
+              <info compressed="true">https://github.com/zach-morris/repository.zachmorris/raw/master/addons.xml</info>
+              <checksum>https://github.com/zach-morris/repository.zachmorris/raw/master/addons.xml.md5</checksum>
+              <datadir zip="true">https://raw.githubusercontent.com/zach-morris/repository.zachmorris/master/</datadir>
+        </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Soul TV Repository</summary>
