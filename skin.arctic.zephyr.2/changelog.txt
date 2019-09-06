@@ -1,3 +1,14 @@
+0.9.47
+- NextAired view options
+- Episode widgets use tvshow not season posters
+- Kiosk mode
+- Lengthen fixed-width horizontal home menu when clock is disabled
+- FromDirector sortby=year
+- Fix missing scrollbars
+- Fix music osd rating
+- Fix for colorbox settings
+- Fix for TMDb helper mouse issue
+
 0.9.46
 - Add blur effect settings
 - Add Up Next support
