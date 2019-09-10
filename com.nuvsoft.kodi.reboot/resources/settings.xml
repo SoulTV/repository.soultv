@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="13013">
+        <setting label="142" type="time"   id="reboot_time" default="03:00"/>
+    </category>
+</settings>

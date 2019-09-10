@@ -398,6 +398,29 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
   </extension>
 </addon>
 
+<addon id="com.nuvsoft.kodi.reboot" name="Daily Reboot" version="0.0.1" provider-name="nuvsoft">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+	</requires>
+	<extension point="xbmc.service" library="service.py" start="login"/>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Schedule a Daily Reboot</summary>
+		<description lang="en">Reboot Kodi at a fixed time each day.</description>
+		<license>GNU General Public License, v2</license>
+		<language></language>
+		<forum>http://forum.kodi.tv/showthread.php?tid=304606</forum>
+		<source>https://github.com/nuvious/kodirebootplugin</source>
+		<website>nuvsoft.com</website>
+		<email>david.cheeseman@nuvsoft.com</email>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+		<news>Initial alpha release.</news>
+	</extension>
+</addon>
+
 <addon id="plugin.video.seren" version="1.4.8.1" name="Seren" provider-name="Nixgates">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
@@ -582,7 +605,7 @@ Fixed Background Scraping Display style
 	</extension>
 </addon>
 
-<addon id="skin.arctic.zephyr.2" name="Arctic Zephyr 2" provider-name="jurialmunkey" version="0.9.47-alpha8.1">
+<addon id="skin.arctic.zephyr.2" name="Arctic Zephyr 2" provider-name="jurialmunkey" version="0.9.48-alpha5.1">
     <requires>
         <import addon="xbmc.gui" version="5.14.0" />
         <import addon="script.skinshortcuts" version="0.4.0" />

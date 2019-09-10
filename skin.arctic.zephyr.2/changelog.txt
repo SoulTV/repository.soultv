@@ -1,3 +1,12 @@
+0.9.48
+- Options for info in pvr guide
+- Options for channel numbers in slim pvr guide
+- Addition of top menu in pvr guide
+- Add quick jump for PVR
+- Add title labels to pvr widgets
+- Fixes for landscape pvr widget icons
+- Seek numeric and pvr channel seek
+
 0.9.47
 - NextAired view options
 - Episode widgets use tvshow not season posters
@@ -8,6 +17,7 @@
 - Fix music osd rating
 - Fix for colorbox settings
 - Fix for TMDb helper mouse issue
+- Make music vis respect timeperimage var
 
 0.9.46
 - Add blur effect settings
