@@ -72,101 +72,105 @@ def api(params):
 
         smart = smartPlay.SmartPlay(actionArgs)
         smart.workaround()
+        
+########Begin Soul TV Modifications
 
     if action == 'soulmovieHome':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().discoverSoul()
+        movieMenus.Menus().discoverSoul()
 
     if action == 'soultvshowHome':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().discoverSoul()
+        tvshowMenus.Menus().discoverSoul()
 
     if action == 'moviesLatest':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviesLatest()
+        movieMenus.Menus().moviesLatest()
 
     if action == 'moviesLatest4k':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviesLatest4k()
+        movieMenus.Menus().moviesLatest4k()
 
     if action == 'moviesRTBestofyear':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviesRTBestofyear()
+        movieMenus.Menus().moviesRTBestofyear()
 
     if action == 'moviesLatestReddit':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviesLatestReddit()
+        movieMenus.Menus().moviesLatestReddit()
 
     if action == 'moviesNetflix':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviesNetflix()
+        movieMenus.Menus().moviesNetflix()
 
     if action == 'moviesPixelHunter':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviesPixelHunter()
+        movieMenus.Menus().moviesPixelHunter()
 
     if action == 'moviesNeverseen':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviesNeverseen()
+        movieMenus.Menus().moviesNeverseen()
 
     if action == 'showsGary':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().showsGary()
+        tvshowMenus.Menus().showsGary()
 
     if action == 'showsNetflix':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().showsNetflix()
+        tvshowMenus.Menus().showsNetflix()
 
     if action == 'showsPixelHunter':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().showsPixelHunter()
+        tvshowMenus.Menus().showsPixelHunter()
 
     if action == 'showsAmazon':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().showsAmazon()
+        tvshowMenus.Menus().showsAmazon()
 
     if action == 'showsHulu':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().showsHulu()
+        tvshowMenus.Menus().showsHulu()
 
     if action == 'soulSpotlight':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().soulSpotlight()
+        tvshowMenus.Menus().soulSpotlight()
 
     if action == 'showssoulSpotlight':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().showssoulSpotlight()
+        tvshowMenus.Menus().showssoulSpotlight()
 
     if action == 'moviessoulSpotlight':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviessoulSpotlight()
+        movieMenus.Menus().moviessoulSpotlight()
 
     if action == 'showssoulCurated':
-        from resources.lib.gui import soultvshowMenus
+        from resources.lib.gui import tvshowMenus
 
-        soultvshowMenus.Menus().showssoulCurated()
+        tvshowMenus.Menus().showssoulCurated()
 
     if action == 'moviessoulCurated':
-        from resources.lib.gui import soulmovieMenus
+        from resources.lib.gui import movieMenus
 
-        soulmovieMenus.Menus().moviessoulCurated()
+        movieMenus.Menus().moviessoulCurated()
+        
+########End Soul TV Modifications
 
     if action == 'moviesHome':
         from resources.lib.gui import movieMenus

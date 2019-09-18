@@ -75,6 +75,20 @@ class Menus:
         tools.addDirectoryItem(tools.lang(40123), 'showYears')
         tools.addDirectoryItem(tools.lang(32062), 'tvGenres')
         tools.addDirectoryItem(tools.lang(40151), 'showsByActor')
+        
+########Begin Soul TV Modifications
+
+        tools.addDirectoryItem(tools.lang(99998), 'showsGary', '', '')
+        tools.addDirectoryItem(tools.lang(99997), 'showsNetflix', '', '')
+        tools.addDirectoryItem(tools.lang(99996), 'showsAmazon', '', '')
+        tools.addDirectoryItem(tools.lang(99995), 'showsHulu', '', '')
+        tools.addDirectoryItem(tools.lang(99994), 'soulSpotlight', '', '')
+        tools.addDirectoryItem(tools.lang(99993), 'showssoulSpotlight', '', '')
+        tools.addDirectoryItem(tools.lang(99991), 'showssoulCurated', '', '')
+        tools.addDirectoryItem(tools.lang(99983), 'showsPixelHunter', '', '')
+        
+########End Soul TV Modifications
+
         # show genres is now labeled as tvGenres to support genre icons in skins
         if tools.getSetting('searchHistory') == 'false':
             tools.addDirectoryItem(tools.lang(32016), 'showsSearch', isFolder=True, isPlayable=False)
@@ -353,6 +367,122 @@ class Menus:
         self.showListBuilder(trakt_list)
         tools.addDirectoryItem(tools.lang(32019), 'showsUpdated&page=%s' % (int(page) + 1))
         tools.closeDirectory('tvshows')
+        
+########Begin Soul TV Modifications
+
+    def showsGary(self):
+        trakt_list = trakt.json_response('users/garycrawfordgc/lists/new-shows/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showsNetflix(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/netflix/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showsAmazon(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/amazon/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showsHulu(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/hulu/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def soulSpotlight(self):
+        trakt_list = trakt.json_response('users/soul-tv/lists/spotlight/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showssoulSpotlight(self):
+        trakt_list = trakt.json_response('users/soul-tv/lists/spotlight-tv-shows/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showssoulCurated(self):
+        trakt_list = trakt.json_response('users/soul-tv/lists/soul-picks-movies/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showsPixelHunter(self):
+        trakt_list = trakt.json_response('users/pixelhunterprime/lists/netflix/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+        
+########End Soul TV Modifications
 
     def showSearchHistory(self):
         history = database.getSearchHistory('show')

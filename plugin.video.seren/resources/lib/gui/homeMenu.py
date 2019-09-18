@@ -23,8 +23,6 @@ class Menus:
 
         tools.addDirectoryItem(tools.lang(32001), 'moviesHome', None, None)
         tools.addDirectoryItem(tools.lang(32003), 'showsHome', None, None)
-        tools.addDirectoryItem(tools.lang(88887), 'soulmovieHome', None, None)
-        tools.addDirectoryItem(tools.lang(88888), 'soultvshowHome', None, None)
         if trakt:
             tools.addDirectoryItem(tools.lang(32002), 'myMovies', None, None)
         if trakt:

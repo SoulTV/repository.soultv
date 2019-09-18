@@ -67,6 +67,21 @@ class Menus:
         tools.addDirectoryItem(tools.lang(32062), 'movieGenres&page=1')
         tools.addDirectoryItem(tools.lang(40123), 'movieYears')
         tools.addDirectoryItem(tools.lang(40151), 'movieByActor')
+        
+########Begin Soul TV Modifications
+
+        tools.addDirectoryItem(tools.lang(99999), 'moviesLatest', '', '')
+        tools.addDirectoryItem(tools.lang(99989), 'moviesLatest4k', '', '')
+        tools.addDirectoryItem(tools.lang(99987), 'moviesLatestReddit', '', '')
+        tools.addDirectoryItem(tools.lang(99990), 'moviessoulCurated', '', '')
+        tools.addDirectoryItem(tools.lang(99985), 'moviesRTBestofyear', '', '')
+        tools.addDirectoryItem(tools.lang(99986), 'moviesNetflix', '', '')
+        tools.addDirectoryItem(tools.lang(99992), 'moviessoulSpotlight', '', '')
+        tools.addDirectoryItem(tools.lang(99984), 'moviesNeverseen', '', '')
+        tools.addDirectoryItem(tools.lang(99983), 'moviesPixelHunter', '', '')
+        
+########End Soul TV Modifications
+
 
         # tools.addDirectoryItem('Years', 'movieYears')
         if tools.getSetting('searchHistory') == 'false':
@@ -81,6 +96,155 @@ class Menus:
         tools.addDirectoryItem(tools.lang(32018), 'moviesMyWatchlist')
         tools.addDirectoryItem(tools.lang(32064), 'myTraktLists&actionArgs=movies')
         tools.closeDirectory('addons')
+        
+########Begin Soul TV Modifications
+
+    def moviesLatest(self):
+        trakt_list = trakt.json_response('users/giladg/lists/latest-releases/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+        tools.closeDirectory('addons')
+
+    def moviesLatest4k(self):
+        trakt_list = trakt.json_response('users/giladg/lists/latest-4k-releases/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
+    def moviesLatestReddit(self):
+        trakt_list = trakt.json_response('users/giladg/lists/subreddit-selections/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
+    def moviesRTBestofyear(self):
+        trakt_list = trakt.json_response('users/lish408/lists/rotten-tomatoes-best-of-2019/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
+    def moviesNetflix(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/netflix-movies/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
+    def moviesPixelHunter(self):
+        trakt_list = trakt.json_response('users/pixelhunterprime/lists/netflix/items/movie?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
+    def moviesNeverseen(self):
+        trakt_list = trakt.json_response('users/_varg/lists/great-movies-you-may-have-never-heard-of/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+        
+    def moviessoulSpotlight(self):
+        trakt_list = trakt.json_response('users/soul-tv/lists/spotlight-movies/items/movies?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+        
+    def moviessoulCurated(self):
+        trakt_list = trakt.json_response('users/soul-tv/lists/soul-picks-movies/items/movies?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+        
+########End Soul TV Modifications
 
     def myMovieCollection(self):
 
