@@ -124,7 +124,7 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">soultv.github.io</summary>
-		<description lang="en">soultvstudio@gmail.com</description>
+		<description lang="en">soultv.github.io</description>
 		<disclaimer lang="en">soultvstudio@gmail.com</disclaimer>
 		<platform>all</platform>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
