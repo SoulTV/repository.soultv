@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="repository.soultv" name="Soul TV Repo" version="1.0.0" provider-name="Soul TV">
+<addon id="repository.soultv" name="Soul TV Repo" version="1.0.0" provider-name="Soul">
 	<extension point="xbmc.addon.repository" name="Soul TV Repo">
         
         <dir>
-            <info compressed="false">https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml.md5</checksum>
+            <info compressed="false">https://github.com/SoulTV/soultv.github.io/raw/master/zips/addons.xml</info>
+            <checksum>https://github.com/SoulTV/soultv.github.io/raw/master/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/</datadir>
         </dir>
 
@@ -156,9 +156,9 @@
         </dir>
             
         <dir>
-              <info compressed="false">https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml</info>
-              <checksum>https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml.md5</checksum>
-              <datadir zip="true">https://raw.githubusercontent.com/I-A-C/zips/master/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/I-A-C/zips/master/</datadir>
         </dir>
             
         <dir>

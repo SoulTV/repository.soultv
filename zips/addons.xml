@@ -118,8 +118,8 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 	<extension point="xbmc.addon.repository" name="Soul TV Repo">
 
         <dir>
-            <info compressed="false">https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml.md5</checksum>
+            <info compressed="false">https://github.com/SoulTV/soultv.github.io/raw/master/zips/addons.xml</info>
+            <checksum>https://github.com/SoulTV/soultv.github.io/raw/master/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/</datadir>
         </dir>
 
