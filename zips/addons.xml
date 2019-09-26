@@ -165,12 +165,6 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 		</dir>
 
 		<dir>
-		    <info compressed="false">https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml?v=5.0.0</info>
-		    <checksum>https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml.md5?v=5.0.0</checksum>
-		    <datadir zip="true">https://github.com/gaiaorigin/gaiaorigin/raw/master/</datadir>
-		</dir>
-
-		<dir>
             <info compressed="false">https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml</info>
             <checksum>https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/jewbmx/repo/master/zips/</datadir>
@@ -226,19 +220,6 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 		</dir>
 
 		<dir>
-            <info compressed="false">https://raw.githubusercontent.com/Guilouz/repository.guilouz/master/_repo/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Guilouz/repository.guilouz/master/_repo/addons.xml.md5</checksum>
-            <datadir zip="true">https://github.com/Guilouz/repository.guilouz/raw/master/_repo</datadir>
-            <hashes>false</hashes>
-		</dir>
-
-		<dir>
-            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/</datadir>
-		</dir>
-
-		<dir>
             <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml</info>
             <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/zips/</datadir>
@@ -264,30 +245,6 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
         </dir>
 
         <dir>
-		    <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
-		    <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
-		    <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
-        </dir>
-
-        <dir>
-              <info compressed="false">https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml</info>
-              <checksum>https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml.md5</checksum>
-              <datadir zip="true">https://raw.githubusercontent.com/I-A-C/zips/master/</datadir>
-        </dir>
-
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
-        </dir>
-
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
-        </dir>
-
-        <dir>
             <info compressed="false">http://builds.kodiuk.tv/development/kodiukrepo/_zips/addons.xml</info>
             <checksum>http://builds.kodiuk.tv/development/kodiukrepo/_zips/addons.xml.md5</checksum>
             <datadir zip="true">http://builds.kodiuk.tv/development/kodiukrepo/_zips</datadir>
@@ -295,39 +252,9 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
         </dir>
 
         <dir>
-            <info compressed="false">https://raw.githubusercontent.com/Proximus2000/mb-support/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Proximus2000/mb-support/master/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://github.com/Proximus2000/mb-support/raw/master/zips</datadir>
-        </dir>
-
-        <dir>
 			<info compressed="false">https://raw.githubusercontent.com/mbebe/blomqvist/master/zips/addons.xml</info>
 			<checksum>https://raw.githubusercontent.com/mbebe/blomqvist/master/zips/addons.xml.md5</checksum>
 			<datadir zip="true">https://github.com/mbebe/blomqvist/raw/master/zips</datadir>
-        </dir>
-
-        <dir>
-		    <info compressed="false">https://www.onenation.appboxes.co/repository/repofiles/addons.xml</info>
-		    <checksum>https://www.onenation.appboxes.co/repository/repofiles/addons.xml.md5</checksum>
-		    <datadir zip="true">https://www.onenation.appboxes.co/repository/repofiles/</datadir>
-        </dir>
-
-        <dir>
-	         <info compressed="false">https://raw.githubusercontent.com/mrkodz/mrkodz.github.io/master/Plugins/addons.xml</info>
-	         <checksum>https://raw.githubusercontent.com/mrkodz/mrkodz.github.io/master/Plugins/addons.xml.md5</checksum>
-	         <datadir zip="true">https://raw.githubusercontent.com/mrkodz/mrkodz.github.io/master/Plugins/</datadir>
-        </dir>
-
-        <dir>
-             <info compressed="false">https://raw.githubusercontent.com/Tikipeter/repository.tikipeter/master/addons.xml</info>
-             <checksum>https://raw.githubusercontent.com/Tikipeter/repository.tikipeter/master/addons.xml.md5</checksum>
-             <datadir zip="true">https://raw.githubusercontent.com/Tikipeter/repository.tikipeter/master/zip</datadir>
-        </dir>
-
-        <dir>
-             <info compressed="false">https://raw.githubusercontent.com/Tempest0580/tempest/master/zips/addons.xml</info>
-	         <checksum>https://raw.githubusercontent.com/Tempest0580/tempest/master/zips/addons.xml.md5</checksum>
-	         <datadir zip="true">https://raw.githubusercontent.com/Tempest0580/tempest/master/zips/</datadir>
         </dir>
 
         <dir>
@@ -340,12 +267,6 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
              <info compressed="false">http://noledynasty.xyz/_zips/addons.xml</info>
              <checksum>http://noledynasty.xyz/_zips/addons.xml.md5</checksum>
              <datadir zip="true">http://noledynasty.xyz/_zips/</datadir>
-        </dir>
-
-        <dir>
-             <info compressed="false">https://raw.githubusercontent.com/zomboided/xbmc.zomboided.plugins/master/addons.xml</info>
-             <checksum>https://raw.githubusercontent.com/zomboided/xbmc.zomboided.plugins/master/addons.xml.md5</checksum>
-             <datadir zip="true">https://github.com/zomboided/xbmc.zomboided.plugins/raw/master/plugins/</datadir>
         </dir>
 
         <dir>
@@ -362,8 +283,8 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">[B][COLOR red]Venom[/COLOR][/B] We do not host any of the contents streamed</summary>
-		<description lang="en">[B][COLOR red]Venom[/COLOR][/B] - This addon does not form part of the Kodi Media Centre. Please do not seek assistance with this addon from any of the Official Kodi Support Channels.The author does not host any of the content in this addon and takes no responsibility for content found.</description>
+		<summary lang="en">soultv.github.io</summary>
+		<description lang="en">soultvstudio@gmail.com</description>
 		<disclaimer lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon. The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation. This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works</disclaimer>
 		<platform>all</platform>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
