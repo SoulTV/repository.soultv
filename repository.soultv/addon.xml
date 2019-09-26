@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="repository.soultv" name="Soul TV Repo" version="1.0.0" provider-name="Soul TV">
+<addon id="repository.soultv" name="Soul TV Repo" version="1.0.0" provider-name="Soul">
 	<extension point="xbmc.addon.repository" name="Soul TV Repo">
         
         <dir>
@@ -156,9 +156,9 @@
         </dir>
             
         <dir>
-              <info compressed="false">https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml</info>
-              <checksum>https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml.md5</checksum>
-              <datadir zip="true">https://raw.githubusercontent.com/I-A-C/zips/master/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/I-A-C/zips/master/</datadir>
         </dir>
             
         <dir>
