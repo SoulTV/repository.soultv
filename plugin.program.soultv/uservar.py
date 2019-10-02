@@ -87,7 +87,7 @@ CONTACTFANART = 'https://www.dropbox.com/s/j0hnpp5cvcgh17s/fanart.jpg?dl=1'
 #        Auto Update For Those With No Repo             #
 #########################################################
 # Enable Auto Update 'Yes' or 'No'
-AUTOUPDATE = 'Yes'
+AUTOUPDATE = 'No'
 # Url to wizard version
 WIZARDFILE = BUILDFILE
 #########################################################
