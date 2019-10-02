@@ -23,12 +23,12 @@ BUILDFILE      = 'https://www.dropbox.com/s/yfvfaxv0zgpmhf4/builds.txt?dl=1'
 # 0 being every startup of kodi
 UPDATECHECK    = 0
 # Text File with apk info in it.  Leave as 'http://' to ignore
-APKFILE        = 'https://www.dropbox.com/s/keymhm8gy0ovfao/apks.txt?dl=1'
+APKFILE        = 'http://'
 # Text File with Youtube Videos urls.  Leave as 'http://' to ignore
 YOUTUBETITLE   = ''
 YOUTUBEFILE    = 'http://'
 # Text File for addon installer.  Leave as 'http://' to ignore
-ADDONFILE      = 'https://www.dropbox.com/s/w8rcmu5utef64ih/addons.txt?dl=1'
+ADDONFILE      = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
 ADVANCEDFILE   = 'https://www.dropbox.com/s/vlgxlinyjove7jg/advanced.txt?dl=1'
 #########################################################
