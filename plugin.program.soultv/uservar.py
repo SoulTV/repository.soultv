@@ -13,18 +13,18 @@ ART = os.path.join(PATH, 'resources', 'art')
 #########################################################
 #        User Edit Variables                            #
 #########################################################
-ADDONTITLE = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
-BUILDERNAME = 'Aftermath'
-EXCLUDES = [ADDON_ID, 'repository.aftermath']
+ADDONTITLE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
+BUILDERNAME = 'Soul'
+EXCLUDES = [ADDON_ID, 'repository.soultv']
 # Text File with build info in it.
-BUILDFILE = 'http://'
+BUILDFILE = 'https://www.dropbox.com/s/pm589p54z9bmlj2/builds.txt?dl=1'
 # How often you would like it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK = 0
 # Text File with apk info in it.  Leave as 'http://' to ignore
 APKFILE = 'http://'
 # Text File with Youtube Videos urls.  Leave as 'http://' to ignore
-YOUTUBETITLE = ''
+YOUTUBETITLE = 'http://'
 YOUTUBEFILE = 'http://'
 # Text File for addon installer.  Leave as 'http://' to ignore
 ADDONFILE = 'http://'
@@ -60,7 +60,7 @@ SPACER = '='
 
 # You can edit these however you want, just make sure that you have a %s in each of the
 # THEME's so it grabs the text from the menu item
-COLOR1 = 'dodgerblue'
+COLOR1 = 'grey'
 COLOR2 = 'white'
 # Primary menu items   / {0} is the menu item and is required
 THEME1 = '[COLOR '+COLOR1+'][B][I]([COLOR '+COLOR2+']Aftermath[/COLOR])[/I][/B][/COLOR] [COLOR '+COLOR2+']{0}[/COLOR]'
@@ -77,10 +77,10 @@ THEME5 = '[COLOR '+COLOR1+']Current Theme:[/COLOR] [COLOR '+COLOR2+']{0}[/COLOR]
 # Enable 'Contact' menu item 'Yes' hide or 'No' dont hide
 HIDECONTACT = 'No'
 # You can add \n to do line breaks
-CONTACT = 'Thank you for choosing Aftermath Wizard.\n\nContact us on Github at http://www.github.com/drinfernoo/plugin.program.aftermath/'
+CONTACT = 'Thank you for choosing Soul TV.\n\nContact us at soultv.github.io'
 # Images used for the contact window.  http:// for default icon and fanart
 CONTACTICON = os.path.join(ART, 'qricon.png')
-CONTACTFANART = 'http://'
+CONTACTFANART = 'https://www.dropbox.com/s/j0hnpp5cvcgh17s/fanart.jpg?dl=1'
 #########################################################
 
 #########################################################
@@ -98,11 +98,11 @@ WIZARDFILE = BUILDFILE
 # Enable Auto Install 'Yes' or 'No'
 AUTOINSTALL = 'Yes'
 # Addon ID for the repository
-REPOID = 'repository.aftermath'
+REPOID = 'repository.soultv'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML = 'https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/addons.xml'
+REPOADDONXML = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL = 'https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/repository.aftermath/'
+REPOZIPURL = 'https://soultv.github.io/repo/'
 #########################################################
 
 #########################################################
@@ -111,16 +111,16 @@ REPOZIPURL = 'https://raw.githubusercontent.com/drinfernoo/repository.aftermath/
 # Enable Notification screen Yes or No
 ENABLE = 'Yes'
 # Url to notification file
-NOTIFICATION = 'http://'
+NOTIFICATION = 'https://www.dropbox.com/s/qjbkjzgzsjlv3f8/notify.txt?dl=1'
 # Use either 'Text' or 'Image'
-HEADERTYPE = 'Text'
+HEADERTYPE = 'Image'
 # Font size of header
 FONTHEADER = 'Font14'
-HEADERMESSAGE = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
+HEADERMESSAGE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
 # url to image if using Image 424x180
-HEADERIMAGE = 'http://'
+HEADERIMAGE = 'https://www.dropbox.com/s/nln6647x1i70rrs/textbanner.png?dl=1'
 # Font for Notification Window
 FONTSETTINGS = 'Font13'
 # Background for Notification Window
-BACKGROUND = 'http://'
+BACKGROUND = 'https://www.dropbox.com/s/imom5613rwj8ka1/ContentPanel.png?dl=1'
 #########################################################
