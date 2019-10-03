@@ -29,7 +29,7 @@ YOUTUBEFILE = 'http://'
 # Text File for addon installer.  Leave as 'http://' to ignore
 ADDONFILE = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
-ADVANCEDFILE = 'http://'
+ADVANCEDFILE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/advanced.txt'
 #########################################################
 
 #########################################################

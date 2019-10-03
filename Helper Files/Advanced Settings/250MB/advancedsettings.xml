@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<advancedsettings>
+	<cache>
+		<buffermode>1</buffermode>
+		<memorysize>250000000</memorysize>
+		<readfactor>1000</readfactor>
+	</cache>
+</advancedsettings>
