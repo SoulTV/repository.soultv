@@ -14,7 +14,7 @@ ART = os.path.join(PATH, 'resources', 'art')
 #        User Edit Variables                            #
 #########################################################
 ADDONTITLE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
-BUILDERNAME = 'Soul'
+BUILDERNAME = 'Seoul'
 EXCLUDES = [ADDON_ID, 'repository.soultv']
 # Text File with build info in it.
 BUILDFILE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/builds.txt'
@@ -24,7 +24,7 @@ UPDATECHECK = 0
 # Text File with apk info in it.  Leave as 'http://' to ignore
 APKFILE = 'http://'
 # Text File with Youtube Videos urls.  Leave as 'http://' to ignore
-YOUTUBETITLE = 'http://'
+YOUTUBETITLE = ''
 YOUTUBEFILE = 'http://'
 # Text File for addon installer.  Leave as 'http://' to ignore
 ADDONFILE = 'http://'
@@ -77,7 +77,7 @@ THEME5 = '[COLOR '+COLOR1+']Current Theme:[/COLOR] [COLOR '+COLOR2+']{0}[/COLOR]
 # Enable 'Contact' menu item 'Yes' hide or 'No' dont hide
 HIDECONTACT = 'No'
 # You can add \n to do line breaks
-CONTACT = 'Thank you for choosing Soul TV.\n\nContact us at soultv.github.io'
+CONTACT = 'Thank you for choosing Soul TV.\n\nContact us at soultvstudio@gmail.com'
 # Images used for the contact window.  http:// for default icon and fanart
 CONTACTICON = os.path.join(ART, 'qricon.png')
 CONTACTFANART = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/fanart.jpg'
@@ -87,7 +87,7 @@ CONTACTFANART = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/maste
 #        Auto Update For Those With No Repo             #
 #########################################################
 # Enable Auto Update 'Yes' or 'No'
-AUTOUPDATE = 'No'
+AUTOUPDATE = 'Yes'
 # Url to wizard version
 WIZARDFILE = BUILDFILE
 #########################################################
@@ -102,7 +102,8 @@ REPOID = 'repository.soultv'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
 REPOADDONXML = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL = 'https://soultv.github.io/repo/'
+REPOZIPURL = 'https://github.com/SoulTV/soultv.github.io/raw/master/zips/repository.soultv/'
+#########################################################
 #########################################################
 
 #########################################################
@@ -111,16 +112,16 @@ REPOZIPURL = 'https://soultv.github.io/repo/'
 # Enable Notification screen Yes or No
 ENABLE = 'Yes'
 # Url to notification file
-NOTIFICATION = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/notify.txt'
+NOTIFICATION = 'http://'
 # Use either 'Text' or 'Image'
-HEADERTYPE = 'Image'
+HEADERTYPE = 'Text'
 # Font size of header
 FONTHEADER = 'Font14'
-HEADERMESSAGE = '[COLOR grey]Soul TV[/COLOR] Helper'
+HEADERMESSAGE = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
 # url to image if using Image 424x180
-HEADERIMAGE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/textbanner.png'
+HEADERIMAGE = 'http://'
 # Font for Notification Window
 FONTSETTINGS = 'Font13'
 # Background for Notification Window
-BACKGROUND = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/ContentPanel.png'
+BACKGROUND = 'http://'
 #########################################################
