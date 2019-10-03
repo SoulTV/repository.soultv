@@ -29,7 +29,7 @@ YOUTUBEFILE = 'http://'
 # Text File for addon installer.  Leave as 'http://' to ignore
 ADDONFILE = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
-ADVANCEDFILE = 'http://'
+ADVANCEDFILE = 'https://www.dropbox.com/s/3tull8hos2l5i4t/advanced.txt?dl=1'
 #########################################################
 
 #########################################################
@@ -60,8 +60,8 @@ SPACER = '='
 
 # You can edit these however you want, just make sure that you have a %s in each of the
 # THEME's so it grabs the text from the menu item
-COLOR1 = ''
-COLOR2 = ''
+COLOR1 = 'dark grey'
+COLOR2 = 'dark grey'
 # Primary menu items   / {0} is the menu item and is required
 THEME1 = '[COLOR '+COLOR1+'][B][I]([COLOR '+COLOR2+']Aftermath[/COLOR])[/I][/B][/COLOR] [COLOR '+COLOR2+']{0}[/COLOR]'
 # Build Names          / {0} is the menu item and is required
@@ -87,7 +87,7 @@ CONTACTFANART = 'https://www.dropbox.com/s/j0hnpp5cvcgh17s/fanart.jpg?dl=1'
 #        Auto Update For Those With No Repo             #
 #########################################################
 # Enable Auto Update 'Yes' or 'No'
-AUTOUPDATE = 'No'
+AUTOUPDATE = 'Yes'
 # Url to wizard version
 WIZARDFILE = BUILDFILE
 #########################################################
@@ -111,7 +111,7 @@ REPOZIPURL = 'https://soultv.github.io/repo/'
 # Enable Notification screen Yes or No
 ENABLE = 'Yes'
 # Url to notification file
-NOTIFICATION = 'http://'
+NOTIFICATION = 'https://www.dropbox.com/s/qjbkjzgzsjlv3f8/notify.txt?dl=1'
 # Use either 'Text' or 'Image'
 HEADERTYPE = 'Image'
 # Font size of header
