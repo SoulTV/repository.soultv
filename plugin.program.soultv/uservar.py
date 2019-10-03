@@ -80,7 +80,7 @@ HIDECONTACT = 'No'
 CONTACT = 'Thank you for choosing Soul TV.\n\nContact us at soultv.github.io'
 # Images used for the contact window.  http:// for default icon and fanart
 CONTACTICON = os.path.join(ART, 'qricon.png')
-CONTACTFANART = 'https://www.dropbox.com/s/j0hnpp5cvcgh17s/fanart.jpg?dl=1'
+CONTACTFANART = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/fanart.jpg'
 #########################################################
 
 #########################################################
@@ -111,16 +111,16 @@ REPOZIPURL = 'https://soultv.github.io/repo/'
 # Enable Notification screen Yes or No
 ENABLE = 'Yes'
 # Url to notification file
-NOTIFICATION = 'https://www.dropbox.com/s/qjbkjzgzsjlv3f8/notify.txt?dl=1'
+NOTIFICATION = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/notify.txt'
 # Use either 'Text' or 'Image'
 HEADERTYPE = 'Image'
 # Font size of header
 FONTHEADER = 'Font14'
 HEADERMESSAGE = '[COLOR grey]Soul TV[/COLOR] Helper'
 # url to image if using Image 424x180
-HEADERIMAGE = 'https://www.dropbox.com/s/nln6647x1i70rrs/textbanner.png?dl=1'
+HEADERIMAGE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/textbanner.png'
 # Font for Notification Window
 FONTSETTINGS = 'Font13'
 # Background for Notification Window
-BACKGROUND = 'https://www.dropbox.com/s/imom5613rwj8ka1/ContentPanel.png?dl=1'
+BACKGROUND = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/ContentPanel.png'
 #########################################################
