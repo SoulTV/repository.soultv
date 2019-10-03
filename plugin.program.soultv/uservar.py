@@ -17,7 +17,7 @@ ADDONTITLE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
 BUILDERNAME = 'Soul'
 EXCLUDES = [ADDON_ID, 'repository.soultv']
 # Text File with build info in it.
-BUILDFILE = 'https://www.dropbox.com/s/pm589p54z9bmlj2/builds.txt?dl=1'
+BUILDFILE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/builds.txt'
 # How often you would like it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK = 0
