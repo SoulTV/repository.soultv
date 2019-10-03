@@ -60,8 +60,8 @@ SPACER = '='
 
 # You can edit these however you want, just make sure that you have a %s in each of the
 # THEME's so it grabs the text from the menu item
-COLOR1 = 'dark grey'
-COLOR2 = 'dark grey'
+COLOR1 = 'grey'
+COLOR2 = 'grey'
 # Primary menu items   / {0} is the menu item and is required
 THEME1 = '[COLOR '+COLOR1+'][B][I]([COLOR '+COLOR2+']Soul TV[/COLOR])[/I][/B][/COLOR] [COLOR '+COLOR2+']{0}[/COLOR]'
 # Build Names          / {0} is the menu item and is required
@@ -111,12 +111,12 @@ REPOZIPURL = 'https://soultv.github.io/repo/'
 # Enable Notification screen Yes or No
 ENABLE = 'Yes'
 # Url to notification file
-NOTIFICATION = 'http://'
+NOTIFICATION = 'https://www.dropbox.com/s/qjbkjzgzsjlv3f8/notify.txt?dl=1'
 # Use either 'Text' or 'Image'
 HEADERTYPE = 'Image'
 # Font size of header
 FONTHEADER = 'Font14'
-HEADERMESSAGE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
+HEADERMESSAGE = '[COLOR grey]Soul TV[/COLOR] Helper'
 # url to image if using Image 424x180
 HEADERIMAGE = 'https://www.dropbox.com/s/nln6647x1i70rrs/textbanner.png?dl=1'
 # Font for Notification Window
