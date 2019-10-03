@@ -1,6 +1,6 @@
 name="250mb"
 section="no"
-url="https://www.dropbox.com/s/oy0yaqelbsn7f7g/advancedsettings.xml?dl=1"
+url="https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Advanced%20Settings/250MB/advancedsettings.xml"
 icon="https://www.dropbox.com/s/0z66fwg7cjz22gr/icon.png?dl=1"
 fanart="https://www.dropbox.com/s/j0hnpp5cvcgh17s/fanart.jpg?dl=1"
 description="250mb"
