@@ -15,7 +15,7 @@ ART = os.path.join(PATH, 'resources', 'art')
 #########################################################
 ADDONTITLE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
 BUILDERNAME = 'Seoul'
-EXCLUDES = [ADDON_ID, 'repository.soultv']
+EXCLUDES = [ADDON_ID, 'repository.soultv', 'plugin.program.soultv', 'pvr.iptvsimpleclient', 'inputstream.adaptive', 'inputstream.rtmp']
 # Text File with build info in it.
 BUILDFILE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/builds.txt'
 # How often you would like it to check for build updates in days
