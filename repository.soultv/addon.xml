@@ -252,6 +252,13 @@
 			<datadir zip="true">https://bitbucket.org/threw/the-crew/raw/master/_zips/</datadir>
 		</dir>
         
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/krazware/therealufo/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/krazware/therealufo/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/krazware/therealufo/master/zips</datadir>
+            <hashes>false</hashes>
+		</dir>
+        
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Soul TV Repository</summary>
