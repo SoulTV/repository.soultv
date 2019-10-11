@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID>31381</defaultID>
+		<label>Last Played Channels (Built-in Channel Guide [COLOR red]ONLY[/COLOR])</label>
+		<label2>Custom item</label2>
+		<icon>DefaultAddonPVRClient.png</icon>
+		<thumb />
+		<action>pvr://channels/tv/*?view=lastplayed</action>
+		<disabled>True</disabled>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Favourites</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultFile.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://script.skin.helper.widgets/?action=favourites&amp;mediatype=favourites",return)</action>
+	</shortcut>
+</shortcuts>

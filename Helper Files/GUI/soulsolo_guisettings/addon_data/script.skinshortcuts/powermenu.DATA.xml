@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID>5</defaultID>
+		<label>System</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Soft Reset</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>PlayMedia("plugin://plugin.program.soul/?mode=forceclose",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>13012</defaultID>
+		<label>13012</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.Quit()</action>
+		<visible>System.ShowExitButton</visible>
+		<disabled>True</disabled>
+	</shortcut>
+	<shortcut>
+		<defaultID>13016</defaultID>
+		<label>13016</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.Powerdown()</action>
+		<visible>System.CanPowerDown</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>13011</defaultID>
+		<label>13011</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.Suspend()</action>
+		<visible>System.CanSuspend</visible>
+		<disabled>True</disabled>
+	</shortcut>
+	<shortcut>
+		<defaultID>13010</defaultID>
+		<label>13010</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.Hibernate()</action>
+		<visible>System.CanHibernate</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>13013</defaultID>
+		<label>13013</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.Reset()</action>
+		<visible>System.CanReboot</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>20126</defaultID>
+		<label>20126</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>dialog.close(all,true)</action>
+		<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>20046</defaultID>
+		<label>20046</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>xbmc.mastermode</action>
+		<visible>System.HasLocks</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>13017</defaultID>
+		<label>13017</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.InhibitIdleShutdown(true)</action>
+		<visible>System.HasShutdown +!System.IsInhibit</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>13018</defaultID>
+		<label>13018</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.InhibitIdleShutdown(false)</action>
+		<visible>System.HasShutdown + System.IsInhibit</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>20150</defaultID>
+		<label>20150</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.AlarmClock(shutdowntimer,XBMC.Shutdown())</action>
+		<visible>!System.HasAlarm(shutdowntimer)</visible>
+		<disabled>True</disabled>
+	</shortcut>
+	<shortcut>
+		<defaultID>colordarkgrey-totalcleanup-colorspringgreen-b-317-63mb-b-color-color</defaultID>
+		<label>Clear Caches</label>
+		<label2>Favourite</label2>
+		<icon>special://skin/extras/icons/folder.png</icon>
+		<thumb>special://home/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
+		<action>PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>colordarkgrey-runspeedtest-color</defaultID>
+		<label>Speed Test</label>
+		<label2>Favourite</label2>
+		<icon>special://skin/extras/icons/folder.png</icon>
+		<thumb>special://home/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
+		<action>PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</action>
+		<disabled>True</disabled>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Speed Tester</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>RunAddOn(script.speedtester)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>colordarkgrey-forceupdateaddons-color</defaultID>
+		<label>Update Addons</label>
+		<label2>Favourite</label2>
+		<icon>special://skin/extras/icons/folder.png</icon>
+		<thumb>special://home/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
+		<action>PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>colordarkgrey-b-i-colorwhite-soul-color-i-b-color-colorwhite-applyguifix-color</defaultID>
+		<label>Update Menus</label>
+		<label2>Favourite</label2>
+		<icon>special://skin/extras/icons/folder.png</icon>
+		<thumb>https://www.dropbox.com/s/8ctt2z9i485dc1t/icon.png?dl=1</thumb>
+		<action>PlayMedia("plugin://plugin.program.soul/?mode=install&amp;name=Soul+Solo&amp;url=gui",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>plugin.program.soul</defaultID>
+		<label>[COLOR grey]Soul[/COLOR] Wizard</label>
+		<label2>Program</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.program.soul%2ficon.png/</thumb>
+		<action>ActivateWindow(Programs,"plugin://plugin.program.soul",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Connections</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>RunAddOn(service.libreelec.settings)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>20183</defaultID>
+		<label>20183</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>ReloadSkin()</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>1036</defaultID>
+		<label>1036</label>
+		<label2>Common menu item</label2>
+		<icon>special://skin/extras/icons/favourites2.png</icon>
+		<thumb />
+		<action>ActivateWindow(Favourites)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>20151</defaultID>
+		<label>20151</label>
+		<label2>Power Menu Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>XBMC.CancelAlarm(shutdowntimer)</action>
+		<visible>System.HasAlarm(shutdowntimer)</visible>
+	</shortcut>
+</shortcuts>

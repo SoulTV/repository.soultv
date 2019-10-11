@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Netflix</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetflix",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Netflix Movies</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesNetflix",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Amazon</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsAmazon",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Hulu</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHulu",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>HBO</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworkShows&amp;actionArgs=HBO&amp;page=1",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Starz</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNetworkShows&amp;actionArgs=Starz&amp;page=1",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Cinemax</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://https%3a%2f%2fi.imgur.com%2fzWypFNI.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.venom/?action=tvmazeTvshows&amp;url=http%3A%2F%2Fwww.tvmaze.com%2Fshows%3FShow%5Bnetwork_id%5D%3D19%26page%3D1",return)</action>
+	</shortcut>
+</shortcuts>

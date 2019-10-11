@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Quick Search</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>RunScript(script.extendedinfo,info=search_menu)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>137</defaultID>
+		<label>Deep Search</label>
+		<label2>Common Shortcut</label2>
+		<icon>special://skin/extras/icons/search.png</icon>
+		<thumb />
+		<action>Skin.SetString(SearchTerm)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>plugin.video.openmeta/search</defaultID>
+		<label>Backup Search</label>
+		<label2>Favourite</label2>
+		<icon>special://skin/extras/icons/folder.png</icon>
+		<thumb>special://home/addons/plugin.video.openmeta/resources/media/search.png</thumb>
+		<action>ActivateWindow(10025,"plugin://plugin.video.openmeta/search",return)</action>
+	</shortcut>
+</shortcuts>

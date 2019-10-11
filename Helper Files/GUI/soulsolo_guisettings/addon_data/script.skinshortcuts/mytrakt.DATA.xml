@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>My Shows</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://home/userdata/Soul Images/tv.png</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myShows",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>My Movies</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://home/userdata/Soul Images/movies.png</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=myMovies",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Trakt - OpenMeta</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://home/userdata/Soul Images/trakt.png</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.openmeta",return)</action>
+	</shortcut>
+</shortcuts>
