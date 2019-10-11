@@ -38,17 +38,8 @@
 		<label>Amazon VOD</label>
 		<label2>Favourite</label2>
 		<icon>special://skin/extras/icons/folder.png</icon>
-		<thumb>special://home/addons/plugin.video.amazon-test/icon.png</thumb>
+		<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.video.amazon-test/icon.png</thumb>
 		<action>ActivateWindow(10025,"plugin://plugin.video.amazon-test/",return)</action>
-		<disabled>True</disabled>
-	</shortcut>
-	<shortcut>
-		<defaultID>10821</defaultID>
-		<label>10821</label>
-		<label2>Programs</label2>
-		<icon>special://skin/extras/icons/games.png</icon>
-		<thumb />
-		<action>ActivateWindow(Games)</action>
 		<disabled>True</disabled>
 	</shortcut>
 </shortcuts>

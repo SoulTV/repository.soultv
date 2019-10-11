@@ -1,6 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <shortcuts>
 	<shortcut>
+		<defaultID>10000</defaultID>
+		<label>10000</label>
+		<label2>Custom item</label2>
+		<icon>special://profile/addon_data/skin.titan.bingie/custom_images/CustomBackgroundSetting20190819214651.png</icon>
+		<thumb>special://home/userdata/Soul Images/icon.png</thumb>
+		<action>noop</action>
+	</shortcut>
+	<shortcut>
 		<defaultID>livetv</defaultID>
 		<label>32022</label>
 		<label2>Custom item</label2>
@@ -24,14 +32,6 @@
 		<icon>special://skin/extras/icons/livetv.png</icon>
 		<thumb>special://home/userdata/Soul Images/airing.png</thumb>
 		<action>SetFocus(302)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID>10000</defaultID>
-		<label>10000</label>
-		<label2>Custom item</label2>
-		<icon>special://profile/addon_data/skin.titan.bingie/custom_images/CustomBackgroundSetting20190819214651.png</icon>
-		<thumb>special://home/userdata/Soul Images/icon.png</thumb>
-		<action>noop</action>
 	</shortcut>
 	<shortcut>
 		<defaultID>31864</defaultID>
@@ -65,15 +65,6 @@
 		<icon>DefaultShortcut.png</icon>
 		<thumb>special://home/userdata/Soul Images/Netflix-Logo-PNG-Transparent-Image.png</thumb>
 		<action>noop</action>
-		<disabled>True</disabled>
-	</shortcut>
-	<shortcut>
-		<defaultID>10821</defaultID>
-		<label>10821</label>
-		<label2>Custom item</label2>
-		<icon>special://skin/extras/icons/games.png</icon>
-		<thumb>special://home/userdata/Soul Images/gameslarge.png</thumb>
-		<action>SetFocus(302)</action>
 		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>

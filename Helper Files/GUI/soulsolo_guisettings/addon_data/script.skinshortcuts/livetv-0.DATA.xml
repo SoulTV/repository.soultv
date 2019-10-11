@@ -1,8 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <shortcuts>
 	<shortcut>
+		<defaultID>22020</defaultID>
+		<label>Guide</label>
+		<label2>Custom item</label2>
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb />
+		<action>RunAddon(plugin.video.Area51Gui,return)</action>
+	</shortcut>
+	<shortcut>
 		<defaultID>19023</defaultID>
-		<label>Channel Guide (Built-in)</label>
+		<label>Channels</label>
+		<label2>Custom item</label2>
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>22020</defaultID>
+		<label>22020</label>
+		<label2>Live TV</label2>
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb />
+		<action>ActivateWindow(TVGuide)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>19019</defaultID>
+		<label>19019</label>
 		<label2>Live TV</label2>
 		<icon>special://skin/extras/icons/tv.png</icon>
 		<thumb />
@@ -10,128 +34,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID />
-		<label>==================</label>
-		<label2>Custom item</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb />
-		<action>noop</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>[COLOR fuchsia]Provider 1[/COLOR] | HD / SD</label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=all_english",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>[COLOR lime]Provider 2[/COLOR] | HD / SD</label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=streamliveNavigator",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID>script.module.tt</defaultID>
-		<label>[COLOR lightseagreen]Provider[/COLOR] [COLOR darkgoldenrod]3[/COLOR] | SD / TS </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://script.module.tt",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>[COLOR olive]Provider 4[/COLOR] | SD         </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=ustvgoNavigator",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>[COLOR mediumblue]Provider[/COLOR] [COLOR red]5[/COLOR] | SD         </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=arconai_cable",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>[COLOR deeppink]Provider 6[/COLOR] | SD / TS </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://http%3a%2f%2fswiftstreamz.com%2fSwiftPanel%2fimages%2f69168_usa.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=swiftCat&amp;url=5",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>=====SPORTS======</label>
-		<label2>Custom item</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb />
-		<action>noop</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>[COLOR deeppink]The Crew[/COLOR]                    </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_bluehat.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID>plugin.video.gridironlegends</defaultID>
-		<label>[COLOR gold]Gridiron Legends[/COLOR]       </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.gridironlegends%2ficon.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.gridironlegends",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID>plugin.video.endzone</defaultID>
-		<label>[COLORnavajowhite]The Endzone[/COLOR]              </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.endzone%2ficon.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.endzone",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>[COLOR deeppink]Provider 3[/COLOR]                 </label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://http%3a%2f%2fswiftstreamz.com%2fSwiftPanel%2fimages%2f53021_sports.jpg/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=swiftCat&amp;url=8",return)</action>
-		<disabled>True</disabled>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>=======24/7=======</label>
-		<label2>Custom item</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb />
-		<action>noop</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>Pluto TV</label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=pluto",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>Acronai 24/7</label>
-		<label2>Video Add-On</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2fexuary%2fchannels.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=acronaitv_menu",return)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>==================</label>
+		<label>====Free IPTV====</label>
 		<label2>Custom item</label2>
 		<icon>DefaultShortcut.png</icon>
 		<thumb />
@@ -139,29 +42,67 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>plugin.video.temptv</defaultID>
-		<label>TempTV</label>
+		<label>[COLOR fuchsia]TempTV[/COLOR]</label>
 		<label2>Video Add-On</label2>
 		<icon>DefaultShortcut.png</icon>
 		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.temptv%2ficon.png/</thumb>
 		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv",return)</action>
-		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID />
-		<label>The Crew - IPTV</label>
-		<label2>Video Add-On</label2>
+		<label>[COLOR deeppink]The Crew[/COLOR]</label>
+		<label2>Custom item</label2>
 		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_whitehat.png/</thumb>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.temptv.artwork%2fresources%2fmedia%2ftemptv%2fchannels.png/</thumb>
 		<action>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=whitehat",return)</action>
-		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
-		<defaultID />
-		<label>Scrubs v2 - IPTV</label>
+		<defaultID>script.module.tt</defaultID>
+		<label>[COLOR lightseagreen]TV[/COLOR][COLOR darkgoldenrod]Tap[/COLOR]</label>
 		<label2>Video Add-On</label2>
 		<icon>DefaultShortcut.png</icon>
-		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.scrubsv2.artwork%2fresources%2fmedia%2fpurple%2fchannels.png/</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.scrubsv2/?action=iptvChannels",return)</action>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.module.tt%2ficon.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://script.module.tt",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>=====SPORTS=====</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>noop</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[COLOR deeppink]The Crew[/COLOR] | Sports</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fscript.thecrew.artwork%2fresources%2fmedia%2fthecrew%2fmain_bluehat.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.thecrew/?action=bluehat",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>plugin.video.endzone</defaultID>
+		<label>[COLORnavajowhite]The Endzone[/COLOR]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/icons/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.endzone",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>plugin.video.gridironlegends</defaultID>
+		<label>[COLOR gold]Gridiron Legends[/COLOR]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.gridironlegends%2ficon.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.gridironlegends",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[COLOR fuchsia]TempTV[/COLOR] | Sports</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://http%3a%2f%2fswiftstreamz.com%2fSwiftPanel%2fimages%2f53021_sports.jpg/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.temptv/?action=sports",return)</action>
 		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
@@ -171,20 +112,10 @@
 		<icon>DefaultShortcut.png</icon>
 		<thumb />
 		<action>noop</action>
-		<disabled>True</disabled>
-	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>==================</label>
-		<label2>Custom item</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb />
-		<action>noop</action>
-		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID>1036</defaultID>
-		<label>1036</label>
+		<label>Favourites</label>
 		<label2>Common menu item</label2>
 		<icon>special://skin/extras/icons/favourites2.png</icon>
 		<thumb />

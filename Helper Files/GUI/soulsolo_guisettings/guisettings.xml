@@ -271,8 +271,8 @@
     <setting id="videolibrary.showunwatchedplots" default="true">0,1,2</setting>
     <setting id="videolibrary.tvshowsincludeallseasonsandspecials" default="true">0</setting>
     <setting id="videolibrary.tvshowsselectfirstunwatcheditem">2</setting>
-    <setting id="videolibrary.updateonstartup" default="true">false</setting>
-    <setting id="videoplayer.adjustrefreshrate">3</setting>
+    <setting id="videolibrary.updateonstartup">true</setting>
+    <setting id="videoplayer.adjustrefreshrate" default="true">0</setting>
     <setting id="videoplayer.autoplaynextitem">1,2,3,4</setting>
     <setting id="videoplayer.errorinaspect" default="true">0</setting>
     <setting id="videoplayer.hqscalers" default="true">20</setting>
@@ -319,8 +319,8 @@
     <setting id="videoscreen.whitelist" default="true"></setting>
     <setting id="weather.addon">weather.weatherbit.io</setting>
     <setting id="weather.currentlocation" default="true">1</setting>
-    <setting id="window.height">1035</setting>
-    <setting id="window.width">1920</setting>
+    <setting id="window.height">643</setting>
+    <setting id="window.width">1123</setting>
     <viewstates>
         <games>
             <viewmode>65536</viewmode>
@@ -372,9 +372,9 @@
         </programs>
         <videofiles>
             <viewmode>65536</viewmode>
-            <sortmethod>0</sortmethod>
-            <sortorder>0</sortorder>
-            <sortattributes>0</sortattributes>
+            <sortmethod>1</sortmethod>
+            <sortorder>1</sortorder>
+            <sortattributes>1</sortattributes>
         </videofiles>
         <videonavactors>
             <viewmode>65536</viewmode>
@@ -431,7 +431,7 @@
             <level>0</level>
             <showhigherlevels>true</showhigherlevels>
         </eventlog>
-        <systemtotaluptime>32273</systemtotaluptime>
+        <systemtotaluptime>39838</systemtotaluptime>
     </general>
     <resolutions />
     <defaultvideosettings>
@@ -481,6 +481,6 @@
     </myvideos>
     <audio>
         <mute>false</mute>
-        <fvolumelevel>0.844444</fvolumelevel>
+        <fvolumelevel>1.000000</fvolumelevel>
     </audio>
 </settings>

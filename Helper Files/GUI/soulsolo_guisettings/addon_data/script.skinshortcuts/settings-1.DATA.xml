@@ -1,2 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<shortcuts />
+<shortcuts>
+	<shortcut>
+		<defaultID>settings</defaultID>
+		<label>Settings</label>
+		<label2>Widget</label2>
+		<icon>special://skin/extras/icons/settings.png</icon>
+		<thumb />
+		<action>Settings</action>
+	</shortcut>
+</shortcuts>

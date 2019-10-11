@@ -2,6 +2,14 @@
 <shortcuts>
 	<shortcut>
 		<defaultID />
+		<label>Mom's List</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=traktList&amp;page=1&amp;actionArgs=%7B%22username%22%3A%20%22seattle2nashville%22%2C%20%22trakt_id%22%3A%20%22mom-s-list%22%2C%20%22sort_how%22%3A%20%22asc%22%2C%20%22type%22%3A%20%22shows%22%2C%20%22sort_by%22%3A%20%22title%22%7D",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
 		<label>Recently Aired</label>
 		<label2>Video Add-On</label2>
 		<icon>DefaultShortcut.png</icon>
@@ -15,7 +23,6 @@
 		<icon>DefaultShortcut.png</icon>
 		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
 		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsNextUp",return)</action>
-		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID />
@@ -49,5 +56,6 @@
 		<icon>DefaultShortcut.png</icon>
 		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.openmeta%2fresources%2fmedia%2ftrakt.png/</thumb>
 		<action>ActivateWindow(Videos,"plugin://plugin.video.openmeta/my_trakt",return)</action>
+		<disabled>True</disabled>
 	</shortcut>
 </shortcuts>

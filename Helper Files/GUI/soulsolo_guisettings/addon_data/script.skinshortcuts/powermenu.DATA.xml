@@ -9,12 +9,21 @@
 		<action>ActivateWindow(Settings)</action>
 	</shortcut>
 	<shortcut>
+		<defaultID>plugin.program.soultv</defaultID>
+		<label>[B][COLOR grey]Soul TV[/COLOR][/B] Helper</label>
+		<label2>Program</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.program.soultv%2ficon.png/</thumb>
+		<action>ActivateWindow(Programs,"plugin://plugin.program.soultv",return)</action>
+	</shortcut>
+	<shortcut>
 		<defaultID />
 		<label>Soft Reset</label>
 		<label2>Custom item</label2>
 		<icon>DefaultShortcut.png</icon>
 		<thumb />
 		<action>PlayMedia("plugin://plugin.program.soul/?mode=forceclose",return)</action>
+		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID>13012</defaultID>
@@ -114,15 +123,16 @@
 		<label>Clear Caches</label>
 		<label2>Favourite</label2>
 		<icon>special://skin/extras/icons/folder.png</icon>
-		<thumb>special://home/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
+		<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 		<action>PlayMedia("plugin://plugin.program.soul/?mode=fullclean",return)</action>
+		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID>colordarkgrey-runspeedtest-color</defaultID>
 		<label>Speed Test</label>
 		<label2>Favourite</label2>
 		<icon>special://skin/extras/icons/folder.png</icon>
-		<thumb>special://home/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
+		<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 		<action>PlayMedia("plugin://plugin.program.soul/?mode=runspeedtest",return)</action>
 		<disabled>True</disabled>
 	</shortcut>
@@ -139,8 +149,9 @@
 		<label>Update Addons</label>
 		<label2>Favourite</label2>
 		<icon>special://skin/extras/icons/folder.png</icon>
-		<thumb>special://home/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
+		<thumb>/Users/pH/Library/Application Support/Kodi/addons/plugin.program.soul/resources/art/maintenance.png</thumb>
 		<action>PlayMedia("plugin://plugin.program.soul/?mode=forceupdate",return)</action>
+		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID>colordarkgrey-b-i-colorwhite-soul-color-i-b-color-colorwhite-applyguifix-color</defaultID>
@@ -149,6 +160,7 @@
 		<icon>special://skin/extras/icons/folder.png</icon>
 		<thumb>https://www.dropbox.com/s/8ctt2z9i485dc1t/icon.png?dl=1</thumb>
 		<action>PlayMedia("plugin://plugin.program.soul/?mode=install&amp;name=Soul+Solo&amp;url=gui",return)</action>
+		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID>plugin.program.soul</defaultID>
@@ -157,6 +169,7 @@
 		<icon>DefaultShortcut.png</icon>
 		<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.program.soul%2ficon.png/</thumb>
 		<action>ActivateWindow(Programs,"plugin://plugin.program.soul",return)</action>
+		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID />
@@ -165,6 +178,7 @@
 		<icon>DefaultShortcut.png</icon>
 		<thumb />
 		<action>RunAddOn(service.libreelec.settings)</action>
+		<disabled>True</disabled>
 	</shortcut>
 	<shortcut>
 		<defaultID>20183</defaultID>
