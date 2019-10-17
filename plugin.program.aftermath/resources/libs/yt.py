@@ -43,21 +43,17 @@
 #        120: "hd720",
 #        121: "hd1080"
 
-import xbmc
-import xbmcgui
 
 import re
 import urllib2
 import urllib
 import cgi
 import HTMLParser
+import xbmcgui
 
-try:
-    import simplejson as json
-except ImportError:
-    import json
+try: import simplejson as json
 
-from resources.libs.config import CONFIG
+except ImportError: import json
 
 dp            =  xbmcgui.DialogProgress()
 MAX_REC_DEPTH = 5
@@ -553,45 +549,3 @@ def _getfullAlgoCode(mainFunName, recDepth=0):
         return '\n' + funBody + '\n'
     
     return funBody
-
-
-def play_video(url):
-    if 'watch?v=' in url:
-        a, b = url.split('?')
-        find = b.split('&')
-        for item in find:
-            if item.startswith('v='):
-                url = item[2:]
-                break
-            else:
-                continue
-    elif 'embed' in url or 'youtu.be' in url:
-        a = url.split('/')
-        if len(a[-1]) > 5:
-            url = a[-1]
-        elif len(a[-2]) > 5:
-            url = a[-2]
-
-    from resources.libs import logging
-    logging.log("YouTube URL: {0}".format(url))
-
-    if xbmc.getCondVisibility('System.HasAddon(plugin.video.youtube)') == 1:
-        url = 'plugin://plugin.video.youtube/play/?video_id={0}'.format(url)
-        xbmc.Player().play(url)
-    xbmc.sleep(2000)
-    if xbmc.Player().isPlayingVideo() == 0:
-        PlayVideo(url)
-
-
-def build_video(name):
-    from resources.libs import logging
-    from resources.libs import tools
-
-    if tools.check_url(CONFIG.BUILDFILE):
-        videofile = check.check_build(name, 'preview')
-        if videofile and not videofile == 'http://':
-            play_video(videofile)
-        else:
-            logging.log("[{0}]Unable to find url for video preview".format(name))
-    else:
-        logging.log("Build text file not working: {0}".format(CONFIG.BUILDFILE))

@@ -1,42 +1,22 @@
-import xbmc
-import xbmcgui
-
-import hashlib
-import math
 import os
 import re
-import socket
 import sys
-import threading
+import math
+import signal
+import socket
 import timeit
+import threading
+import uservar
+import xbmc
+import xbmcaddon
+import xbmcgui
+import xbmcplugin
+import os
+import sys
 
-import xml.etree.ElementTree as ET
-from xml.dom import minidom as DOM
-
-try:
-    from urllib.request import urlopen
-    from urllib.request import Request
-    from urllib.request import HTTPError
-    from urllib.request import URLError
-    from urllib.parse import urlparse
-    from urllib.parse import parse_qs
-    from http.client import HTTPConnection
-    from http.client import HTTPSConnection
-    from queue import Queue
-except ImportError:
-    from urllib2 import urlopen
-    from urllib2 import Request
-    from urllib2 import HTTPError
-    from urllib2 import URLError
-    from urlparse import urlparse
-    from urlparse import parse_qs
-    from httplib import HTTPConnection
-    from httplib import HTTPSConnection
-    from Queue import Queue
-
-from resources.libs.config import CONFIG
-from resources.libs import logging
-
+ADDONTITLE = uservar.ADDONTITLE
+COLOR1 = uservar.COLOR1
+COLOR2 = uservar.COLOR2
 __version__ = '0.3.5'
 user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0'
 source = None
@@ -44,19 +24,132 @@ shutdown_event = None
 scheme = 'http'
 socket_socket = socket.socket
 
+try:
+    import xml.etree.cElementTree as ET
+except ImportError:
+    try:
+        import xml.etree.ElementTree as ET
+    except ImportError:
+        from xml.dom import minidom as DOM
+        ET = None
+try:
+    import xml.etree.cElementTree as ET
+    from xml.dom import minidom as DOM
+except ImportError:
+    try:
+        import xml.etree.ElementTree as ET
+    except ImportError:
+        from xml.dom import minidom as DOM
+        ET = None
+try:
+    from urllib2 import urlopen, Request, HTTPError, URLError
+except ImportError:
+    from urllib.request import urlopen, Request, HTTPError, URLError
 
+try:
+    from httplib import HTTPConnection, HTTPSConnection
+except ImportError:
+    e_http_py2 = sys.exc_info()
+    try:
+        from http.client import HTTPConnection, HTTPSConnection
+    except ImportError:
+        e_http_py3 = sys.exc_info()
+        raise SystemExit('''Your python installation is missing required HTTP client classes:
+
+Python 2: %s
+Python 3: %s'''
+                         % (e_http_py2[1], e_http_py3[1]))
+
+try:
+    from Queue import Queue
+except ImportError:
+    from queue import Queue
+
+try:
+    from urlparse import urlparse
+except ImportError:
+    from urllib.parse import urlparse
+
+try:
+    from urlparse import parse_qs
+except ImportError:
+    try:
+        from urllib.parse import parse_qs
+    except ImportError:
+        from cgi import parse_qs
+
+try:
+    from hashlib import md5
+except ImportError:
+    from md5 import md5
+
+try:
+    from argparse import ArgumentParser as ArgParser
+except ImportError:
+    from optparse import OptionParser as ArgParser
+
+try:
+    import builtins
+except ImportError:
+
+
+    def print_(*args, **kwargs):
+        fp = kwargs.pop('file', sys.stdout)
+        if fp is None:
+            return
+
+        def write(data):
+            if not isinstance(data, basestring):
+                data = str(data)
+            fp.write(data)
+
+        want_unicode = False
+        sep = kwargs.pop('sep', None)
+        if sep is not None:
+            if isinstance(sep, unicode):
+                want_unicode = True
+            elif not isinstance(sep, str):
+                raise TypeError('sep must be None or a string')
+        end = kwargs.pop('end', None)
+        if end is not None:
+            if isinstance(end, unicode):
+                want_unicode = True
+            elif not isinstance(end, str):
+                raise TypeError('end must be None or a string')
+        if kwargs:
+            raise TypeError('invalid keyword arguments to print()')
+        if not want_unicode:
+            for arg in args:
+                if isinstance(arg, unicode):
+                    want_unicode = True
+                    break
+        if want_unicode:
+            newline = unicode('\n')
+            space = unicode(' ')
+        else:
+            newline = '\n'
+            space = ' '
+        if sep is None:
+            sep = space
+        if end is None:
+            end = newline
+        for (i, arg) in enumerate(args):
+            if i:
+                write(sep)
+            write(arg)
+        write(end)
+else:
+    print_ = getattr(builtins, 'print')
+    del builtins
 class SpeedtestCliServerListError(Exception):
     """
 """
-
-
 def bound_socket(*args, **kwargs):
+
     global source
     sock = socket_socket(*args, **kwargs)
     sock.bind((source, 0))
     return sock
-
-
 def distance(origin, destination):
     (lat1, lon1) = origin
     (lat2, lon2) = destination
@@ -72,15 +165,13 @@ def distance(origin, destination):
 
     return d
 
-
 def build_request(url, data=None, headers={}):
     if url[0] == ':':
-        schemed_url = '{0}{1}'.format(scheme, url)
+        schemed_url = '%s%s' % (scheme, url)
     else:
         schemed_url = url
     headers['User-Agent'] = user_agent
     return Request(schemed_url, data=data, headers=headers)
-
 
 def catch_request(request):
     try:
@@ -88,10 +179,7 @@ def catch_request(request):
         return uh
     except (HTTPError, URLError, socket.error):
         e = sys.exc_info()[1]
-        logging.log("Speedtest Error: {0}".format(e), level=xbmc.LOGDEBUG)
-
-        return None, e
-
+        return (None, e)
 
 class FileGetter(threading.Thread):
 
@@ -114,9 +202,7 @@ class FileGetter(threading.Thread):
                 f.close()
         except IOError:
             pass
-
-
-def download_speed(files, quiet=False):
+def downloadSpeed(files, quiet=False):
     start = timeit.default_timer()
 
     def producer(q, files):
@@ -140,27 +226,28 @@ def download_speed(files, quiet=False):
 
     q = Queue(6)
     prod_thread = threading.Thread(target=producer, args=(q, files))
-    cons_thread = threading.Thread(target=consumer, args=(q, len(files)))
+    cons_thread = threading.Thread(target=consumer, args=(q,
+                                   len(files)))
     start = timeit.default_timer()
     prod_thread.start()
     cons_thread.start()
-
     while prod_thread.isAlive():
         prod_thread.join(timeout=0.1)
-
     while cons_thread.isAlive():
         cons_thread.join(timeout=0.1)
-
     return sum(finished) / (timeit.default_timer() - start)
-
-
 class FilePutter(threading.Thread):
 
-    def __init__(self, url, start, size):
+    def __init__(
+        self,
+        url,
+        start,
+        size,
+        ):
         self.url = url
         chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         data = chars * int(round(int(size) / 36.0))
-        self.data = ('content1={0}'.format(data[0:int(size) - 9])).encode('utf-8')
+        self.data = ('content1=%s' % data[0:int(size) - 9]).encode()
         del data
         self.result = None
         self.starttime = start
@@ -168,7 +255,8 @@ class FilePutter(threading.Thread):
 
     def run(self):
         try:
-            if timeit.default_timer() - self.starttime <= 10 and not shutdown_event.isSet():
+            if timeit.default_timer() - self.starttime <= 10 \
+                and not shutdown_event.isSet():
                 request = build_request(self.url, data=self.data)
                 f = urlopen(request)
                 f.read(11)
@@ -178,9 +266,7 @@ class FilePutter(threading.Thread):
                 self.result = 0
         except IOError:
             self.result = 0
-
-
-def upload_speed(url, sizes, quiet=False):
+def uploadSpeed(url, sizes, quiet=False):
     start = timeit.default_timer()
 
     def producer(q, sizes):
@@ -209,30 +295,22 @@ def upload_speed(url, sizes, quiet=False):
     start = timeit.default_timer()
     prod_thread.start()
     cons_thread.start()
-
     while prod_thread.isAlive():
         prod_thread.join(timeout=0.1)
-
     while cons_thread.isAlive():
         cons_thread.join(timeout=0.1)
-
     return sum(finished) / (timeit.default_timer() - start)
-
-
-def get_attributes_by_tag_name(dom, tagName):
+def getAttributesByTagName(dom, tagName):
     elem = dom.getElementsByTagName(tagName)[0]
     return dict(list(elem.attributes.items()))
-
-
-def get_config():
-    request = build_request('http://www.speedtest.net/speedtest-config.php')
+def getConfig():
+    request = \
+        build_request('http://www.speedtest.net/speedtest-config.php')
     uh = catch_request(request)
     if uh is False:
-        logging.log('Could not retrieve speedtest.net configuration: {0}'.format(uh), level=xbmc.LOGDEBUG)
+        print_('Could not retrieve speedtest.net configuration: %s' % e)
         sys.exit(1)
-
     configxml = []
-
     while 1:
         configxml.append(uh.read(10240))
         if len(configxml[-1]) == 0:
@@ -242,7 +320,7 @@ def get_config():
     uh.close()
     try:
         try:
-            root = ET.fromstring(''.encode('utf-8').join(configxml))
+            root = ET.fromstring(''.encode().join(configxml))
             config = {
                 'client': root.find('client').attrib,
                 'times': root.find('times').attrib,
@@ -250,23 +328,23 @@ def get_config():
                 'upload': root.find('upload').attrib,
                 }
         except Exception:
+
+                           # Python3 branch
+
             root = DOM.parseString(''.join(configxml))
             config = {
-                'client': get_attributes_by_tag_name(root, 'client'),
-                'times': get_attributes_by_tag_name(root, 'times'),
-                'download': get_attributes_by_tag_name(root, 'download'),
-                'upload': get_attributes_by_tag_name(root, 'upload'),
+                'client': getAttributesByTagName(root, 'client'),
+                'times': getAttributesByTagName(root, 'times'),
+                'download': getAttributesByTagName(root, 'download'),
+                'upload': getAttributesByTagName(root, 'upload'),
                 }
     except SyntaxError:
-        logging.log('Failed to parse speedtest.net configuration', level=xbmc.LOGDEBUG)
+        print_('Failed to parse speedtest.net configuration')
         sys.exit(1)
-
     del root
     del configxml
     return config
-
-
-def closest_servers(client, all=False):
+def closestServers(client, all=False):
     urls = ['http://www.speedtest.net/speedtest-servers-static.php',
             'https://www.speedtest.net/speedtest-servers-static.php']
     errors = []
@@ -276,7 +354,7 @@ def closest_servers(client, all=False):
             request = build_request(url)
             uh = catch_request(request)
             if uh is False:
-                errors.append('{0}'.format(uh))
+                errors.append('%s' % e)
                 raise SpeedtestCliServerListError
             serversxml = []
             while 1:
@@ -292,6 +370,9 @@ def closest_servers(client, all=False):
                     root = ET.fromstring(''.encode().join(serversxml))
                     elements = root.getiterator('server')
                 except Exception:
+
+                                   # Python3 branch
+
                     root = DOM.parseString(''.join(serversxml))
                     elements = root.getElementsByTagName('server')
             except SyntaxError:
@@ -301,14 +382,14 @@ def closest_servers(client, all=False):
                     attrib = server.attrib
                 except AttributeError:
                     attrib = dict(list(server.attributes.items()))
-                d = distance([float(client['lat']), float(client['lon'])], [float(attrib.get('lat')),
-                                                                            float(attrib.get('lon'))])
+                d = distance([float(client['lat']), float(client['lon'
+                             ])], [float(attrib.get('lat')),
+                             float(attrib.get('lon'))])
                 attrib['d'] = d
                 if d not in servers:
                     servers[d] = [attrib]
                 else:
                     servers[d].append(attrib)
-
             del root
             del serversxml
             del elements
@@ -317,7 +398,9 @@ def closest_servers(client, all=False):
         if servers:
             break
     if not servers:
-        logging.log('Failed to retrieve list of speedtest.net servers: {0}'.format('\n'.join(errors)), level=xbmc.LOGDEBUG)
+        print_('''Failed to retrieve list of speedtest.net servers:
+ %s'''
+               % '\n'.join(errors))
         sys.exit(1)
     closest = []
     for d in sorted(servers.keys()):
@@ -330,13 +413,11 @@ def closest_servers(client, all=False):
         break
     del servers
     return closest
-
-
-def get_best_server(servers):
+def getBestServer(servers):
     results = {}
     for server in servers:
         cum = []
-        url = '{0}/latency.txt'.format(os.path.dirname(server['url']))
+        url = '%s/latency.txt' % os.path.dirname(server['url'])
         urlparts = urlparse(url)
         for i in range(0, 3):
             try:
@@ -364,70 +445,96 @@ def get_best_server(servers):
     best = results[fastest]
     best['latency'] = fastest
     return best
-
-
-def ctrl_c():
+def ctrl_c(signum, frame):
     global shutdown_event
     shutdown_event.set()
     raise SystemExit('\nCancelling...')
-
-
 def version():
     raise SystemExit(__version__)
-
-
-def speedtest(list=False, mini=None, server=None, share=True, simple=False, src=None, timeout=10, units=('bit', 8), version=False):
+def speedtest(
+    list=False,
+    mini=None,
+    server=None,
+    share=True,
+    simple=False,
+    src=None,
+    timeout=10,
+    units=('bit', 8),
+    version=False,
+    ):
     global shutdown_event, source, scheme
     shutdown_event = threading.Event()
     global line1, line2, line3
 
     dp = xbmcgui.DialogProgress()
-    line1 = '[COLOR {0}]Starting test..[/COLOR]'.format(CONFIG.COLOR2)
-    dp.create('{0}: [COLOR {1}]Speed Test[/COLOR]'.format(CONFIG.ADDONTITLE, CONFIG.COLOR1), line1)
+    line1 = '[COLOR %s]Starting test..[/COLOR]' % COLOR2
+    dp.create('%s: [COLOR %s]Speed Test[/COLOR]' % (ADDONTITLE,
+              COLOR1), line1)
     dp.update(0)
-    logging.log('Retrieving speedtest.net configuration...', level=xbmc.LOGDEBUG)
-    line2 = '[COLOR {0}]Retrieving speedtest.net configuration...[/COLOR]'.format(CONFIG.COLOR2)
+    print_('Retrieving speedtest.net configuration...')
+    line2 = \
+        '[COLOR %s]Retrieving speedtest.net configuration...[/COLOR]' \
+        % COLOR2
     dp.update(2, line1, line2)
     try:
-        config = get_config()
-    except URLError as e:
-        logging.log('Cannot retrieve speedtest configuration: {0}'.format(e), level=xbmc.LOGDEBUG)
+        config = getConfig()
+    except URLError:
+        print_('Cannot retrieve speedtest configuration')
         sys.exit(1)
 
-    logging.log('Retrieving speedtest.net server list...', level=xbmc.LOGDEBUG)
-    line3 = '[COLOR {0}]Retrieving speedtest.net server list...[/COLOR]'.format(CONFIG.COLOR2)
+    print_('Retrieving speedtest.net server list...')
+    line3 = '[COLOR %s]Retrieving speedtest.net server list...[/COLOR]' \
+        % COLOR2
     dp.update(4, line1, line2, line3)
 
-    servers = closest_servers(config['client'])
+    servers = closestServers(config['client'])
 
-    logging.log('Testing from %(isp)s (%(ip)s)...' % config['client'], level=xbmc.LOGDEBUG)
-    line1 = '[COLOR ' + CONFIG.COLOR2 + ']Testing From:[/COLOR] [COLOR ' \
-        + CONFIG.COLOR1 + ']%(isp)s (%(ip)s)[/COLOR]' % config['client']
+    print_('Testing from %(isp)s (%(ip)s)...' % config['client'])
+    line1 = '[COLOR ' + COLOR2 + ']Testing From:[/COLOR] [COLOR ' \
+        + COLOR1 + ']%(isp)s (%(ip)s)[/COLOR]' % config['client']
     dp.update(6, line1)
 
-    logging.log('Selecting best server based on latency...', level=xbmc.LOGDEBUG)
-    line2 = '[COLOR {0}]Selecting best server based on latency...[/COLOR]'.format(CONFIG.COLOR2)
+    print_('Selecting best server based on latency...')
+    line2 = \
+        '[COLOR %s]Selecting best server based on latency...[/COLOR]' \
+        % COLOR2
     dp.update(8, '', line2)
-    best = get_best_server(servers)
+    best = getBestServer(servers)
 
-    logging.log('Hosted by %(sponsor)s (%(name)s) [%(d)0.2f km]: %(latency)s ms' % best)
+    print_(('Hosted by %(sponsor)s (%(name)s) [%(d)0.2f km]: %(latency)s ms'
+            % best).encode('utf-8', 'ignore'))
 
-    line2 = ('[COLOR ' + CONFIG.COLOR2
-             + ']Server location: %(name)s [%(d)0.2f km]: %(latency)s ms[/COLOR]' % best)
+    line2 = ('[COLOR ' + COLOR2
+             + ']Server location: %(name)s [%(d)0.2f km]: %(latency)s ms[/COLOR]'
+              % best).encode('utf-8', 'ignore')
     dp.update(10, '', line2)
 
-    sizes = [350, 500, 750, 1000, 1500, 2000, 2500, 3000, 3500, 4000]
+    sizes = [
+        350,
+        500,
+        750,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        3500,
+        4000,
+        ]
     urls = []
     for size in sizes:
         for i in range(0, 4):
-            urls.append('{0}/random{1}x{2}.jpg'.format(os.path.dirname(best['url']), size, size))
+            urls.append('%s/random%sx%s.jpg'
+                        % (os.path.dirname(best['url']), size, size))
 
-    logging.log('Testing download speed', level=xbmc.LOGDEBUG)
-    line3 = '[COLOR {0}]Testing download speed...[/COLOR]'.format(CONFIG.COLOR2)
+    print_('Testing download speed', end='')
+    line3 = '[COLOR %s]Testing download speed...[/COLOR]' % COLOR2
     dp.update(15, '', '', line3)
-    dlspeed = download_speed(urls, simple)
+    dlspeed = downloadSpeed(urls, simple)
 
-    logging.log('Download: %0.2f M%s/s' % (dlspeed / 1000 / 1000 * units[1], units[0]))
+    print_()
+    print_('Download: %0.2f M%s/s' % (dlspeed / 1000 / 1000 * units[1],
+           units[0]))
 
     sizesizes = [int(.25 * 1000 * 1000), int(.5 * 1000 * 1000)]
     sizes = []
@@ -435,29 +542,37 @@ def speedtest(list=False, mini=None, server=None, share=True, simple=False, src=
         for i in range(0, 25):
             sizes.append(size)
 
-    logging.log('[COLOR red]Testing upload speed[/COLOR]', level=xbmc.LOGDEBUG)
-    line2 = '[COLOR %s]Testing download speed:[/COLOR] [COLOR %s]%0.2f M%s/s[/COLOR]' % (CONFIG.COLOR2, CONFIG.COLOR1, dlspeed / 1000 / 1000 * units[1], units[0])
-    line3 = '[COLOR {0}]Testing upload speed...[/COLOR]'.format(CONFIG.COLOR2)
+    print_('[COLOR red]Testing upload speed[/COLOR]', end='')
+    line2 = \
+        '[COLOR %s]Testing download speed:[/COLOR] [COLOR %s]%0.2f M%s/s[/COLOR]' \
+        % (COLOR2, COLOR1, dlspeed / 1000 / 1000 * units[1], units[0])
+    line3 = '[COLOR %s]Testing upload speed...[/COLOR]' % COLOR2
     dp.update(65, '', line2, line3)
-    ulspeed = upload_speed(best['url'], sizes, simple)
+    ulspeed = uploadSpeed(best['url'], sizes, simple)
 
-    logging.log('Upload: %0.2f M%s/s' % (ulspeed / 1000 / 1000 * units[1], units[0]))
+    print_()
+    print_('Upload: %0.2f M%s/s' % (ulspeed / 1000 / 1000 * units[1],
+           units[0]))
 
     i = 2
     while ulspeed < 1:
 
-        dp.update(65, '', '', '[COLOR ' + CONFIG.COLOR2
+        dp.update(65, '', '', '[COLOR ' + COLOR2
                   + ']Testing upload speed... [Attempt [/COLOR]'
                   + str(i) + ']')
-        ulspeed = upload_speed(best['url'], sizes, simple)
-        logging.log('Upload: %0.2f M%s/s' % (ulspeed / 1000 / 1000 * units[1], units[0]))
+        ulspeed = uploadSpeed(best['url'], sizes, simple)
+        print_()
+        print_('Upload: %0.2f M%s/s' % (ulspeed / 1000 / 1000
+               * units[1], units[0]))
         i = i + 1
         if i == 6:
             return uploadfail
 
     line1 = line2
-    line2 = '[COLOR %s]Testing upload speed:[/COLOR] [COLOR %s]%0.2f M%s/s[/COLOR]' % (CONFIG.COLOR2, CONFIG.COLOR1, ulspeed / 1000 / 1000 * units[1], units[0])
-    line3 = '[COLOR %s]Getting results...[/COLOR]' % CONFIG.COLOR2
+    line2 = \
+        '[COLOR %s]Testing upload speed:[/COLOR] [COLOR %s]%0.2f M%s/s[/COLOR]' \
+        % (COLOR2, COLOR1, ulspeed / 1000 / 1000 * units[1], units[0])
+    line3 = '[COLOR %s]Getting results...[/COLOR]' % COLOR2
     dp.update(95, line1, line2, line3)
 
     if share:
@@ -465,119 +580,65 @@ def speedtest(list=False, mini=None, server=None, share=True, simple=False, src=
         ping = int(round(best['latency'], 0))
         ulspeedk = int(round(ulspeed / 1000 * 8, 0))
         apiData = [
-            'download={0}'.format(dlspeedk),
-            'ping={0}'.format(ping),
-            'upload={0}'.format(ulspeedk),
+            'download=%s' % dlspeedk,
+            'ping=%s' % ping,
+            'upload=%s' % ulspeedk,
             'promo=',
-            'startmode={0}'.format('pingselect'),
-            'recommendedserverid={0}'.format(best['id']),
-            'accuracy=1',
-            'serverid={0}'.format(best['id']),
-            'hash={0}'.format(hashlib.md5('{0}-{1}-{2}-{3}'.format(ping, ulspeedk, dlspeedk, '297aae72').encode('utf-8')).hexdigest())
+            'startmode=%s' % 'pingselect',
+            'recommendedserverid=%s' % best['id'],
+            'accuracy=%s' % 1,
+            'serverid=%s' % best['id'],
+            'hash=%s' % md5(('%s-%s-%s-%s' % (ping, ulspeedk, dlspeedk,
+                            '297aae72')).encode()).hexdigest(),
             ]
 
-        headers = {'Referer': 'http://c.speedtest.net/flash/speedtest.swf'}
+        headers = \
+            {'Referer': 'http://c.speedtest.net/flash/speedtest.swf'}
         request = build_request('http://www.speedtest.net/api/api.php',
                                 data='&'.join(apiData).encode(),
                                 headers=headers)
         f = catch_request(request)
         if f is False:
-            logging.log('Could not submit results to speedtest.net: {0}'.format(e), level=xbmc.LOGDEBUG)
+            print_('Could not submit results to speedtest.net: %s' % e)
             sys.exit(1)
         response = f.read()
         code = f.code
         f.close()
 
         if int(code) != 200:
-            logging.log('Could not submit results to speedtest.net', level=xbmc.LOGDEBUG)
+            print_('Could not submit results to speedtest.net')
             sys.exit(1)
 
         qsargs = parse_qs(response.decode())
         resultid = qsargs.get('resultid')
         if not resultid or len(resultid) != 1:
-            logging.log('Could not submit results to speedtest.net', level=xbmc.LOGDEBUG)
+            print_('Could not submit results to speedtest.net')
             sys.exit(1)
 
-        logging.log('Share results: {0}://www.speedtest.net/result/{1}.png'.format(scheme, resultid[0]), level=xbmc.LOGDEBUG)
+        print_('Share results: %s://www.speedtest.net/result/%s.png'
+               % (scheme, resultid[0]))
 
-        dp.close()
+        dp.close
 
-        curserver = '%(name)s [%(d)0.2f km]: %(latency)s ms' % best
+        curserver = ('%(name)s [%(d)0.2f km]: %(latency)s ms'
+                     % best).encode('utf-8', 'ignore')
 
-        return ('{0}://www.speedtest.net/result/{1}.png'.format(scheme, resultid[0]), dlspeed / 1000 / 1000 * units[1],
-                units[0], ulspeed / 1000 / 1000 * units[1], units[0], ping, curserver)
-
-
-def net_info():
-    import json
-    from resources.libs import logging
-    from resources.libs import tools
-
-    infoLabel = ['Network.IPAddress',
-                 'Network.MacAddress']
-    data = []
-    x = 0
-    for info in infoLabel:
-        temp = tools.get_info_label(info)
-        y = 0
-        while temp == "Busy" and y < 10:
-            temp = tools.get_info_label(info)
-            y += 1
-            logging.log("{0} sleep {1}".format(info, str(y)))
-            xbmc.sleep(200)
-        data.append(temp)
-        x += 1
-    try:
-        url = 'http://extreme-ip-lookup.com/json/'
-        req = Request(url)
-        req.add_header('User-Agent',
-                       'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urlopen(req)
-        geo = json.load(response)
-    except:
-        url = 'http://ip-api.com/json'
-        req = Request(url)
-        req.add_header('User-Agent',
-                       'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urlopen(req)
-        geo = json.load(response)
-    mac = data[1]
-    inter_ip = data[0]
-    ip = geo['query']
-    isp = geo['org']
-    city = geo['city']
-    country = geo['country']
-    state = geo['region']
-    return mac, inter_ip, ip, city, state, country, isp
-
-
-def get_ip():
-    from resources.libs import tools
-
-    site = 'http://whatismyipaddress.com/'
-    if not tools.check_url(site):
-        return 'Unknown', 'Unknown', 'Unknown'
-    page = tools.open_url(site).replace('\n', '').replace('\r', '')
-    if 'Access Denied' not in page:
-        ipmatch = re.compile('whatismyipaddress.com/ip/(.+?)"').findall(page)
-        ipfinal = ipmatch[0] if (len(ipmatch) > 0) else 'Unknown'
-        details = re.compile('"font-size:14px;">(.+?)</td>').findall(page)
-        provider = details[0] if (len(details) > 0) else 'Unknown'
-        location = details[1]+', '+details[2]+', '+details[3] if (len(details) > 2) else 'Unknown'
-        return ipfinal, provider, location
-    else:
-        return 'Unknown', 'Unknown', 'Unknown'
-
-
+        return (
+            '%s://www.speedtest.net/result/%s.png' % (scheme,
+                    resultid[0]),
+            dlspeed / 1000 / 1000 * units[1],
+            units[0],
+            ulspeed / 1000 / 1000 * units[1],
+            units[0],
+            ping,
+            curserver,
+            )
 def main():
     try:
         speedtest()
     except KeyboardInterrupt:
-        logging.log('\nCancelling...', level=xbmc.LOGDEBUG)
-        dp = xbmcgui.DialogProgress()
+        print_('\nCancelling...')
         dp.close()
         sys.exit()
-
-
 if __name__ == '__main__':
     main()
