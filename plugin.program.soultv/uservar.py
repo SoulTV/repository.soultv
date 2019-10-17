@@ -15,7 +15,7 @@ ART = os.path.join(PATH, 'resources', 'art')
 #########################################################
 ADDONTITLE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
 BUILDERNAME = 'Seoul'
-EXCLUDES = [ADDON_ID, 'repository.soultv', 'plugin.program.soultv', 'pvr.iptvsimpleclient', 'inputstream.adaptive', 'inputstream.rtmp']
+EXCLUDES = [ADDON_ID, 'repository.soultv', 'pvr.iptvsimpleclient', 'inputstream.adaptive', 'inputstream.rtmp']
 # Text File with build info in it.
 BUILDFILE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/builds.txt'
 # How often you would like it to check for build updates in days
@@ -87,7 +87,7 @@ CONTACTFANART = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/maste
 #        Auto Update For Those With No Repo             #
 #########################################################
 # Enable Auto Update 'Yes' or 'No'
-AUTOUPDATE = 'Yes'
+AUTOUPDATE = 'No'
 # Url to wizard version
 WIZARDFILE = BUILDFILE
 #########################################################
@@ -110,14 +110,14 @@ REPOZIPURL = 'https://github.com/SoulTV/soultv.github.io/raw/master/zips/reposit
 #        Notification Window                            #
 #########################################################
 # Enable Notification screen Yes or No
-ENABLE = 'Yes'
+ENABLE = 'No'
 # Url to notification file
 NOTIFICATION = 'http://'
 # Use either 'Text' or 'Image'
 HEADERTYPE = 'Text'
 # Font size of header
 FONTHEADER = 'Font14'
-HEADERMESSAGE = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
+HEADERMESSAGE = '[B][COLOR grey]Soul TV[/COLOR][/B] Helper'
 # url to image if using Image 424x180
 HEADERIMAGE = 'http://'
 # Font for Notification Window
