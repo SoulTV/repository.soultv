@@ -1,6 +1,6 @@
 id="plugin.program.aftermath"
 version="0.5.0STV"
-zip="http://"
+zip="https://www.dropbox.com/s/r2x0wlwhm4abc0d/plugin.program.aftermath-0.5.0STV.zip?dl=1"
 
 name="Soul Solo STV"
 version="1.0.0"
