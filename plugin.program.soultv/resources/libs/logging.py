@@ -1,3 +1,22 @@
+################################################################################
+#      Copyright (C) 2019 drinfernoo                                           #
+#                                                                              #
+#  This Program is free software; you can redistribute it and/or modify        #
+#  it under the terms of the GNU General Public License as published by        #
+#  the Free Software Foundation; either version 2, or (at your option)         #
+#  any later version.                                                          #
+#                                                                              #
+#  This Program is distributed in the hope that it will be useful,             #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                #
+#  GNU General Public License for more details.                                #
+#                                                                              #
+#  You should have received a copy of the GNU General Public License           #
+#  along with XBMC; see the file COPYING.  If not, write to                    #
+#  the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.       #
+#  http://www.gnu.org/copyleft/gpl.html                                        #
+################################################################################
+
 import xbmc
 import xbmcgui
 import xbmcvfs
@@ -319,7 +338,9 @@ class LogURLopener(FancyURLopener):
 
 
 def show_result(message, url=None):
-    from resources.libs import gui
+    from resources.libs.gui import window
+
+    dialog = xbmcgui.Dialog()
 
     if url:
         try:
@@ -327,7 +348,7 @@ def show_result(message, url=None):
             
             fn = url.split('/')[-2]
             imagefile = qr.generate_code(url, fn)
-            gui.show_qr_code("loguploader.xml", imagefile, message)
+            window.show_qr_code("loguploader.xml", imagefile, message)
             try:
                 os.remove(imagefile)
             except:
@@ -340,11 +361,13 @@ def show_result(message, url=None):
 
 
 def view_log_file():
-    from resources.libs import gui
+    from resources.libs.gui import window
 
     mainlog = grab_log(file=True)
     oldlog = grab_log(file=True, old=True)
     which = 0
+
+    dialog = xbmcgui.Dialog()
 
     if oldlog and mainlog:
 
@@ -366,7 +389,51 @@ def view_log_file():
     logtype = mainlog if which == 0 else oldlog
     msg = grab_log() if which == 0 else grab_log(old=True)
 
-    gui.show_log_viewer("Viewing Log File: {0}".format(logtype), msg, ext_buttons=True)
+    window.show_log_viewer("Viewing Log File: {0}".format(logtype), msg, ext_buttons=True)
+
+
+def swap_debug():
+    import threading
+
+    new = '"debug.showloginfo"'
+    query = '{{"jsonrpc":"2.0", "method":"Settings.GetSettingValue","params":{{"setting":{0}}}, "id":1}}'.format(new)
+    response = xbmc.executeJSONRPC(query)
+    log("Debug Logging Get Settings: {0}".format(str(response)))
+    if 'false' in response:
+        value = 'true'
+        threading.Thread(target=_dialog_watch).start()
+        xbmc.sleep(200)
+        query = '{{"jsonrpc":"2.0", "method":"Settings.SetSettingValue","params":{{"setting":{0},"value":{1}}}, "id":1}}'.format(
+            new, value)
+        response = xbmc.executeJSONRPC(query)
+        log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
+                           '[COLOR {0}]Debug Logging:[/COLOR] [COLOR {1}]Enabled[/COLOR]'.format(CONFIG.COLOR1,
+                                                                                                   CONFIG.COLOR2))
+        log("Debug Logging Set Settings: {0}".format(str(response)))
+    elif 'true' in response:
+        value = 'false'
+        threading.Thread(target=_dialog_watch).start()
+        xbmc.sleep(200)
+        query = '{{"jsonrpc":"2.0", "method":"Settings.SetSettingValue","params":{{"setting":{0},"value":{1}}}, "id":1}}'.format(
+            new, value)
+        response = xbmc.executeJSONRPC(query)
+        log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
+                   '[COLOR {0}]Debug Logging:[/COLOR] [COLOR {1}]Disabled[/COLOR]'.format(CONFIG.COLOR1,
+                                                                                         CONFIG.COLOR2))
+        log("Debug Logging Set Settings: {0}".format(str(response)))
+
+
+def _dialog_watch():
+    x = 0
+    while not xbmc.getCondVisibility("Window.isVisible(yesnodialog)") and x < 100:
+        x += 1
+        xbmc.sleep(100)
+
+    if xbmc.getCondVisibility("Window.isVisible(yesnodialog)"):
+        xbmc.executebuiltin('SendClick(yesnodialog, 11)')
+        return True
+    else:
+        return False
 
 
 def error_list(file):
@@ -414,7 +481,7 @@ def error_checking(log=None, count=None, last=None):
     if count is not None:
         return len(errors)
     elif len(errors) > 0:
-        from resources.libs import gui
+        from resources.libs.gui import window
         
         if last is None:
             i = 0
@@ -422,10 +489,10 @@ def error_checking(log=None, count=None, last=None):
             for item in errors:
                 i += 1
                 string += "[B][COLOR red]ERROR NUMBER {0}:[/B][/COLOR] {1}\n".format(str(i), item.replace(CONFIG.HOME, '/').replace('                                        ', ''))
-            gui.show_log_viewer("Viewing Errors in Log", string)
+            window.show_log_viewer("Viewing Errors in Log", string)
         else:
             string = "[B][COLOR red]Last Error in Log:[/B][/COLOR] {0}\n".format(errors[0].replace(CONFIG.HOME, '/').replace('                                        ', ''))
-            gui.show_log_viewer("Viewing Last Error in Log", string)
+            window.show_log_viewer("Viewing Last Error in Log", string)
 
     else:
         log_notify('[COLOR {0}]View Error Log[/COLOR]'.format(CONFIG.COLOR1),

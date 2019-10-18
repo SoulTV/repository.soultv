@@ -1,3 +1,22 @@
+################################################################################
+#      Copyright (C) 2019 drinfernoo                                           #
+#                                                                              #
+#  This Program is free software; you can redistribute it and/or modify        #
+#  it under the terms of the GNU General Public License as published by        #
+#  the Free Software Foundation; either version 2, or (at your option)         #
+#  any later version.                                                          #
+#                                                                              #
+#  This Program is distributed in the hope that it will be useful,             #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                #
+#  GNU General Public License for more details.                                #
+#                                                                              #
+#  You should have received a copy of the GNU General Public License           #
+#  along with XBMC; see the file COPYING.  If not, write to                    #
+#  the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.       #
+#  http://www.gnu.org/copyleft/gpl.html                                        #
+################################################################################
+
 import xbmc
 import xbmcgui
 
@@ -92,9 +111,9 @@ def check_info(name):
 
 
 def build_info(name):
-    from resources.libs import gui
     from resources.libs import logging
     from resources.libs import tools
+    from resources.libs.gui import window
 
     if tools.check_url(CONFIG.BUILDFILE):
         if check_build(name, 'url'):
@@ -136,7 +155,7 @@ def build_info(name):
                 msg += "[COLOR {0}]Adult Content:[/COLOR] [COLOR {1}]{2}[/COLOR][CR]".format(CONFIG.COLOR2, CONFIG.COLOR1, adult)
                 msg += "[COLOR {0}]Description:[/COLOR] [COLOR {1}]{2}[/COLOR][CR]".format(CONFIG.COLOR2, CONFIG.COLOR1, description)
 
-            gui.show_text_box("Viewing Build Info: {0}".format(name), msg)
+            window.show_text_box("Viewing Build Info: {0}".format(name), msg)
         else:
             logging.log("Invalid Build Name!")
     else:
@@ -187,9 +206,9 @@ def check_wizard(ret):
 
 
 def check_build_update():
-    from resources.libs import gui
     from resources.libs import logging
     from resources.libs import tools
+    from resources.libs.gui import window
 
     bf = tools.open_url(CONFIG.BUILDFILE)
     if not bf:
@@ -204,7 +223,7 @@ def check_build_update():
         if version > CONFIG.BUILDVERSION:
             if CONFIG.DISABLEUPDATE == 'false':
                 logging.log("[Check Updates] [Installed Version: {0}] [Current Version: {1}] Opening Update Window".format(CONFIG.BUILDVERSION, version), level=xbmc.LOGNOTICE)
-                gui.show_update_window(CONFIG.BUILDNAME, CONFIG.BUILDVERSION, version, icon, fanart)
+                window.show_update_window(CONFIG.BUILDNAME, CONFIG.BUILDVERSION, version, icon, fanart)
             else:
                 logging.log("[Check Updates] [Installed Version: {0}] [Current Version: {1}] Update Window Disabled".format(CONFIG.BUILDVERSION, version), level=xbmc.LOGNOTICE)
         else:
@@ -412,7 +431,7 @@ def check_repos():
         msg = "[COLOR {0}]Below is a list of Repositories that did not resolve.  This does not mean that they are Depreciated, sometimes hosts go down for a short period of time.  Please do serveral scans of your repository list before removing a repository just to make sure it is broken.[/COLOR][CR][CR][COLOR {1}]".format(CONFIG.COLOR2, CONFIG.COLOR1)
         msg += '[CR]'.join(badrepos)
         msg += '[/COLOR]'
-        gui.show_text_box("Viewing Broken Repositories", msg)
+        window.show_text_box("Viewing Broken Repositories", msg)
     else:
         logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
                            "[COLOR {0}]All Repositories Working![/COLOR]".format(CONFIG.COLOR2))

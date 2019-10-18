@@ -1,5 +1,5 @@
 ################################################################################
-#      Copyright (C) 2015 Surfacingx                                           #
+#      Copyright (C) 2019 drinfernoo                                           #
 #                                                                              #
 #  This Program is free software; you can redistribute it and/or modify        #
 #  it under the terms of the GNU General Public License as published by        #
@@ -39,9 +39,9 @@ from resources.libs.config import CONFIG
 from resources.libs import db
 from resources.libs import downloader
 from resources.libs import extract
-from resources.libs import gui
 from resources.libs import logging
 from resources.libs import tools
+from resources.libs.gui import window
 
 
 def cleanup_backup():

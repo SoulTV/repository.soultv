@@ -104,13 +104,12 @@ REPOADDONXML = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master
 # Url to folder zip is located in
 REPOZIPURL = 'https://github.com/SoulTV/soultv.github.io/raw/master/zips/repository.soultv/'
 #########################################################
-#########################################################
 
 #########################################################
 #        Notification Window                            #
 #########################################################
 # Enable Notification screen Yes or No
-ENABLE = 'No'
+ENABLE = 'Yes'
 # Url to notification file
 NOTIFICATION = 'http://'
 # Use either 'Text' or 'Image'
