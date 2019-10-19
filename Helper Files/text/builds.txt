@@ -4,7 +4,7 @@ zip="https://www.dropbox.com/s/hdxfmegjtsoe7tw/plugin.program.soultv-0.6.0.zip?d
 
 name="Soul Solo"
 version="1.0.0"
-url="https://www.dropbox.com/s/r41s4d4dxeue58i/soulsolo.zip?dl=1"
+url="https://www.dropbox.com/s/q1mu9z29kqos8x5/soulsolo.zip?dl=1"
 minor="http://"
 gui="http://"
 kodi="18.0"
