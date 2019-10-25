@@ -201,7 +201,7 @@ def fresh_start(install=None, over=False):
         elif install:
             from resources.libs.wizard import Wizard
 
-            Wizard.install(install, 'normal', over=True)
+            Wizard().install(install, 'normal', over=True)
         else:
             dialog.ok(CONFIG.ADDONTITLE, "[COLOR {0}]To save changes you now need to force close Kodi, Press OK to force close Kodi[/COLOR]".format(CONFIG.COLOR2))
             from resources.libs import update
@@ -349,19 +349,20 @@ def install_addon_from_url(name, url):
 
 def install_addon(plugin, url):
     from resources.libs.common import logging
+    from resources.libs.common import tools
 
-    if not CONFIG.ADDONFILE == 'http://':
+    if tools.check_url(CONFIG.ADDONFILE):
         from resources.libs import clear
         from resources.libs import downloader
         from resources.libs import db
         from resources.libs import extract
         from resources.libs import skin
-        from resources.libs.common import tools
 
         dialog = xbmcgui.Dialog()
         
         if url is None:
             url = CONFIG.ADDONFILE
+            
         if tools.check_url(url):
             link = tools.open_url(url).replace('\n', '').replace('\r', '').replace('\t', '').replace('repository=""', 'repository="none"').replace('repositoryurl=""', 'repositoryurl="http://"').replace('repositoryxml=""', 'repositoryxml="http://"')
             match = re.compile('name="(.+?)".+?lugin="%s".+?rl="(.+?)".+?epository="(.+?)".+?epositoryxml="(.+?)".+?epositoryurl="(.+?)".+?con="(.+?)".+?anart="(.+?)".+?dult="(.+?)".+?escription="(.+?)"' % plugin).findall(link)
