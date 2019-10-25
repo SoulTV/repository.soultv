@@ -18,7 +18,7 @@ description="A short description of the build."
 
 name="Soul Wako"
 version="1.0.0"
-url="https://www.dropbox.com/s/1a70fg6lughn4nk/soulwako.zip?dl=1"
+url="https://www.dropbox.com/s/6qn8dy6z8h166ep/soulwako.zip?dl=1"
 minor="http://"
 gui="http://"
 kodi="18.0"
