@@ -983,6 +983,22 @@ v5.2.14 (2017-01-23)
     </extension>
 </addon>
 
+<addon id="plugin.program.soultv" name="[B][COLOR grey]Soul TV[/COLOR][/B] Helper" version="0.6.0" provider-name="Seoul">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.requests"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="startup.py" start="startup" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">soultv.github.io</summary>
+    <description lang="en">soultvstudio@gmail.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="script.module.cherrypy"
        name="CherryPy Kodi module"
        version="11.0.1"
