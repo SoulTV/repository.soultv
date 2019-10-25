@@ -422,6 +422,12 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
             <hashes>false</hashes>
 		</dir>
 
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/ruinernin/foxystreams/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/ruinernin/foxystreams/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/ruinernin/foxystreams/repo/zips/</datadir>
+		</dir>
+
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Soul TV Repository</summary>
