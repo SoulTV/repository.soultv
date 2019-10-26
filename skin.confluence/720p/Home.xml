@@ -109,7 +109,7 @@
 				<top>310</top>
 				<height>30</height>
 				<width>300</width>
-				<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=blue] / [/COLOR]]</label>
+				<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=goldenrod] / [/COLOR]]</label>
 				<align>left</align>
 				<aligny>center</aligny>
 				<font>font12</font>
@@ -164,7 +164,7 @@
 					<align>right</align>
 					<aligny>center</aligny>
 					<font>font12_title</font>
-					<textcolor>blue</textcolor>
+					<textcolor>goldenrod</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="label">
@@ -186,7 +186,7 @@
 					<top>50</top>
 					<height>25</height>
 					<width>800</width>
-					<label>$INFO[PVR.NextRecordingTitle][COLOR=grey]$INFO[PVR.NextRecordingChannel, - [COLOR=blue]([/COLOR],[COLOR=blue])[/COLOR]][/COLOR]</label>
+					<label>$INFO[PVR.NextRecordingTitle][COLOR=grey]$INFO[PVR.NextRecordingChannel, - [COLOR=goldenrod]([/COLOR],[COLOR=goldenrod])[/COLOR]][/COLOR]</label>
 					<align>right</align>
 					<aligny>center</aligny>
 					<font>font12_title</font>
@@ -231,7 +231,7 @@
 					<align>right</align>
 					<aligny>center</aligny>
 					<font>font12_title</font>
-					<textcolor>blue</textcolor>
+					<textcolor>goldenrod</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="label">
@@ -253,7 +253,7 @@
 					<top>50</top>
 					<height>30</height>
 					<width>800</width>
-					<label>$INFO[PVR.NowRecordingTitle][COLOR=grey]$INFO[PVR.NowRecordingChannel, - [COLOR=blue]([/COLOR],[COLOR=blue])[/COLOR]][/COLOR]</label>
+					<label>$INFO[PVR.NowRecordingTitle][COLOR=grey]$INFO[PVR.NowRecordingChannel, - [COLOR=goldenrod]([/COLOR],[COLOR=goldenrod])[/COLOR]][/COLOR]</label>
 					<align>right</align>
 					<aligny>center</aligny>
 					<font>font12_title</font>
@@ -302,7 +302,7 @@
 					<top>310</top>
 					<height>30</height>
 					<width>300</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=blue] / [/COLOR]]</label>
+					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=goldenrod] / [/COLOR]]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font12</font>
@@ -355,7 +355,7 @@
 					<top>310</top>
 					<height>30</height>
 					<width>300</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=blue] / [/COLOR]]</label>
+					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=goldenrod] / [/COLOR]]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font12</font>
@@ -369,7 +369,7 @@
 					<top>310</top>
 					<height>30</height>
 					<width>300</width>
-					<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration,[COLOR=blue] / [/COLOR]]</label>
+					<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration,[COLOR=goldenrod] / [/COLOR]]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font12</font>
@@ -423,7 +423,7 @@
 					<top>310</top>
 					<height>30</height>
 					<width>300</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=blue] / [/COLOR]]</label>
+					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=goldenrod] / [/COLOR]]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font12</font>
@@ -476,7 +476,7 @@
 					<top>310</top>
 					<height>30</height>
 					<width>300</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=blue] / [/COLOR]]</label>
+					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=goldenrod] / [/COLOR]]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font12</font>
@@ -997,19 +997,19 @@
 						<thumb></thumb>
 						<visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
 					</item>
-					<item id="1">
-						<label>Setup</label>
-						<onclick>ActivateWindow(Programs,"plugin://plugin.program.soultv/",return)</onclick>
-						<onclick>ActivateWindow(Programs,"plugin://plugin.program.soultv/",return)</onclick>
-						<icon></icon>
-						<thumb></thumb>
-						<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
-					</item>
 					<item id="5">
 						<label>31959</label>
 						<onclick>ActivateWindow(Settings)</onclick>
 						<icon></icon>
 						<thumb></thumb>
+					</item>
+					<item id="1">
+						<label>SETUP</label>
+						<onclick>ActivateWindow(Programs,"plugin://plugin.program.soultv/",return)</onclick>
+						<onclick>ActivateWindow(Programs,"plugin://plugin.program.soultv/",return)</onclick>
+						<icon></icon>
+						<thumb></thumb>
+						<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
 					</item>
 				</content>
 			</control>
@@ -1107,8 +1107,8 @@
 				<width>1145</width>
 				<font>font12</font>
 				<urlset>1</urlset>
-				<textcolor>blue</textcolor>
-				<titlecolor>blue</titlecolor>
+				<textcolor>goldenrod</textcolor>
+				<titlecolor>goldenrod</titlecolor>
 				<headlinecolor>white</headlinecolor>
 			</control>
 			<control type="image">
