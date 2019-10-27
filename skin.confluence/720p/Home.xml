@@ -5,6 +5,7 @@
 	<onunload condition="ControlGroup(9011).HasFocus">SetProperty(MusicDirectLink,True)</onunload>
 	<onunload condition="Control.HasFocus(9000) + Container(9000).Hasfocus(2)">ClearProperty(VideosDirectLink)</onunload>
 	<onunload condition="Control.HasFocus(9000) + Container(9000).Hasfocus(3)">ClearProperty(MusicDirectLink)</onunload>
+	<onload condition="Window.Previous(startup)">Control.Move(9000,2)</onload>
 	<controls>
 		<control type="list" id="90160">
 			<left>-10</left>
@@ -997,19 +998,19 @@
 						<thumb></thumb>
 						<visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
 					</item>
-					<item id="5">
-						<label>31959</label>
-						<onclick>ActivateWindow(Settings)</onclick>
-						<icon></icon>
-						<thumb></thumb>
-					</item>
 					<item id="1">
-						<label>SETUP</label>
+						<label>INSTALL</label>
 						<onclick>ActivateWindow(Programs,"plugin://plugin.program.soultv/",return)</onclick>
 						<onclick>ActivateWindow(Programs,"plugin://plugin.program.soultv/",return)</onclick>
 						<icon></icon>
 						<thumb></thumb>
 						<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
+					</item>
+					<item id="5">
+						<label>31959</label>
+						<onclick>ActivateWindow(Settings)</onclick>
+						<icon></icon>
+						<thumb></thumb>
 					</item>
 				</content>
 			</control>
