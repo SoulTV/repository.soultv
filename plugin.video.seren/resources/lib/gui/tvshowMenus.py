@@ -59,6 +59,12 @@ class Menus:
         tools.closeDirectory('tvshows')
 
     def discoverShows(self):
+        
+########Begin Soul TV Modifications
+
+        tools.addDirectoryItem(tools.lang(99998), 'showsGary', '', '')
+        
+########End Soul TV Modifications
 
         tools.addDirectoryItem(tools.lang(32007), 'showsPopular&page=1')
         if tools.getSetting('trakt.auth') is not '':
@@ -78,7 +84,6 @@ class Menus:
         
 ########Begin Soul TV Modifications
 
-        tools.addDirectoryItem(tools.lang(99998), 'showsGary', '', '')
         tools.addDirectoryItem(tools.lang(99997), 'showsNetflix', '', '')
         tools.addDirectoryItem(tools.lang(99996), 'showsAmazon', '', '')
         tools.addDirectoryItem(tools.lang(99995), 'showsHulu', '', '')
@@ -98,12 +103,12 @@ class Menus:
 
     def myShows(self):
         tools.addDirectoryItem(tools.lang(32063), 'onDeckShows')
+        tools.addDirectoryItem(tools.lang(40175), 'showsMyRecentEpisodes')
+        tools.addDirectoryItem(tools.lang(40172), 'showsNextUp')
         tools.addDirectoryItem(tools.lang(32017), 'showsMyCollection')
         tools.addDirectoryItem(tools.lang(32018), 'showsMyWatchlist')
-        tools.addDirectoryItem(tools.lang(40172), 'showsNextUp')
         tools.addDirectoryItem(tools.lang(40173), 'myUpcomingEpisodes')
         tools.addDirectoryItem(tools.lang(40174), 'showsMyProgress')
-        tools.addDirectoryItem(tools.lang(40175), 'showsMyRecentEpisodes')
         tools.addDirectoryItem(tools.lang(40176), 'myTraktLists&actionArgs=shows')
         tools.closeDirectory('addons')
 

@@ -53,6 +53,13 @@ class Menus:
         tools.closeDirectory('movies')
 
     def discoverMovies(self):
+        
+########Begin Soul TV Modifications
+
+        tools.addDirectoryItem(tools.lang(99999), 'moviesLatest', '', '')
+        tools.addDirectoryItem(tools.lang(99989), 'moviesLatest4k', '', '')
+        
+########End Soul TV Modifications
 
         tools.addDirectoryItem(tools.lang(32007), 'moviesPopular&page=1')
         if tools.getSetting('trakt.auth') is not '':
@@ -70,8 +77,6 @@ class Menus:
         
 ########Begin Soul TV Modifications
 
-        tools.addDirectoryItem(tools.lang(99999), 'moviesLatest', '', '')
-        tools.addDirectoryItem(tools.lang(99989), 'moviesLatest4k', '', '')
         tools.addDirectoryItem(tools.lang(99987), 'moviesLatestReddit', '', '')
         tools.addDirectoryItem(tools.lang(99990), 'moviessoulCurated', '', '')
         tools.addDirectoryItem(tools.lang(99985), 'moviesRTBestofyear', '', '')
