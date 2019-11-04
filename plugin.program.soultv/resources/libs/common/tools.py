@@ -555,8 +555,8 @@ def ascii_check(use=None, over=False):
                            "[COLOR {0}]ASCII Check: Cancelled[/COLOR]".format(CONFIG.COLOR2))
         return
 
-    files_found = os.path.join(CONFIG.ADDON_DATA, 'asciifiles.txt')
-    files_fails = os.path.join(CONFIG.ADDON_DATA, 'asciifails.txt')
+    files_found = os.path.join(CONFIG.PLUGIN_DATA, 'asciifiles.txt')
+    files_fails = os.path.join(CONFIG.PLUGIN_DATA, 'asciifails.txt')
     afiles = open(files_found, mode='w+')
     afails = open(files_fails, mode='w+')
     f1 = 0
@@ -625,7 +625,7 @@ def ascii_check(use=None, over=False):
                 window.show_text_box("Viewing Removed ASCII Files",
                                   "[COLOR yellow][B]{0} Files Removed:[/B][/COLOR]\n {1}\n\n[COLOR yellow][B]{2} Files Failed:[B][/COLOR]\n {3}".format(f1, msg, f2, msg2))
         else:
-            window.show_text_box("Viewed Found ASCII Files", "[COLOR yellow][B]{0} Files Found:[/B][/COLOR]\n {1}".format(f1, msg))
+            window.show_text_box("Viewing Found ASCII Files", "[COLOR yellow][B]{0} Files Found:[/B][/COLOR]\n {1}".format(f1, msg))
     else:
         logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
                            "[COLOR {0}]ASCII Check: None Found.[/COLOR]".format(CONFIG.COLOR2))

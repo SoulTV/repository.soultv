@@ -33,6 +33,7 @@ def dispatch(paramstring):
     mode = params['mode'] if 'mode' in params else None
     url = params['url'] if 'url' in params else None
     name = params['name'] if 'name' in params else None
+    action = params['action'] if 'action' in params else None
 
     # MAIN MENU
     if mode is None:
@@ -64,12 +65,15 @@ def dispatch(paramstring):
     elif mode == 'buildpreview':  # Builds -> Build Preview
         from resources.libs.gui.build_menu import BuildMenu
         BuildMenu().build_video(name)
-    elif mode == 'theme':  # Builds -> "Your Build" -> "Your Theme"
-        from resources.libs.wizard import Wizard
-        Wizard().install(mode, name, url, True)
     elif mode == 'install':  # Builds -> Fresh Install/Standard Install/Apply guifix
         from resources.libs.wizard import Wizard
-        Wizard().install(url, name)
+        
+        if action in ['fresh', 'normal']:
+            Wizard().build(action, name)
+        elif action == 'gui':
+            Wizard().build(name)
+        elif action == 'theme':  # Builds -> "Your Build" -> "Your Theme"
+            Wizard().theme(name, url)
     elif mode == 'addonpack':  # Install Addon Pack
         from resources.libs import install
         install.install_addon_pack(name, url)
@@ -163,7 +167,6 @@ def dispatch(paramstring):
         from resources.libs import skin
         skin.swap_us()
     elif mode == 'enabledebug':  # Misc Maintenance -> Enable Debug Logging
-        from resources.libs.common import logging
         logging.swap_debug()
     elif mode == 'asciicheck':  # System Tweaks -> Scan for Non-Ascii Files
         from resources.libs.common import tools
@@ -171,9 +174,6 @@ def dispatch(paramstring):
     elif mode == 'convertpath':  # System Tweaks -> Convert Special Paths
         from resources.libs.common import tools
         tools.convert_special(CONFIG.HOME)
-    elif mode == 'fixaddonupdate':  # System Tweaks -> Fix Addons not Updating
-        from resources.libs import db
-        db.fix_update()
     elif mode == 'forceprofile':  # Misc Maintenance -> Reload Profile
         from resources.libs.common import tools
         tools.reload_profile(tools.get_info_label('System.ProfileName'))
@@ -260,10 +260,10 @@ def dispatch(paramstring):
         logging.upload_log()
     elif mode == 'viewlog':  # View kodi.log
         from resources.libs.gui import window
-        window.show_log_viewer()
+        logging.view_log_file()
     elif mode == 'viewwizlog':  # View wizard.log
         from resources.libs.gui import window
-        window.show_log_viewer(CONFIG.WIZLOG)
+        window.show_log_viewer(log_file=CONFIG.WIZLOG)
     elif mode == 'viewerrorlog':  # View errors in log
         logging.error_checking()
     elif mode == 'viewerrorlast':  # View last error in log
@@ -443,7 +443,9 @@ def dispatch(paramstring):
     elif mode == 'testbuildprompt':  # Developer Menu -> Test Build Prompt
         from resources.libs import test
         test.test_first_run()
-
+    elif mode == 'binarycheck':
+        from resources.libs import db
+        db.find_binary_addons()    
     elif mode == 'contact':  # Contact
         from resources.libs.gui import window
         window.show_contact(CONFIG.CONTACT)

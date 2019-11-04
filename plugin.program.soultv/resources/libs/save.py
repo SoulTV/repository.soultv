@@ -29,13 +29,14 @@ except ImportError:  # Python 2
     from resources.libs import zipfile
 
 from resources.libs.common.config import CONFIG
-from resources.libs.common import logging, tools
+from resources.libs.common import logging
+from resources.libs.common import tools
 
 
 def import_save_data():
     dialog = xbmcgui.Dialog()
 
-    TEMP = os.path.join(CONFIG.ADDON_DATA, 'temp')
+    TEMP = os.path.join(CONFIG.PLUGIN_DATA, 'temp')
     if not os.path.exists(TEMP):
         os.makedirs(TEMP)
     source = dialog.browse(1, '[COLOR {0}]Select the location of the SaveData.zip[/COLOR]'.format(CONFIG.COLOR2),

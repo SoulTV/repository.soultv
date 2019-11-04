@@ -463,7 +463,7 @@ def clear_crash():
                             nolabel="[B][COLOR red]Keep Logs[/COLOR][/B]"):
             for f in files:
                 os.remove(f)
-            logging.log_notify('[COLOR 0}]Clear Crash Logs[/COLOR]'.format(CONFIG.COLOR1),
+            logging.log_notify('[COLOR {0}]Clear Crash Logs[/COLOR]'.format(CONFIG.COLOR1),
                                '[COLOR {0}]{1} Crash Logs Removed[/COLOR]'.format(CONFIG.COLOR2, len(files)))
         else:
             logging.log_notify('[COLOR {0}]{1}[/COLOR]'.format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
@@ -547,8 +547,8 @@ def clear_thumbs(type=None):
     tools.redo_thumbs()
 
 
-def remove_addon(addon, name, over=False):
-    if over is not False:
+def remove_addon(addon, name, over=False, data=True):
+    if over:
         yes = 1
     else:
         dialog = xbmcgui.Dialog()
@@ -570,7 +570,9 @@ def remove_addon(addon, name, over=False):
             shutil.rmtree(folder)
         except Exception as e:
             logging.log("Error removing {0}: {1}".format(addon, str(e)), level=xbmc.LOGNOTICE)
-        remove_addon_data(addon)
+        
+        if data:
+            remove_addon_data(addon)
     if not over:
         logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
                            "[COLOR {0}]{1} Removed[/COLOR]".format(CONFIG.COLOR2, name))
@@ -593,14 +595,16 @@ def remove_addon_data(addon):
                             '[COLOR {0}]Would you like to remove [COLOR {1}]ALL[/COLOR] addon data stored in your userdata folder for uninstalled addons?[/COLOR]'.format(CONFIG.COLOR2, CONFIG.COLOR1),
                             yeslabel='[B][COLOR springgreen]Remove Data[/COLOR][/B]',
                             nolabel='[B][COLOR red]Don\'t Remove[/COLOR][/B]'):
+                            
             total = 0
+            
             for folder in glob.glob(os.path.join(CONFIG.ADDON_DATA, '*')):
                 foldername = folder.replace(CONFIG.ADDON_DATA, '').replace('\\', '').replace('/', '')
                 if foldername in CONFIG.EXCLUDES:
                     pass
                 elif os.path.exists(os.path.join(CONFIG.ADDONS, foldername)):
                     pass
-                else:
+                elif os.path.isdir(folder):
                     tools.clean_house(folder)
                     total += 1
                     logging.log(folder)
@@ -641,36 +645,43 @@ def remove_addon_data(addon):
                 logging.log('Add-on data for {0} was not removed'.format(addon))
     xbmc.executebuiltin('Container.Refresh()')
 
-
+    
 def remove_addon_menu():
     from resources.libs.common import logging
     from resources.libs.common import tools
     from resources.libs import update
     
+    from xml.etree import ElementTree
+    
     dialog = xbmcgui.Dialog()
 
-    fold = glob.glob(os.path.join(CONFIG.ADDONS, '*/'))
+    addonfolders = glob.iglob(os.path.join(CONFIG.ADDONS, '*/'))
     addonnames = []
     addonids = []
-    for folder in sorted(fold, key=lambda x: x):
+    
+    for folder in addonfolders:
         foldername = os.path.split(folder[:-1])[1]
+        
         if foldername in CONFIG.EXCLUDES:
             continue
         elif foldername in CONFIG.DEFAULTPLUGINS:
             continue
         elif foldername == 'packages':
-            continue
+            continue    
+        
         xml = os.path.join(folder, 'addon.xml')
+        
         if os.path.exists(xml):
-            a = tools.read_from_file(xml).replace('\n', '').replace('\r', '').replace('\t', '')
-            id_match = tools.parse_dom(a, 'addon', ret='id')
-
-            addid = foldername if len(id_match) == 0 else id_match[0]
+            root = ElementTree.parse(xml).getroot()
+            addonid = root.get('id')
+            addonname = root.get('name')
+            
             try:
-                addonnames.append(tools.get_addon_info(addid, 'name'))
-                addonids.append(addid)
+                addonnames.append(addonname)
+                addonids.append(addonid)
             except:
                 pass
+                
     if len(addonnames) == 0:
         logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
                            "[COLOR {0}]No Addons To Remove[/COLOR]".format(CONFIG.COLOR2))

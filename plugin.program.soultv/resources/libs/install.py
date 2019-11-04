@@ -201,7 +201,7 @@ def fresh_start(install=None, over=False):
         elif install:
             from resources.libs.wizard import Wizard
 
-            Wizard().install(install, 'normal', over=True)
+            Wizard().build('normal', install, over=True)
         else:
             dialog.ok(CONFIG.ADDONTITLE, "[COLOR {0}]To save changes you now need to force close Kodi, Press OK to force close Kodi[/COLOR]".format(CONFIG.COLOR2))
             from resources.libs import update
@@ -425,7 +425,7 @@ def install_addon(plugin, url):
                         return True
                     else:
                         logging.log("Repository installed, installing addon")
-                        install = install_from_kodi(plugin, False)
+                        install = install_from_kodi(plugin)
                         if install:
                             xbmc.executebuiltin('Container.Refresh()')
                             return True
@@ -449,19 +449,14 @@ def install_addon(plugin, url):
         logging.log("[Addon Installer] Not Enabled.")
 
 
-def install_from_kodi(plugin, over=True):
+def install_from_kodi(plugin):
+    import threading
     from resources.libs.gui import window
 
-    if over:
-        xbmc.sleep(2000)
-
     xbmc.executebuiltin('RunPlugin(plugin://{0})'.format(plugin))
-    if not window.while_window('yesnodialog'):
-        return False
-    xbmc.sleep(500)
-    if window.while_window('okdialog'):
-        return False
-    window.while_window('progressdialog')
+    
+    threading.Thread(target=_dialog_watch, kwargs={'window': 'yesnodialog', 'action': 11, 'count': 200}).start()
+    
     if os.path.exists(os.path.join(CONFIG.ADDONS, plugin)):
         return True
     else:
@@ -548,3 +543,16 @@ def install_apk(apk, url):
     else:
         logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, CONFIG.ADDONTITLE),
                            '[COLOR {0}]ERROR: None Android Device[/COLOR]'.format(CONFIG.COLOR2))
+                           
+
+def _dialog_watch(window='yesnodialog', action=11, count=100):
+    x = 0
+    while not xbmc.getCondVisibility("Window.isVisible({0})".format(window)) and x < count:
+        x += 1
+        xbmc.sleep(100)
+
+    if xbmc.getCondVisibility("Window.isVisible({0})".format(window)):
+        xbmc.executebuiltin('SendClick({0}, {1})'.format(window, action))
+        return True
+    else:
+        return False

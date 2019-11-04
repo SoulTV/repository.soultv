@@ -22,6 +22,8 @@ import xbmcgui
 
 from datetime import datetime
 from datetime import timedelta
+
+import glob
 import os
 import sys
 
@@ -35,7 +37,8 @@ from resources.libs import clear
 from resources.libs import check
 from resources.libs import db
 from resources.libs.gui import window
-from resources.libs.common import logging, tools
+from resources.libs.common import logging
+from resources.libs.common import tools
 from resources.libs import skin
 from resources.libs import update
 
@@ -185,8 +188,6 @@ def installed_build_check():
     else:
         logging.log('[Build Installed Check] Install seems to be completed correctly', level=xbmc.LOGNOTICE)
 
-    update.addon_updates('reset')
-
     if CONFIG.KEEPTRAKT == 'true':
         from resources.libs import traktit
         traktit.trakt_it('restore', 'all')
@@ -201,7 +202,6 @@ def installed_build_check():
         logging.log('[Build Installed Check] Restoring Login Data', level=xbmc.LOGNOTICE)
 
     CONFIG.clear_setting('install')
-
 
 def build_update_check():
     if not tools.check_url(CONFIG.BUILDFILE):
@@ -319,15 +319,15 @@ if CONFIG.FIRSTRUN == 'true':
     CONFIG.set_setting('first_install', 'false')
 else:
     logging.log("[First Run] Skipping Save Data Settings", level=xbmc.LOGNOTICE)
-
+    
 # BUILD INSTALL PROMPT
 if CONFIG.BUILDNAME == '':
     logging.log("[Current Build Check] Build Not Installed", level=xbmc.LOGNOTICE)
     window.show_build_prompt()
 else:
     logging.log("[Current Build Check] Build Installed: {0}".format(CONFIG.BUILDNAME), level=xbmc.LOGNOTICE)
-
-# BUILD UPDATE CHECK
+    
+    # BUILD UPDATE CHECK
 if CONFIG.BUILDNAME != '' and CONFIG.BUILDCHECK <= str(tools.get_date(days=CONFIG.UPDATECHECK, now=True)):
     logging.log("[Build Update Check] Started", level=xbmc.LOGNOTICE)
     build_update_check()
@@ -340,6 +340,16 @@ if CONFIG.AUTOINSTALL == 'Yes':
     auto_install_repo()
 else:
     logging.log("[Auto Install Repo] Not Enabled", level=xbmc.LOGNOTICE)
+    
+# REINSTALL ELIGIBLE BINARIES
+binarytxt = os.path.join(CONFIG.USERDATA, 'build_binaries.txt')
+if os.path.exists(binarytxt):
+    from resources.libs.restore import Restore
+    
+    logging.log("[Binary Detection] Reinstalling Eligible Binary Addons", level=xbmc.LOGNOTICE)
+    Restore().restore_binaries()
+else:
+    logging.log("[Binary Detection] Eligible Binary Addons to Reinstall", level=xbmc.LOGNOTICE)
 
 # AUTO UPDATE WIZARD
 if CONFIG.AUTOUPDATE == 'Yes':
