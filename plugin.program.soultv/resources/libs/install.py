@@ -453,7 +453,7 @@ def install_from_kodi(plugin):
     import threading
     from resources.libs.gui import window
 
-    xbmc.executebuiltin('RunPlugin(plugin://{0})'.format(plugin))
+    xbmc.executebuiltin('InstallAddon({0})'.format(plugin))
     
     threading.Thread(target=_dialog_watch, kwargs={'window': 'yesnodialog', 'action': 11, 'count': 200}).start()
     
