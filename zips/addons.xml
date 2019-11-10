@@ -970,7 +970,7 @@ v5.2.14 (2017-01-23)
     </extension>
 </addon>
 
-<addon id="plugin.program.soultv" name="[B][COLOR grey]Soul TV[/COLOR][/B] Helper" version="0.6.0.02" provider-name="Seoul">
+<addon id="plugin.program.soultv" name="[B][COLOR grey]Soul TV[/COLOR][/B] Helper" version="0.6.0.03" provider-name="Seoul">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.requests"/>
