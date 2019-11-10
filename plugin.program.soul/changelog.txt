@@ -1,3 +1,0 @@
-v0.5.0
--Initial Release
---New Dropbox Server Location
