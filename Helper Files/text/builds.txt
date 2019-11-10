@@ -4,7 +4,7 @@ zip="http://"
 
 name="Soul Solo"
 version="1.0.0"
-url="https://www.dropbox.com/s/7epcw09tl3yhlee/soulsolo.zip?dl=1"
+url="https://www.dropbox.com/s/z4y43tst67gxevy/soulsolo.zip?dl=1"
 minor="http://"
 gui="http://"
 kodi="18.0"
