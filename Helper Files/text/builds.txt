@@ -1,6 +1,6 @@
 id="plugin.program.soultv"
-version="0.6.0"
-zip="https://www.dropbox.com/s/hdxfmegjtsoe7tw/plugin.program.soultv-0.6.0.zip?dl=1"
+version="0.6.0.03"
+zip="http://"
 
 name="Soul Solo"
 version="1.0.0"
