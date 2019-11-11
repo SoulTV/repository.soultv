@@ -248,7 +248,8 @@ def update_debrid(do, who):
                                    icon)
             except Exception as e:
                 logging.log("[Debrid Info] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
-        else: logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
+        else:
+            logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
                                  '[COLOR {0}]Debrid Info: Not Registered![/COLOR]'.format(CONFIG.COLOR2),
                                  2000,
                                  icon)
