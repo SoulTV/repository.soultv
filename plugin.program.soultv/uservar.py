@@ -29,7 +29,7 @@ YOUTUBEFILE = 'http://'
 # Text File for addon installer.  Leave as 'http://' to ignore
 ADDONFILE = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
-ADVANCEDFILE = 'http://'
+ADVANCEDFILE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/advanced.txt'
 #########################################################
 
 #########################################################
@@ -111,12 +111,12 @@ REPOZIPURL = 'https://github.com/SoulTV/soultv.github.io/raw/master/zips/reposit
 # Enable Notification screen Yes or No
 ENABLE = 'Yes'
 # Url to notification file
-NOTIFICATION = 'http://'
+NOTIFICATION = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/notify.txt'
 # Use either 'Text' or 'Image'
 HEADERTYPE = 'Text'
 # Font size of header
 FONTHEADER = 'Font14'
-HEADERMESSAGE = '[COLOR silver]Open[/COLOR]Wizard'
+HEADERMESSAGE = '[COLOR silver]Soul TV[/COLOR]Helper'
 # url to image if using Image 424x180
 HEADERIMAGE = 'http://'
 # Font for Notification Window
