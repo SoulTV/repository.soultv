@@ -940,7 +940,7 @@ v5.2.14 (2017-01-23)
     </extension>
 </addon>
 
-<addon id="plugin.program.soultv" name="[COLOR goldenrod][B]Soul TV[/B] [/COLOR]Helper" version="1.0.0" provider-name="Seoul">
+<addon id="plugin.program.soultv" name="[COLOR silver][B]Soul TV[/B] [/COLOR]Helper" version="1.0.0" provider-name="Seoul">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
         <import addon="script.module.requests" />
@@ -953,8 +953,8 @@ v5.2.14 (2017-01-23)
     <extension point="xbmc.service" library="startup.py" start="startup" />
 
     <extension point="xbmc.addon.metadata">
-        <summary lang="en">[COLOR goldenrod][B]Soul TV[/B] [/COLOR]Helper</summary>
-        <description lang="en">[COLOR limegreen][B]Soul TV[/B][/COLOR]Helper offers many maintenance features, selective add-on data saving, and automated build installs.</description>
+        <summary lang="en">[COLOR silver][B]Soul TV[/B] [/COLOR]Helper</summary>
+        <description lang="en">[COLOR silver][B]Soul TV[/B][/COLOR]Helper offers many maintenance features, selective add-on data saving, and automated build installs.</description>
         <platform>all</platform>
         <reuselanguageinvoker>false</reuselanguageinvoker>
         <source>https://www.github.com/drinfernoo/plugin.program.openwizard/</source>
