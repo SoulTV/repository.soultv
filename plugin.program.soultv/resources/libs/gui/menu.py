@@ -513,7 +513,7 @@ def trakt_menu():
                 else:
                     directory.add_file('[COLOR red]Saved Data: Not Saved[/COLOR]', {'mode': 'savetrakt', 'name': trakt}, icon=icon, fanart=fanart, menu=menu2)
             else:
-                directory.add_file('[COLOR springgreen]Saved Data: {0}[/COLOR]'.format(user), '', icon=icon, fanart=fanart, menu=menu2)
+                directory.add_file('[COLOR springgreen]Saved Data: {0}[/COLOR]'.format(user), icon=icon, fanart=fanart, menu=menu2)
 
     directory.add_separator()
     directory.add_file('Save All Trakt Data', {'mode': 'savetrakt', 'name': 'all'}, icon=CONFIG.ICONTRAKT, themeit=CONFIG.THEME3)
@@ -597,7 +597,7 @@ def login_menu():
             menu2 = create_save_data_menu('Login', login)
             menu.append((CONFIG.THEME2.format('{0} Settings'.format(name)), 'RunPlugin(plugin://{0}/?mode=opensettings&name={1}&url=login)'.format(CONFIG.ADDON_ID, login)))
 
-            directory.add_file('[+]-> {0}'.format(name), '', icon=icon, fanart=fanart, themeit=CONFIG.THEME3)
+            directory.add_file('[+]-> {0}'.format(name), icon=icon, fanart=fanart, themeit=CONFIG.THEME3)
             if not os.path.exists(path):
                 directory.add_file('[COLOR red]Addon Data: Not Installed[/COLOR]', icon=icon, fanart=fanart, menu=menu)
             elif not auser:

@@ -102,25 +102,25 @@ REPOID = 'repository.soultv'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
 REPOADDONXML = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL = 'https://github.com/SoulTV/soultv.github.io/raw/master/zips/repository.soultv/'
+REPOZIPURL = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/zips/repository.soultv/'
 #########################################################
 
 #########################################################
 #        Notification Window                            #
 #########################################################
 # Enable Notification screen Yes or No
-ENABLE = 'No'
+ENABLE = 'Yes'
 # Url to notification file
-NOTIFICATION = 'http://'
+NOTIFICATION = 'http://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/notify.txt'
 # Use either 'Text' or 'Image'
-HEADERTYPE = 'Text'
+HEADERTYPE = 'Image'
 # Font size of header
 FONTHEADER = 'Font14'
 HEADERMESSAGE = '[COLOR silver]Soul TV[/COLOR]Helper'
 # url to image if using Image 424x180
-HEADERIMAGE = 'http://'
+HEADERIMAGE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/clearbanner.png'
 # Font for Notification Window
 FONTSETTINGS = 'Font13'
 # Background for Notification Window
-BACKGROUND = 'http://'
+BACKGROUND = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/default.jpg'
 #########################################################
