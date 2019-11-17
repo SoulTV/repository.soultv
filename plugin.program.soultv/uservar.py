@@ -109,9 +109,9 @@ REPOZIPURL = 'https://github.com/SoulTV/soultv.github.io/raw/master/zips/reposit
 #        Notification Window                            #
 #########################################################
 # Enable Notification screen Yes or No
-ENABLE = 'Yes'
+ENABLE = 'No'
 # Url to notification file
-NOTIFICATION = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/text/notify.txt'
+NOTIFICATION = 'http://'
 # Use either 'Text' or 'Image'
 HEADERTYPE = 'Text'
 # Font size of header
@@ -122,5 +122,5 @@ HEADERIMAGE = 'http://'
 # Font for Notification Window
 FONTSETTINGS = 'Font13'
 # Background for Notification Window
-BACKGROUND = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/fanart.jpg'
+BACKGROUND = 'http://'
 #########################################################
