@@ -1,4 +1,4 @@
-name="Example Theme"
+name="SoulSolo"
 url="https://github.com/SoulTV/soultv.github.io/blob/master/Helper%20Files/GUI/Theme/soulsolo.zip?raw=true"
 icon="https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/icon.png"
 fanart="https://raw.githubusercontent.com/SoulTV/soultv.github.io/master/Helper%20Files/Images/default.jpg"
