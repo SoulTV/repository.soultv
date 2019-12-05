@@ -326,7 +326,7 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 	</extension>
 </addon>
 
-<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.001" provider-name="Soul TV">
+<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.002" provider-name="Soul TV">
     <extension point="xbmc.addon.repository" name="Soul TV Repository">
 
         <dir>
@@ -561,9 +561,9 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 		</dir>
 
 		<dir>
-			<info compressed="false">https://bitbucket.org/threw/the-crew/raw/master/_zips/addons.xml</info>
-			<checksum>https://bitbucket.org/threw/the-crew/raw/master/_zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://bitbucket.org/threw/the-crew/raw/master/_zips/</datadir>
+			<info compressed="false">https://raw.githubusercontent.com/thecrewwh/zips/master/_zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/thecrewwh/zips/master/_zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/thecrewwh/zips/master/_zips</datadir>
 		</dir>
 
 		<dir>
