@@ -1,0 +1,7 @@
+<settings>
+<category label="Pin">
+	<setting type="lsep" label="[COLOR dodgerblue][B]Current Pin, Pins Expire After 4 Hours[/B][/COLOR]"/>
+	<setting id="pin" type="text" label="Current Pin : " default="435257" visible="true"/>
+	<setting id="pinused" type="text" label="Current Pin : " default="True" visible="false"/>
+</category>
+</settings>
