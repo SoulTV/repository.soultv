@@ -96,37 +96,6 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
     </extension>
 </addon>
 
-<addon id="plugin.program.openwizard" name="[COLOR limegreen][B]Open[/B][/COLOR]Wizard" version="1.0.1" provider-name="drinfernoo">
-    <requires>
-        <import addon="xbmc.python" version="2.1.0" />
-        <import addon="script.module.requests" />
-    </requires>
-
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
-    </extension>
-
-    <extension point="xbmc.service" library="startup.py" start="startup" />
-
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en">[COLOR limegreen][B]Open[/B][/COLOR]Wizard</summary>
-        <description lang="en">[COLOR limegreen][B]Open[/B][/COLOR]Wizard offers many maintenance features, selective add-on data saving, and automated build installs.</description>
-        <platform>all</platform>
-        <reuselanguageinvoker>false</reuselanguageinvoker>
-        <source>https://www.github.com/drinfernoo/plugin.program.openwizard/</source>
-        <news>
-        1.0.0
-         - Initial Commit
-        1.0.1
-         - Fix double startup
-         - Fix repetitive build prompt
-         - Fix main menu not opening on Krypton
-         - Fix notification timeout
-         - Fix crash in Trakt menu
-        </news>
-    </extension>
-</addon>
-
 <addon id="skin.arctic.zephyr.2w" name="Arctic Zephyr 2w" provider-name="jurialmunkey" version="0.9.46-alpha6.1">
     <requires>
         <import addon="xbmc.gui" version="5.14.0" />
@@ -998,7 +967,7 @@ v5.2.14 (2017-01-23)
     </extension>
 </addon>
 
-<addon id="plugin.program.soultv" name="[COLOR silver][B]Soul TV[/B] [/COLOR]Helper" version="1.1.1" provider-name="Seoul">
+<addon id="plugin.program.soultv" name="[COLOR silver][B]Soul TV[/B] [/COLOR]Helper" version="1.2.7" provider-name="Seoul">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
         <import addon="script.module.requests" />
@@ -1013,11 +982,30 @@ v5.2.14 (2017-01-23)
 
     <extension point="xbmc.addon.metadata">
         <summary lang="en">[COLOR silver][B]Soul TV[/B] [/COLOR]Helper</summary>
-        <description lang="en">[COLOR silver][B]Soul TV[/B][/COLOR]Helper offers many maintenance features, selective add-on data saving, and automated build installs.</description>
+        <description lang="en">[COLOR silver]Soul TV[/COLOR] Helper offers many maintenance features, selective add-on data saving, and automated build installs.</description>
         <platform>all</platform>
         <reuselanguageinvoker>false</reuselanguageinvoker>
         <source>https://soultv.github.io/repo</source>
         <news>
+        1.2.7
+         - Add TheMovieDb Helper
+        1.2.6
+         - Fix Seren PM OAuth
+        1.2.5
+         - Fix typo in debridit.py
+        1.2.4
+         - Cover more edge cases during binary detection
+        1.2.3
+         - Fix notification ID bug
+        1.2.2
+         - Add Seren PM OAuth
+         - Add AllDebrid spport for Gaia, Seren, ResolveURL, and URLResolver
+        1.2.1
+         - General bug fixes
+        1.2.0
+         - Silence save data notifications on startup
+         - Fix Addon Installer menu
+         - Convert addons.txt to JSON format
         1.1.1
          - Fix error on advancedsettings categories
         1.1.0

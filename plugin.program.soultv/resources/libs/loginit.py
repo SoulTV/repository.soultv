@@ -29,7 +29,7 @@ from resources.libs.common.config import CONFIG
 from resources.libs.common import logging
 from resources.libs.common import tools
 
-ORDER = ['fanart-exodusredux', 'fanart-gaia', 'fanart-numbers', 'fanart-metadatautils', 'fanart-premiumizer', 'fanart-realizer', 'fanart-scrubs', 'fanart-thecrew', 'fanart-venom', 'imdb-exodusredux', 'imdb-gaia', 'imdb-numbers', 'imdb-premiumizer', 'imdb-realizer', 'imdb-scrubs', 'imdb-thecrew', 'imdb-venom', 'kitsu-wonderfulsubs', 'login-iagl', 'login-netflix', 'mal-wonderfulsubs', 'omdb-metadatautils', 'omdb-metahandler', 'login-opensubtitles', 'login-opensubsbyopensubs', 'login-orion', 'tmdb-exodusredux', 'login-eis', 'tmdb-gaia', 'tmdb-metadatautils', 'tmdb-numbers', 'tmdb-eis', 'tmdb-openmeta', 'tmdb-premiumizer', 'tmdb-realizer', 'tmdb-scrubs', 'tmdb-seren', 'tmdb-thecrew', 'tmdb-venom', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-premiumizer', 'tvdb-realizer', 'tvdb-seren', 'location-yahoo', 'ws-wonderfulsubs']
+ORDER = ['fanart-exodusredux', 'fanart-gaia', 'fanart-numbers', 'fanart-metadatautils', 'fanart-premiumizer', 'fanart-realizer', 'fanart-scrubs', 'fanart-thecrew', 'fanart-venom', 'imdb-exodusredux', 'imdb-gaia', 'imdb-numbers', 'imdb-premiumizer', 'imdb-realizer', 'imdb-scrubs', 'imdb-thecrew', 'imdb-venom', 'kitsu-wonderfulsubs', 'login-iagl', 'login-netflix', 'mal-wonderfulsubs', 'omdb-metadatautils', 'omdb-metahandler', 'omdb-tmdbhelper', 'login-opensubtitles', 'login-opensubsbyopensubs', 'login-orion', 'tmdb-exodusredux', 'login-eis', 'tmdb-gaia', 'tmdb-metadatautils', 'tmdb-numbers', 'tmdb-eis', 'tmdb-openmeta', 'tmdb-premiumizer', 'tmdb-realizer', 'tmdb-scrubs', 'tmdb-seren', 'tmdb-thecrew', 'tmdb-tmdbhelper', 'tmdb-venom', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-premiumizer', 'tvdb-realizer', 'tvdb-seren', 'location-yahoo', 'ws-wonderfulsubs']
 
 LOGINID = {
     'login-opensubtitles': {
@@ -596,18 +596,6 @@ LOGINID = {
         'default'  : 'tvdb.api',
         'data'     : ['tvdb.api', 'tvdb.token', 'tvdb.refresh'],
         'activate' : 'RunPlugin(plugin://plugin.video.realizer/?action=AuthorizeTvdb)'},
-    'fanart-thecrew': {
-        'name'     : 'Fanart.tv - THE CREW',
-        'plugin'   : 'plugin.video.thecrew',
-        'saved'    : 'fanart-thecrew',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.thecrew'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.thecrew', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.thecrew', 'fanart.jpg'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.thecrew', 'settings.xml'),
-        'file'     : os.path.join(CONFIG.LOGINFOLD, 'thecrew_fanart'),
-        'default'  : 'fanart.tv.user',
-        'data'     : ['fanart.tv.user'],
-        'activate' : ''},
     'fanart-numbers': {
         'name'     : 'Fanart.tv - NuMb3r5',
         'plugin'   : 'plugin.video.numbersbynumbers',
@@ -643,6 +631,30 @@ LOGINID = {
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.numbersbynumbers', 'settings.xml'),
         'default'  : 'imdb.user',
         'data'     : ['imdb.user'],
+        'activate' : ''},
+    'tmdb-tmdbhelper': {
+        'name'     : 'TMDb - TheMovieDb Helper',
+        'plugin'   : 'plugin.video.themoviedb.helper',
+        'saved'    : 'tmdb-tmdbhelper',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.themoviedb.helper'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.themoviedb.helper', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.themoviedb.helper', 'fanart.jpg'),
+        'file'     : os.path.join(CONFIG.LOGINFOLD, 'tmdbhelper_tmdb'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.themoviedb.helper', 'settings.xml'),
+        'default'  : 'tmdb_apikey',
+        'data'     : ['tmdb_apikey'],
+        'activate' : ''},
+    'omdb-tmdbhelper': {
+        'name'     : 'OMDb - TheMovieDb Helper',
+        'saved'    : 'omdb-tmdbhelper',
+        'plugin'   : 'plugin.video.themoviedb.helper',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.themoviedb.helper'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.themoviedb.helper', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.themoviedb.helper', 'fanart.jpg'),
+        'file'     : os.path.join(CONFIG.LOGINFOLD, 'tmdbhelper_omdb'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.numbersbynumbers', 'settings.xml'),
+        'default'  : 'omdb_apikey',
+        'data'     : ['omdb_apikey'],
         'activate' : ''}
 }
 
@@ -733,17 +745,11 @@ def update_login(do, who):
                 user = addonid.getSetting(default)
                 CONFIG.set_setting(saved, user)
                 
-                logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
-                                   '[COLOR {0}]Login Data: Saved![/COLOR]'.format(CONFIG.COLOR2),
-                                   2000,
-                                   icon)
+                logging.log('Login Data Saved for {0}'.format(name), level=xbmc.LOGNOTICE)
             except Exception as e:
                 logging.log("[Login Data] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
         else:
-            logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
-                               '[COLOR {0}]Login Data: Not Registered![/COLOR]'.format(CONFIG.COLOR2),
-                               2000,
-                               icon)
+            logging.log('Login Data Not Registered for {0}'.format(name))
     elif do == 'restore':
         if os.path.exists(file):
             tree = ElementTree.parse(file)
@@ -757,14 +763,11 @@ def update_login(do, who):
                     
                 user = addonid.getSetting(default)
                 CONFIG.set_setting(saved, user)
-                logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
-                                   '[COLOR {0}]Login: Restored![/COLOR]'.format(CONFIG.COLOR2),
-                                   2000,
-                                   icon)
+                logging.log('Login Data Restored for {0}'.format(name), level=xbmc.LOGNOTICE)
             except Exception as e:
                 logging.log("[Login Info] Unable to Restore {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
         else:
-            logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name), 'Login Data: [COLOR red]Not Found![/COLOR]', 2000, icon)
+            logging.log('Login Data Not Found for {0}'.format(name))
     elif do == 'clearaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings), level=xbmc.LOGDEBUG)
         if os.path.exists(settings):

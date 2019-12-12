@@ -7,7 +7,7 @@ import os
 #########################################################
 ADDON_ID = xbmcaddon.Addon().getAddonInfo('id')
 PATH = xbmcaddon.Addon().getAddonInfo('path')
-ART = os.path.join(PATH, 'resources', 'art')
+ART = os.path.join(PATH, 'resources', 'media')
 #########################################################
 
 #########################################################
@@ -42,7 +42,7 @@ ADVANCEDFILE = 'https://raw.githubusercontent.com/SoulTV/soultv.github.io/master
 #           ICONSETTINGS  = 'https://www.yourhost.com/repo/wizard/settings.png'
 # Leave as http:// for default icon
 ICONBUILDS = os.path.join(ART, 'builds.png')
-ICONMAINT = os.path.join(ART, 'Maintenance.png')
+ICONMAINT = os.path.join(ART, 'maintenance.png')
 ICONSPEED = os.path.join(ART, 'speed.png')
 ICONAPK = os.path.join(ART, 'apkinstaller.png')
 ICONADDONS = os.path.join(ART, 'addoninstaller.png')
