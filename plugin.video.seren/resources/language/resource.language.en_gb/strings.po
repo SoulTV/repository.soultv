@@ -1836,6 +1836,8 @@ msgstr ""
 msgctxt "#40331"
 msgid "Disc Art"
 msgstr ""
+        
+########Begin Soul TV Modifications
 
 msgctxt "#88888"
 msgid "Discover Soul TV Shows"
@@ -1912,3 +1914,5 @@ msgstr "Great Movies You May Have Never Heard Of"
 msgctxt "#99983"
 msgid "Pixel Hunter"
 msgstr "Pixel Hunter"
+        
+########End Soul TV Modifications
