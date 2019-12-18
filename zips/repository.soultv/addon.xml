@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.003" provider-name="Soul TV">
+<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.004" provider-name="Soul TV">
     <extension point="xbmc.addon.repository" name="Soul TV Repository">
         
         <dir>
@@ -54,19 +54,6 @@
 		    <info compressed="false">https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml?v=5.0.0</info>
 		    <checksum>https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml.md5?v=5.0.0</checksum>
 		    <datadir zip="true">https://github.com/gaiaorigin/gaiaorigin/raw/master/</datadir>
-		</dir>
-
-		<dir>
-            <info compressed="false">https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jewbmx/repo/master/zips/</datadir>
-            <hashes>false</hashes>
-		</dir>
-
-		<dir>
-            <info compressed="false">https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/</datadir>
 		</dir>
 
 		<dir>
