@@ -295,7 +295,7 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 	</extension>
 </addon>
 
-<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.002" provider-name="Soul TV">
+<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.003" provider-name="Soul TV">
     <extension point="xbmc.addon.repository" name="Soul TV Repository">
 
         <dir>
@@ -549,9 +549,9 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 		</dir>
 
 		<dir>
-            <info compressed="false">https://raw.githubusercontent.com/ruinernin/foxystreams/devrepo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/ruinernin/foxystreams/devrepo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/ruinernin/foxystreams/devrepo/zips/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/ruinernin/foxymeta/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/ruinernin/foxymeta/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/ruinernin/foxymeta/repo/zips/</datadir>
 		</dir>
 
     </extension>
