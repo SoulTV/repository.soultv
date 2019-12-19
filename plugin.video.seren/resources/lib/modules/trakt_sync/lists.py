@@ -29,15 +29,15 @@ class TraktSyncDatabase(trakt_sync.TraktSyncDatabase):
         tools.try_release_lock(tools.traktSyncDB_lock)
         return list
 
-    def get_list(self, trakt_id):
+    def get_list(self, trakt_id, media_type):
         tools.traktSyncDB_lock.acquire()
         cursor = self._get_cursor()
-        cursor.execute('SELECT * FROM lists WHERE trakt_id=?',
-                       (trakt_id,))
+        cursor.execute('SELECT * FROM lists WHERE trakt_id=? and media_type=?',
+                       (trakt_id, media_type))
         list = cursor.fetchone()
         if list is None:
-            cursor.execute('SELECT * FROM lists WHERE slug=?',
-                           (trakt_id,))
+            cursor.execute('SELECT * FROM lists WHERE slug=? and media_type=?',
+                           (trakt_id, media_type))
             list = cursor.fetchone()
         cursor.close()
         tools.try_release_lock(tools.traktSyncDB_lock)

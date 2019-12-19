@@ -146,27 +146,26 @@ class AllDebrid:
         magnet_id = self.upload_magnet(magnet)['id']
         folder_details = self.magnet_status(magnet_id)['links']
 
-        folder_details = sorted(folder_details, key=lambda i: int(i['size']), reverse=True)
-        folder_details = [tfile for tfile in folder_details
-                          if any(tfile['filename'].endswith(ext) for ext in source_utils.COMMON_VIDEO_EXTENSIONS)]
+        folder_details = [(key, value) for key, value in folder_details.iteritems()
+                          if any(value.endswith(ext) for ext in source_utils.COMMON_VIDEO_EXTENSIONS)]
 
         for torrent_file in folder_details:
-            if source_utils.filter_movie_title(torrent_file['filename'],
+            if source_utils.filter_movie_title(torrent_file[1],
                                                tools.deaccentString(args['info']['title']),
                                                args['info']['year']):
-                selectedFile = torrent_file
+                selectedFile = torrent_file[0]
                 break
 
         if selectedFile is None:
-            folder_details = [tfile for tfile in folder_details if 'sample' not in tfile['filename'].lower()]
+            folder_details = [tfile for tfile in folder_details if 'sample' not in tfile[1].lower()]
             folder_details = [tfile for tfile in folder_details if source_utils.cleanTitle(args['info']['title'])
-                              in source_utils.cleanTitle(tfile['filename'].lower())]
+                              in source_utils.cleanTitle(tfile[1].lower())]
             if len(folder_details) == 1:
                 selectedFile = folder_details[0]
             else:
                 return
 
-        return selectedFile['link']
+        return self.resolve_hoster(selectedFile)
 
     def resolve_magnet(self, magnet, args, torrent, pack_select=False):
 
