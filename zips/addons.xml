@@ -848,7 +848,7 @@ v5.2.14 (2017-01-23)
     </extension>
 </addon>
 
-<addon id="plugin.program.soultv" name="[COLOR silver][B]Soul TV[/B] [/COLOR]Helper" version="1.2.7" provider-name="Seoul">
+<addon id="plugin.program.soultv" name="[COLOR silver][B]Soul TV[/B] [/COLOR]Helper" version="1.2.8" provider-name="Seoul">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
         <import addon="script.module.requests" />
@@ -868,6 +868,11 @@ v5.2.14 (2017-01-23)
         <reuselanguageinvoker>false</reuselanguageinvoker>
         <source>https://soultv.github.io/repo</source>
         <news>
+        1.2.8
+         - Add Gaia PM OAuth
+         - Fix binary add-on restoration
+         - Fix some issues with old settings
+         - Fix timing on many startup tasks
         1.2.7
          - Add TheMovieDb Helper
         1.2.6
