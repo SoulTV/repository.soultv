@@ -105,3 +105,4 @@ venv.bak/
 .idea
 resources/settings.xml
 releases
+.DS_Store
