@@ -66,6 +66,11 @@ class Menus:
 ########Begin Soul TV Modifications
 
         tools.addDirectoryItem(tools.lang(99998), 'showsGary', '', '')
+        tools.addDirectoryItem(tools.lang(99997), 'showsNetflix', '', '')
+        tools.addDirectoryItem(tools.lang(99995), 'showsHulu', '', '')
+        tools.addDirectoryItem(tools.lang(99996), 'showsAmazon', '', '')
+        tools.addDirectoryItem(tools.lang(99982), 'showsDisneyP', '', '')
+        tools.addDirectoryItem(tools.lang(99981), 'showsAppleP', '', '')
         
 ########End Soul TV Modifications
 
@@ -87,13 +92,10 @@ class Menus:
         
 ########Begin Soul TV Modifications
 
-        tools.addDirectoryItem(tools.lang(99997), 'showsNetflix', '', '')
-        tools.addDirectoryItem(tools.lang(99996), 'showsAmazon', '', '')
-        tools.addDirectoryItem(tools.lang(99995), 'showsHulu', '', '')
-        tools.addDirectoryItem(tools.lang(99994), 'soulSpotlight', '', '')
-        tools.addDirectoryItem(tools.lang(99993), 'showssoulSpotlight', '', '')
-        tools.addDirectoryItem(tools.lang(99991), 'showssoulCurated', '', '')
-        tools.addDirectoryItem(tools.lang(99983), 'showsPixelHunter', '', '')
+#        tools.addDirectoryItem(tools.lang(99994), 'soulSpotlight', '', '')
+#        tools.addDirectoryItem(tools.lang(99993), 'showssoulSpotlight', '', '')
+#        tools.addDirectoryItem(tools.lang(99991), 'showssoulCurated', '', '')
+#        tools.addDirectoryItem(tools.lang(99983), 'showsPixelHunter', '', '')
         
 ########End Soul TV Modifications
 
@@ -162,6 +164,34 @@ class Menus:
 
     def showsHulu(self):
         trakt_list = trakt.json_response('users/enormoz/lists/hulu/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showsAppleP(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/appletv-plus/items/show?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'show')
+        except:
+            tools.log('Failed to sort trakt list by response headers', 'error')
+            pass
+        self.showListBuilder(trakt_list)
+        tools.closeDirectory('tvshows')
+
+    def showsDisneyP(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/disney-plus/items/show?extended=full', limit=False)
         if trakt_list is None:
             return
         try:

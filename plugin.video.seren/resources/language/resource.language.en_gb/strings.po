@@ -1750,24 +1750,24 @@ msgid "Discover Soul Movies"
 msgstr "Discover Soul TV Movies"
 
 msgctxt "#99999"
-msgid "Latest Releases by Gilad & Alex"
-msgstr "Latest Releases by Gilad & Alex"
+msgid "Latest Movie Releases by Gilad & Alex"
+msgstr "Latest Movie Releases by Gilad & Alex"
 
 msgctxt "#99998"
-msgid "New Shows by Gary"
-msgstr "New Shows by Gary"
+msgid "New Series by Gary"
+msgstr "New Series by Gary"
 
 msgctxt "#99997"
-msgid "Netflix"
-msgstr "Netflix"
+msgid "Netflix Series by EnorMOZ"
+msgstr "Netflix Series by EnorMOZ"
 
 msgctxt "#99996"
-msgid "Amazon"
-msgstr "Amazon"
+msgid "Amazon Series by EnorMOZ"
+msgstr "Amazon Series by EnorMOZ"
 
 msgctxt "#99995"
-msgid "Hulu"
-msgstr "Hulu"
+msgid "Hulu Series by EnorMOZ"
+msgstr "Hulu Series by EnorMOZ"
 
 msgctxt "#99994"
 msgid "Spotlight"
@@ -1790,8 +1790,8 @@ msgid "Movies - Curated by Soul"
 msgstr "Movies - Curated by Soul"
 
 msgctxt "#99989"
-msgid "Latest 4k Releases"
-msgstr "Latest 4k Releases"
+msgid "Latest 4k Movie Releases by Gilad & Alex"
+msgstr "Latest 4k Movie Releases by Gilad & Alex"
 
 msgctxt "#99988"
 msgid "Latest Documentaries"
@@ -1802,8 +1802,8 @@ msgid "Reddit Selections"
 msgstr "Reddit Selections"
 
 msgctxt "#99986"
-msgid "Netflix Movies"
-msgstr "Netflix Movies"
+msgid "Netflix Films by EnorMOZ"
+msgstr "Netflix Films EnorMOZ"
 
 msgctxt "#99985"
 msgid "Rotten Tomatoes Best Movies of the Year"
@@ -1814,7 +1814,31 @@ msgid "Great Movies You May Have Never Heard Of"
 msgstr "Great Movies You May Have Never Heard Of"
 
 msgctxt "#99983"
-msgid "Pixel Hunter"
-msgstr "Pixel Hunter"
+msgid "Netflix Series by Pixel Hunter"
+msgstr "Netflix Series by Pixel Hunter"
+
+msgctxt "#99982"
+msgid "Disney Plus Series by EnorMOZ"
+msgstr "Disney Plus Series by EnorMOZ"
+
+msgctxt "#99981"
+msgid "Apple Plus Series by EnorMOZ"
+msgstr "Apple Plus Series by EnorMOZ"
+
+msgctxt "#99980"
+msgid "Disney Plus Movies by EnorMOZ"
+msgstr "Disney Plus Movies by EnorMOZ"
+
+msgctxt "#99979"
+msgid "Apple Plus Movies by EnorMOZ"
+msgstr "Apple Plus Movies by EnorMOZ"
+
+msgctxt "#99978"
+msgid "Latest Movie Releases by Gary"
+msgstr "Latest Movie Releases by Gary"
+
+msgctxt "#99977"
+msgid "Netflix Films by Pixel Hunter"
+msgstr "Netflix Films by Pixel Hunter"
         
 ########End Soul TV Modifications

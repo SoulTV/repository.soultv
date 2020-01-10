@@ -72,6 +72,8 @@ def dispatch(params):
         homeMenu.Menus().home()
         
 ########Begin Soul TV Modifications
+        
+########Begin Soul TV Modifications
 
     if action == 'soulmovieHome':
         from resources.lib.gui import movieMenus
@@ -84,6 +86,11 @@ def dispatch(params):
         tvshowMenus.Menus().discoverSoul()
 
     if action == 'moviesLatest':
+        from resources.lib.gui import movieMenus
+
+        movieMenus.Menus().moviesLatest()
+
+    if action == 'moviesLatestGary':
         from resources.lib.gui import movieMenus
 
         movieMenus.Menus().moviesLatest()
@@ -118,6 +125,16 @@ def dispatch(params):
 
         movieMenus.Menus().moviesNeverseen()
 
+    if action == 'moviesDisneyP':
+        from resources.lib.gui import movieMenus
+
+        movieMenus.Menus().moviesDisneyP()
+
+    if action == 'moviesAppleP':
+        from resources.lib.gui import movieMenus
+
+        movieMenus.Menus().moviesAppleP()
+
     if action == 'showsGary':
         from resources.lib.gui import tvshowMenus
 
@@ -142,6 +159,16 @@ def dispatch(params):
         from resources.lib.gui import tvshowMenus
 
         tvshowMenus.Menus().showsHulu()
+
+    if action == 'showsAppleP':
+        from resources.lib.gui import tvshowMenus
+
+        tvshowMenus.Menus().showsAppleP()
+
+    if action == 'showsDisneyP':
+        from resources.lib.gui import tvshowMenus
+
+        tvshowMenus.Menus().showsDisneyP()
 
     if action == 'soulSpotlight':
         from resources.lib.gui import tvshowMenus

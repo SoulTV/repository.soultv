@@ -318,7 +318,7 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 	</extension>
 </addon>
 
-<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.006" provider-name="Soul TV">
+<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.007" provider-name="Soul TV">
     <extension point="xbmc.addon.repository" name="Soul TV Repository">
 
         <dir>
@@ -564,6 +564,13 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 		    <datadir zip="true">https://raw.githubusercontent.com/skyfsza/repository.auramod/master/</datadir>
 		</dir>
 
+		<dir>
+            <info compressed="false">http://kodi.lanik.org/_repo/addons.xml</info>
+            <checksum>http://kodi.lanik.org/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://kodi.lanik.org/_repo/</datadir>
+            <hashes>false</hashes>
+		</dir>
+
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Soul TV Repository</summary>
@@ -626,7 +633,7 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 	</extension>
 </addon>
 
-<addon id="plugin.video.seren" version="1.6.4.1" name="Seren" provider-name="Nixgates">
+<addon id="plugin.video.seren" version="1.6.4.2" name="Seren" provider-name="Nixgates">
 	<requires>
 		<import addon="xbmc.python" version="2.25.0" />
 		<import addon="script.module.requests" version="2.19.1" />

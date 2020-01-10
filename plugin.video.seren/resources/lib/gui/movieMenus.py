@@ -59,7 +59,11 @@ class Menus:
 ########Begin Soul TV Modifications
 
         tools.addDirectoryItem(tools.lang(99999), 'moviesLatest', '', '')
+        tools.addDirectoryItem(tools.lang(99978), 'moviesLatestGary', '', '')
         tools.addDirectoryItem(tools.lang(99989), 'moviesLatest4k', '', '')
+        tools.addDirectoryItem(tools.lang(99986), 'moviesNetflix', '', '')
+        tools.addDirectoryItem(tools.lang(99980), 'moviesDisneyP', '', '')
+        tools.addDirectoryItem(tools.lang(99979), 'moviesAppleP', '', '')
         
 ########End Soul TV Modifications
 
@@ -79,13 +83,12 @@ class Menus:
         
 ########Begin Soul TV Modifications
 
-        tools.addDirectoryItem(tools.lang(99987), 'moviesLatestReddit', '', '')
-        tools.addDirectoryItem(tools.lang(99990), 'moviessoulCurated', '', '')
-        tools.addDirectoryItem(tools.lang(99985), 'moviesRTBestofyear', '', '')
-        tools.addDirectoryItem(tools.lang(99986), 'moviesNetflix', '', '')
-        tools.addDirectoryItem(tools.lang(99992), 'moviessoulSpotlight', '', '')
-        tools.addDirectoryItem(tools.lang(99984), 'moviesNeverseen', '', '')
-        tools.addDirectoryItem(tools.lang(99983), 'moviesPixelHunter', '', '')
+#        tools.addDirectoryItem(tools.lang(99987), 'moviesLatestReddit', '', '')
+#        tools.addDirectoryItem(tools.lang(99990), 'moviessoulCurated', '', '')
+#        tools.addDirectoryItem(tools.lang(99985), 'moviesRTBestofyear', '', '')
+#        tools.addDirectoryItem(tools.lang(99992), 'moviessoulSpotlight', '', '')
+#        tools.addDirectoryItem(tools.lang(99984), 'moviesNeverseen', '', '')
+#        tools.addDirectoryItem(tools.lang(99983), 'moviesPixelHunter', '', '')
         
 ########End Soul TV Modifications
 
@@ -139,6 +142,22 @@ class Menus:
         self.commonListBuilder(trakt_list)
         tools.closeDirectory('movies')
 
+    def moviesLatestGary(self):
+        trakt_list = trakt.json_response('users/garycrawfordgc/lists/latest-releases/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
     def moviesLatestReddit(self):
         trakt_list = trakt.json_response('users/giladg/lists/subreddit-selections/items?extended=full', limit=False)
         if trakt_list is None:
@@ -173,6 +192,38 @@ class Menus:
 
     def moviesNetflix(self):
         trakt_list = trakt.json_response('users/enormoz/lists/netflix-movies/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
+    def moviesAppleP(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/appletv-plus-movies/items?extended=full', limit=False)
+        if trakt_list is None:
+            return
+        try:
+            sort_by = trakt.response_headers['X-Sort-By']
+            sort_how = trakt.response_headers['X-Sort-How']
+            trakt_list = trakt.sort_list(sort_by, sort_how, trakt_list, 'movie')
+        except:
+            import traceback
+            traceback.print_exc()
+            pass
+
+        self.commonListBuilder(trakt_list)
+        tools.closeDirectory('movies')
+
+    def moviesDisneyP(self):
+        trakt_list = trakt.json_response('users/enormoz/lists/disney-plus-movies/items?extended=full', limit=False)
         if trakt_list is None:
             return
         try:
