@@ -60,6 +60,7 @@
             </item>
             <item>
                 <visible>!String.IsEmpty(ListItem.Art(discart))</visible>
+                <icon>$INFO[ListItem.Art(discart)]</icon>
                 <property name="discart">$INFO[ListItem.Art(discart)]</property>
                 <property name="clearlogo">$INFO[ListItem.Art(clearlogo)]</property>
                 <property name="tagline">$INFO[ListItem.Tagline]</property>
@@ -211,6 +212,20 @@
                 <label>[CAPITALIZE]$LOCALIZE[10050][/CAPITALIZE]</label>
                 <icon>special://skin/extras/icons/recent.png</icon>
                 <onclick>ActivateWindow(eventlog)</onclick>
+                <visible>!System.HasAddon(service.libreelec.settings)</visible>
+                <visible>!System.HasAddon(service.coreelec.settings)</visible>
+            </item>
+            <item id="5">
+                <label>[CAPITALIZE]LibreELEC $LOCALIZE[5][/CAPITALIZE]</label>
+                <icon>special://skin/extras/icons/libreelec.png</icon>
+                <onclick>RunScript(service.libreelec.settings)</onclick>
+                <visible>System.HasAddon(service.libreelec.settings)</visible>
+            </item>
+            <item id="6">
+                <label>[CAPITALIZE]CoreELEC $LOCALIZE[5][/CAPITALIZE]</label>
+                <icon>special://skin/extras/icons/coreelec.png</icon>
+                <onclick>RunScript(service.coreelec.settings)</onclick>
+                <visible>System.HasAddon(service.coreelec.settings)</visible>
             </item>
         </content>
     </include>
@@ -520,6 +535,7 @@
                 <onclick condition="[Container.Content(videos) + String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
                 <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyGames.xml)</visible>
                 <visible>!Skin.HasSetting(KioskMode)</visible>
+                <visible>!$EXP[Exp_IsPluginAdvancedLauncher]</visible>
             </item>
 
             <!-- Sort -->

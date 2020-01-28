@@ -7,220 +7,254 @@
         <include condition="!Skin.HasSetting(FauneFonts)">Defaults_RobotoFonts</include>
 
         <!-- Standard Fonts -->
+## I see no change anywhere
         <font>
             <name>font_medium</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>38</size>
+            <size>400</size>
         </font>
+## affects add-on setting title text size
         <font>
             <name>font_medium_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>38</size>
+            <size>80</size>
         </font>
+## Affects Time on main menu - Loading spinner text - enabled | disabled tags on addon lists - category and main text in settings menu - release date year - 32 max
         <font>
             <name>font_small</name>
-            <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>30</size>
+            <filename>RobotoCondensed-Bold.ttf</filename>
+            #<filename>RobotoCondensed-Regular.ttf</filename>
+            <size>32</size>
         </font>
+## affects text in system > system information - 40 is max
         <font>
             <name>font_small_mono</name>
             <filename>RobotoMono-Bold.ttf</filename>
-            <size>30</size>
+            <size>40</size>
             <aspect>0.8</aspect>
         </font>
+## Power Menu Title Size - 80 is max
         <font>
             <name>font_small_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>30</size>
+            <size>80</size>
         </font>
+## affects power menu text size and show or movie title name in widget header right next to widget name - 34 is max
         <font>
             <name>font_tiny</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>26</size>
+            <size>34</size>
         </font>
+## Affects widget title & title text on landscape small widgets - 34 is max
         <font>
             <name>font_tiny_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>26</size>
+            <size>34</size>
         </font>
+## affects add-on settings menu text to the right ok - cancel - default - 64 is max
         <font>
             <name>font_button</name>
             <style>uppercase</style>
             <filename>RobotoCondensed-Regular-Caps.ttf</filename>
-            <size>24</size>
+            <size>64</size>
         </font>
+## affects genre on landscape small widget and season level text
         <font>
             <name>font_statusbar</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>22</size>
+            <size>28</size>
         </font>
         <font>
             <name>font_fps</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>16</size>
+            <size>400</size>
         </font>
+## Affects ENG label on OSD subtitle and audio stream
+        <font>
+            <name>font_osd_lang</name>
+            <filename>RobotoCondensed-Regular.ttf</filename>
+            <size>12</size>
+        </font>
+## Affects now playing episode title when video is playing but on home screen
         <font>
             <name>font_statusbar_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>22</size>
+            <size>30</size>
         </font>
+## Browse - search labels in info dialog - 27 is max
         <font>
             <name>font_info_buttons</name>
             <filename>RobotoCondensed-Bold-Caps.ttf</filename>
-            <size>20</size>
+            <size>27</size>
             <style>uppercase</style>
         </font>
+## Unwatched show number size - size 24 will fit 2 digits not 3
         <font>
             <name>font_unwatched</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>16</size>
+            <size>24</size>
         </font>
+## Bottom text with country and studio name - size 41 max
         <font>
             <name>font_mini</name>
             <style>uppercase</style>
             <filename>RobotoCondensed-Regular-Caps.ttf</filename>
-            <size>20</size>
+            <size>41</size>
         </font>
 
         <!-- Music visualisation scrolling text -->
         <font>
             <name>font_musicvis_biggest</name>
             <filename>RobotoCondensed-Light.ttf</filename>
-            <size>230</size>
+            <size>400</size>
         </font>
         <font>
             <name>font_musicvis_bigger</name>
             <filename>RobotoCondensed-Light.ttf</filename>
-            <size>130</size>
+            <size>400</size>
         </font>
         <font>
             <name>font_musicvis_big</name>
             <filename>RobotoCondensed-Light.ttf</filename>
-            <size>80</size>
+            <size>400</size>
         </font>
 
         <!-- Music visualisation info -->
         <font>
             <name>font_lyrics_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>70</size>
+            <size>200</size>
         </font>
-
+## Changes Arctic zephyr splash screen text size
         <font>
             <name>font_splash</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>80</size>
+            <size>0</size>
             <style>bold</style>
         </font>
-        <!-- Big weather temp -->        
+        <!-- Big weather temp --> 
+## Large temp on wether WIDGET       
         <font>
             <name>font_weather_currenttemp</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
             <size>150</size>
             <style>bold</style>
         </font>
+## Low / High temp on weather widget
         <font>
             <name>font_weather_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>38</size>
+            <size>80</size>
             <style>bold</style>
         </font>
 
         <!-- Plot info overlay -->
+## affects title when info dialog is open and you press up to enlarge - the title there not the one on the basic info dialog
         <font>
             <name>font_overlay_title</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>100</size>
+            <size>150</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
 
 
         <!-- Showcase title font -->
+## Info dialog text title size
         <font>
             <name>font_title_large</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>64</size>
+            <size>72</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
+## Title browsing within an add-on for movies or at the tv show level, not season level, not episode level - 54 is max
         <font>
             <name>font_title</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>48</size>
+            <size>54</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
+## Title text size when browsing tv show season in add-on - not top bar text
         <font>
             <name>font_title_small</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>40</size>
+            <size>52</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
+## Episode level unselected title text size
         <font>
             <name>font_title_mini</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>30</size>
+            <size>38</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
+## This is text in top left "Home" and size of selected main menu text
         <font>
             <name>font_topbar</name>
+            <filename>RobotoCondensed-Bold.ttf</filename>
+            <size>49</size>
+            <aspect>0.9</aspect>
+            <style>bold</style>
+        </font>
+## Main menu unselected text size
+        <font>
+            <name>font_topbar_small</name>
+            <filename>RobotoCondensed-Regular.ttf</filename>
+            <size>49</size>
+        </font>
+## Submenu selected text size
+        <font>
+            <name>font_submenu</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
             <size>40</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
-        <font>
-            <name>font_topbar_small</name>
-            <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>30</size>
-        </font>
-        <font>
-            <name>font_submenu</name>
-            <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>30</size>
-            <aspect>0.9</aspect>
-            <style>bold</style>
-        </font>
+## Submenu Unselected Text Size
         <font>
             <name>font_submenu_small</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>26</size>
+            <size>40</size>
         </font>
         <font>
             <name>font_notification</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>30</size>
+            <size>36</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
 
         <!-- Small Byline -->
+## Main menu title bar size
         <font>
             <name>font_byline</name>
             <style>uppercase</style>
-            <filename>RobotoCondensed-Spaced-Caps.ttf</filename>
-            <size>22</size>
+            <filename>RobotoCondensed-Bold.ttf</filename>
+##            <filename>RobotoCondensed-Spaced-Caps.ttf</filename>
+            <size>54</size>
         </font>
+## Changes header labels in settings - all i know so far
         <font>
             <name>font_hintlabel</name>
             <style>uppercase bold</style>
             <filename>RobotoCondensed-Spaced.ttf</filename>
-            <size>18</size>
+            <size>48</size>
         </font>
 
         <!-- Required for system -->
         <font>
             <name>font13</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>30</size>
+            <size>300</size>
         </font>
         <font>
             <name>Clock</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>130</size>
+            <size>300</size>
         </font>
 
         <include>VideoLyrics_Fonts</include>
