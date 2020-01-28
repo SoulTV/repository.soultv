@@ -11,7 +11,7 @@
         <font>
             <name>font_medium</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>400</size>
+            <size>64</size>
         </font>
 ## affects add-on setting title text size
         <font>
@@ -33,11 +33,11 @@
             <size>40</size>
             <aspect>0.8</aspect>
         </font>
-## Power Menu Title Size - 80 is max
+## Add-on Menu & Power Menu Title Size - 64 is max
         <font>
             <name>font_small_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>80</size>
+            <size>64</size>
         </font>
 ## affects power menu text size and show or movie title name in widget header right next to widget name - 34 is max
         <font>
@@ -67,7 +67,7 @@
         <font>
             <name>font_fps</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>400</size>
+            <size>100</size>
         </font>
 ## Affects ENG label on OSD subtitle and audio stream
         <font>
@@ -106,17 +106,17 @@
         <font>
             <name>font_musicvis_biggest</name>
             <filename>RobotoCondensed-Light.ttf</filename>
-            <size>400</size>
+            <size>64</size>
         </font>
         <font>
             <name>font_musicvis_bigger</name>
             <filename>RobotoCondensed-Light.ttf</filename>
-            <size>400</size>
+            <size>64</size>
         </font>
         <font>
             <name>font_musicvis_big</name>
             <filename>RobotoCondensed-Light.ttf</filename>
-            <size>400</size>
+            <size>64</size>
         </font>
 
         <!-- Music visualisation info -->
@@ -153,7 +153,7 @@
         <font>
             <name>font_overlay_title</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>150</size>
+            <size>130</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
@@ -246,15 +246,16 @@
         </font>
 
         <!-- Required for system -->
+## Controls screen saver text size
         <font>
             <name>font13</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
-            <size>300</size>
+            <size>48</size>
         </font>
         <font>
             <name>Clock</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>300</size>
+            <size>48</size>
         </font>
 
         <include>VideoLyrics_Fonts</include>
