@@ -42,11 +42,6 @@
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesHome",return)</property>
 			<property name="widgetAspect">Poster</property>
-			<property name="widget">Addon</property>
-			<property name="widgetName">TheMovieDb Helper - Movies</property>
-			<property name="widgetType">videos</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetPath">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
 			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
@@ -65,11 +60,6 @@
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsHome",return)</property>
 			<property name="widgetAspect">Poster</property>
-			<property name="widget">Addon</property>
-			<property name="widgetName">TheMovieDb Helper - TV Shows</property>
-			<property name="widgetType">videos</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetPath">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
 			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
@@ -240,6 +230,7 @@
 			<property name="labelID">b-browse-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True</property>
@@ -250,23 +241,6 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">3</property>
-			<label>Most Popular</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
-			<property name="labelID">mostpopular</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</property>
-			<property name="list">plugin://plugin.video.seren/?action=moviesPopular&amp;page=1</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-movies-b)</visible>
-			<property name="group">b-movies-b</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">3</property>
 			<label>[B]Watched[/B]</label>
 			<label2>Video Add-On</label2>
 			<icon>special://skin/extras/icons/shortcut.png</icon>
@@ -274,6 +248,7 @@
 			<property name="labelID">b-watched-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie</property>
@@ -281,8 +256,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest[/B] | Gary</label>
 			<label2>Custom item</label2>
@@ -297,8 +272,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest[/B] | G&amp;A</label>
 			<label2>Custom item</label2>
@@ -313,8 +288,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest 4k[/B]</label>
 			<label2>Custom item</label2>
@@ -329,8 +304,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Netflix[/B]</label>
 			<label2>Custom item</label2>
@@ -345,8 +320,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="8">
-			<property name="id">$NUMBER[8]</property>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Disney +[/B]</label>
 			<label2>Custom item</label2>
@@ -361,8 +336,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="9">
-			<property name="id">$NUMBER[9]</property>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Apple TV+[/B]</label>
 			<label2>Custom item</label2>
@@ -387,6 +362,7 @@
 			<property name="labelID">b-browse-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True</property>
@@ -404,6 +380,7 @@
 			<property name="labelID">b-watched-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv</property>
@@ -582,6 +559,7 @@
 			<property name="labelID">colorlightseagreen-gunslingertv-color</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</property>
 			<property name="list">plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797</property>
@@ -599,6 +577,7 @@
 			<property name="labelID">colorgreen-area51-color</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</property>
 			<property name="list">plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=</property>
@@ -678,6 +657,24 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">10</property>
+			<label>ToolS</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+			<property name="labelID">tools</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</property>
+			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</property>
+			<property name="list">plugin://plugin.video.seren/?action=toolsMenu</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),powermenu)</visible>
+			<property name="group">powermenu</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">10</property>
 			<label>Contact Soul TV</label>
 			<label2>Favourite</label2>
 			<icon>special://skin/extras/icons/folder.png</icon>
@@ -693,8 +690,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">10</property>
 			<label>[COLOR silver]System Information[/COLOR]</label>
 			<label2>Favourite</label2>
@@ -711,8 +708,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">10</property>
 			<label>Force Add-on Updates</label>
 			<label2>Favourite</label2>
@@ -729,8 +726,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">10</property>
 			<label>Refresh Interface</label>
 			<label2>Power Menu Shortcut</label2>
@@ -746,8 +743,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">10</property>
 			<label>Total Clean Up</label>
 			<label2>Favourite</label2>
@@ -764,8 +761,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
 			<property name="mainmenuid">10</property>
 			<label>Speed Tester</label>
 			<label2>Favourite</label2>
@@ -782,8 +779,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="8">
-			<property name="id">$NUMBER[8]</property>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
 			<property name="mainmenuid">10</property>
 			<label>[COLOR silver]Force Close[/COLOR]</label>
 			<label2>Favourite</label2>
@@ -800,8 +797,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="9">
-			<property name="id">$NUMBER[9]</property>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13012]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -818,8 +815,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="10">
-			<property name="id">$NUMBER[10]</property>
+		<item id="11">
+			<property name="id">$NUMBER[11]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13016]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -836,8 +833,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="11">
-			<property name="id">$NUMBER[11]</property>
+		<item id="12">
+			<property name="id">$NUMBER[12]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13011]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -854,8 +851,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="12">
-			<property name="id">$NUMBER[12]</property>
+		<item id="13">
+			<property name="id">$NUMBER[13]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13010]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -872,8 +869,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="13">
-			<property name="id">$NUMBER[13]</property>
+		<item id="14">
+			<property name="id">$NUMBER[14]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13013]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -890,8 +887,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="14">
-			<property name="id">$NUMBER[14]</property>
+		<item id="15">
+			<property name="id">$NUMBER[15]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20126]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -908,8 +905,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="15">
-			<property name="id">$NUMBER[15]</property>
+		<item id="16">
+			<property name="id">$NUMBER[16]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20046]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -926,8 +923,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="16">
-			<property name="id">$NUMBER[16]</property>
+		<item id="17">
+			<property name="id">$NUMBER[17]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13017]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -944,8 +941,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="17">
-			<property name="id">$NUMBER[17]</property>
+		<item id="18">
+			<property name="id">$NUMBER[18]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13018]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -962,8 +959,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="18">
-			<property name="id">$NUMBER[18]</property>
+		<item id="19">
+			<property name="id">$NUMBER[19]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20150]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -980,8 +977,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="19">
-			<property name="id">$NUMBER[19]</property>
+		<item id="20">
+			<property name="id">$NUMBER[20]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20151]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -998,8 +995,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="20">
-			<property name="id">$NUMBER[20]</property>
+		<item id="21">
+			<property name="id">$NUMBER[21]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -1711,19 +1708,52 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">6</property>
+			<label>Movies</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.themoviedb.helper%2ficon.png/</thumb>
+			<property name="labelID">movies</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
+			<property name="widgetTarget">videos</property>
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
+			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),plugin-video-themoviedb-helper)</visible>
+			<property name="group">plugin.video.themoviedb.helper.1</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">6</property>
+			<label>TV Shows</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.themoviedb.helper%2ficon.png/</thumb>
+			<property name="labelID">tvshows</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="widgetTarget">videos</property>
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),plugin-video-themoviedb-helper)</visible>
+			<property name="group">plugin.video.themoviedb.helper.1</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">6</property>
 			<label>Weather</label>
 			<label2>Widget</label2>
 			<icon>special://skin/extras/icons/sun.png</icon>
 			<thumb />
 			<property name="labelID">weather</property>
 			<property name="defaultID">weather</property>
-			<property name="translatedPath">Weather</property>
-			<property name="widgetTarget">videos</property>
-			<onclick>Weather</onclick>
-			<property name="path">Weather</property>
-			<property name="list">Weather</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),plugin-video-themoviedb-helper)</visible>
-			<property name="group">plugin.video.themoviedb.helper.1</property>
+			<visible>[False] + String.IsEqual(Container(301).ListItem.Property(submenuVisibility),plugin-video-themoviedb-helper)</visible>
+			<onclick>noop</onclick>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="1">
@@ -2148,6 +2178,7 @@
 			<property name="labelID">b-browse-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True</property>
@@ -2158,23 +2189,6 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">3</property>
-			<label>Most Popular</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
-			<property name="labelID">mostpopular</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</property>
-			<property name="list">plugin://plugin.video.seren/?action=moviesPopular&amp;page=1</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">b-movies-b</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">3</property>
 			<label>[B]Watched[/B]</label>
 			<label2>Video Add-On</label2>
 			<icon>special://skin/extras/icons/shortcut.png</icon>
@@ -2182,6 +2196,7 @@
 			<property name="labelID">b-watched-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie</property>
@@ -2189,8 +2204,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest[/B] | Gary</label>
 			<label2>Custom item</label2>
@@ -2205,8 +2220,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest[/B] | G&amp;A</label>
 			<label2>Custom item</label2>
@@ -2221,8 +2236,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest 4k[/B]</label>
 			<label2>Custom item</label2>
@@ -2237,8 +2252,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Netflix[/B]</label>
 			<label2>Custom item</label2>
@@ -2253,8 +2268,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="8">
-			<property name="id">$NUMBER[8]</property>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Disney +[/B]</label>
 			<label2>Custom item</label2>
@@ -2269,8 +2284,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="9">
-			<property name="id">$NUMBER[9]</property>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Apple TV+[/B]</label>
 			<label2>Custom item</label2>
@@ -2297,6 +2312,7 @@
 			<property name="labelID">b-browse-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True</property>
@@ -2307,23 +2323,6 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">3</property>
-			<label>Most Popular</label>
-			<label2>Video Add-On</label2>
-			<icon>special://skin/extras/icons/shortcut.png</icon>
-			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
-			<property name="labelID">mostpopular</property>
-			<property name="defaultID" />
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</property>
-			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</onclick>
-			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesPopular&amp;page=1",return)</property>
-			<property name="list">plugin://plugin.video.seren/?action=moviesPopular&amp;page=1</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),b-movies-b)</visible>
-			<property name="group">b-movies-b</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">3</property>
 			<label>[B]Watched[/B]</label>
 			<label2>Video Add-On</label2>
 			<icon>special://skin/extras/icons/shortcut.png</icon>
@@ -2331,6 +2330,7 @@
 			<property name="labelID">b-watched-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=movie</property>
@@ -2338,8 +2338,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest[/B] | Gary</label>
 			<label2>Custom item</label2>
@@ -2354,8 +2354,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest[/B] | G&amp;A</label>
 			<label2>Custom item</label2>
@@ -2370,8 +2370,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Latest 4k[/B]</label>
 			<label2>Custom item</label2>
@@ -2386,8 +2386,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Netflix[/B]</label>
 			<label2>Custom item</label2>
@@ -2402,8 +2402,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="8">
-			<property name="id">$NUMBER[8]</property>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Disney +[/B]</label>
 			<label2>Custom item</label2>
@@ -2418,8 +2418,8 @@
 			<property name="group">b-movies-b</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="9">
-			<property name="id">$NUMBER[9]</property>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
 			<property name="mainmenuid">3</property>
 			<label>[B]Apple TV+[/B]</label>
 			<label2>Custom item</label2>
@@ -2734,6 +2734,7 @@
 			<property name="labelID">b-browse-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True</property>
@@ -2751,6 +2752,7 @@
 			<property name="labelID">b-watched-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv</property>
@@ -2866,6 +2868,7 @@
 			<property name="labelID">b-browse-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True</property>
@@ -2883,6 +2886,7 @@
 			<property name="labelID">b-watched-b</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</property>
+			<property name="widgetAspect">Poster</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv",return)</property>
 			<property name="list">plugin://plugin.video.themoviedb.helper/?info=trakt_history&amp;widget=True&amp;type=tv</property>
@@ -3395,6 +3399,7 @@
 			<property name="labelID">colorlightseagreen-gunslingertv-color</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</property>
 			<property name="list">plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797</property>
@@ -3412,6 +3417,7 @@
 			<property name="labelID">colorgreen-area51-color</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</property>
 			<property name="list">plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=</property>
@@ -3547,6 +3553,7 @@
 			<property name="labelID">colorlightseagreen-gunslingertv-color</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797",return)</property>
 			<property name="list">plugin://plugin.video.playlistLoader/?logos=http%3A%2F%2Fgunslingertv.org%3A25461%2Fxmltv.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%2F&amp;cache=1440&amp;name=%5BGunslinger%5D&amp;url=http%3A%2F%2Fgunslingertv.org%3A25461%2Fget.php%3Fusername%3Dbigpapa%26password%3Dcincinnati%26type%3Dm3u_plus%26output%3Dmpegts&amp;iconimage=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.playlistLoader%2Fresources%2Fimages%2Fdefault-list-image.png&amp;mode=2&amp;uuid=3e2ad0bc-e9ad-4d7c-aa86-44107a763797</property>
@@ -3564,6 +3571,7 @@
 			<property name="labelID">colorgreen-area51-color</property>
 			<property name="defaultID" />
 			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<property name="widgetAspect">Square</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=",return)</property>
 			<property name="list">plugin://plugin.video.area51/?action=security_check&amp;title=live+TV&amp;url=&amp;thumbnail=%2FUsers%2FpH%2FLibrary%2FApplication+Support%2FKodi%2Faddons%2Fplugin.video.area51%2Fresources%2Fart%2Flivetv.png&amp;plot=&amp;extra=&amp;page=</property>
@@ -4019,25 +4027,43 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">6</property>
-			<label>Weather</label>
-			<label2>Widget</label2>
-			<icon>special://skin/extras/icons/sun.png</icon>
-			<thumb />
-			<property name="labelID">weather</property>
-			<property name="defaultID">weather</property>
-			<property name="translatedPath">Weather</property>
+			<label>Movies</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.themoviedb.helper%2ficon.png/</thumb>
+			<property name="labelID">movies</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
 			<property name="widgetTarget">videos</property>
-			<onclick>Weather</onclick>
-			<property name="path">Weather</property>
-			<property name="list">Weather</property>
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
+			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="group">plugin.video.themoviedb.helper.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
-	</include>
-	<include name="skinshortcuts-group-alt-plugin-video-themoviedb-helper-1">
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">6</property>
+			<label>TV Shows</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.themoviedb.helper%2ficon.png/</thumb>
+			<property name="labelID">tvshows</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="widgetTarget">videos</property>
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">plugin.video.themoviedb.helper.1</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">6</property>
 			<label>Weather</label>
 			<label2>Widget</label2>
@@ -4045,13 +4071,61 @@
 			<thumb />
 			<property name="labelID">weather</property>
 			<property name="defaultID">weather</property>
-			<property name="translatedPath">Weather</property>
+			<visible>False</visible>
+			<onclick>noop</onclick>
+			<property name="isSubmenu">True</property>
+		</item>
+	</include>
+	<include name="skinshortcuts-group-alt-plugin-video-themoviedb-helper-1">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">6</property>
+			<label>Movies</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.themoviedb.helper%2ficon.png/</thumb>
+			<property name="labelID">movies</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
 			<property name="widgetTarget">videos</property>
-			<onclick>Weather</onclick>
-			<property name="path">Weather</property>
-			<property name="list">Weather</property>
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</property>
+			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True</property>
 			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),plugin-video-themoviedb-helper)</visible>
 			<property name="group">plugin.video.themoviedb.helper.1</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">6</property>
+			<label>TV Shows</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.themoviedb.helper%2ficon.png/</thumb>
+			<property name="labelID">tvshows</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="widgetTarget">videos</property>
+			<property name="widgetAspect">Square</property>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</property>
+			<property name="list">plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),plugin-video-themoviedb-helper)</visible>
+			<property name="group">plugin.video.themoviedb.helper.1</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">6</property>
+			<label>Weather</label>
+			<label2>Widget</label2>
+			<icon>special://skin/extras/icons/sun.png</icon>
+			<thumb />
+			<property name="labelID">weather</property>
+			<property name="defaultID">weather</property>
+			<visible>[False] + String.IsEqual(Window(10000).Property(submenuVisibility),plugin-video-themoviedb-helper)</visible>
+			<onclick>noop</onclick>
 			<property name="isSubmenu">True</property>
 		</item>
 	</include>
@@ -4223,6 +4297,24 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">10</property>
+			<label>ToolS</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+			<property name="labelID">tools</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</property>
+			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</property>
+			<property name="list">plugin://plugin.video.seren/?action=toolsMenu</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">powermenu</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">10</property>
 			<label>Contact Soul TV</label>
 			<label2>Favourite</label2>
 			<icon>special://skin/extras/icons/folder.png</icon>
@@ -4238,8 +4330,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">10</property>
 			<label>[COLOR silver]System Information[/COLOR]</label>
 			<label2>Favourite</label2>
@@ -4256,8 +4348,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">10</property>
 			<label>Force Add-on Updates</label>
 			<label2>Favourite</label2>
@@ -4274,8 +4366,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">10</property>
 			<label>Refresh Interface</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4291,8 +4383,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">10</property>
 			<label>Total Clean Up</label>
 			<label2>Favourite</label2>
@@ -4309,8 +4401,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
 			<property name="mainmenuid">10</property>
 			<label>Speed Tester</label>
 			<label2>Favourite</label2>
@@ -4327,8 +4419,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="8">
-			<property name="id">$NUMBER[8]</property>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
 			<property name="mainmenuid">10</property>
 			<label>[COLOR silver]Force Close[/COLOR]</label>
 			<label2>Favourite</label2>
@@ -4345,8 +4437,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="9">
-			<property name="id">$NUMBER[9]</property>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13012]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4363,8 +4455,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="10">
-			<property name="id">$NUMBER[10]</property>
+		<item id="11">
+			<property name="id">$NUMBER[11]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13016]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4381,8 +4473,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="11">
-			<property name="id">$NUMBER[11]</property>
+		<item id="12">
+			<property name="id">$NUMBER[12]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13011]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4399,8 +4491,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="12">
-			<property name="id">$NUMBER[12]</property>
+		<item id="13">
+			<property name="id">$NUMBER[13]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13010]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4417,8 +4509,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="13">
-			<property name="id">$NUMBER[13]</property>
+		<item id="14">
+			<property name="id">$NUMBER[14]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13013]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4435,8 +4527,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="14">
-			<property name="id">$NUMBER[14]</property>
+		<item id="15">
+			<property name="id">$NUMBER[15]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20126]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4453,8 +4545,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="15">
-			<property name="id">$NUMBER[15]</property>
+		<item id="16">
+			<property name="id">$NUMBER[16]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20046]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4471,8 +4563,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="16">
-			<property name="id">$NUMBER[16]</property>
+		<item id="17">
+			<property name="id">$NUMBER[17]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13017]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4489,8 +4581,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="17">
-			<property name="id">$NUMBER[17]</property>
+		<item id="18">
+			<property name="id">$NUMBER[18]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13018]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4507,8 +4599,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="18">
-			<property name="id">$NUMBER[18]</property>
+		<item id="19">
+			<property name="id">$NUMBER[19]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20150]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4525,8 +4617,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="19">
-			<property name="id">$NUMBER[19]</property>
+		<item id="20">
+			<property name="id">$NUMBER[20]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20151]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4543,8 +4635,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="20">
-			<property name="id">$NUMBER[20]</property>
+		<item id="21">
+			<property name="id">$NUMBER[21]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4583,6 +4675,24 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">10</property>
+			<label>ToolS</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/shortcut.png</icon>
+			<thumb>image://%2fUsers%2fpH%2fLibrary%2fApplication%20Support%2fKodi%2faddons%2fplugin.video.seren%2fico-fox-gold-final.png/</thumb>
+			<property name="labelID">tools</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</property>
+			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=toolsMenu",return)</property>
+			<property name="list">plugin://plugin.video.seren/?action=toolsMenu</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),powermenu)</visible>
+			<property name="group">powermenu</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">10</property>
 			<label>Contact Soul TV</label>
 			<label2>Favourite</label2>
 			<icon>special://skin/extras/icons/folder.png</icon>
@@ -4598,8 +4708,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">10</property>
 			<label>[COLOR silver]System Information[/COLOR]</label>
 			<label2>Favourite</label2>
@@ -4616,8 +4726,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
 			<property name="mainmenuid">10</property>
 			<label>Force Add-on Updates</label>
 			<label2>Favourite</label2>
@@ -4634,8 +4744,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">10</property>
 			<label>Refresh Interface</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4651,8 +4761,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">10</property>
 			<label>Total Clean Up</label>
 			<label2>Favourite</label2>
@@ -4669,8 +4779,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="7">
-			<property name="id">$NUMBER[7]</property>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
 			<property name="mainmenuid">10</property>
 			<label>Speed Tester</label>
 			<label2>Favourite</label2>
@@ -4687,8 +4797,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="8">
-			<property name="id">$NUMBER[8]</property>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
 			<property name="mainmenuid">10</property>
 			<label>[COLOR silver]Force Close[/COLOR]</label>
 			<label2>Favourite</label2>
@@ -4705,8 +4815,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="9">
-			<property name="id">$NUMBER[9]</property>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13012]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4723,8 +4833,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="10">
-			<property name="id">$NUMBER[10]</property>
+		<item id="11">
+			<property name="id">$NUMBER[11]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13016]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4741,8 +4851,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="11">
-			<property name="id">$NUMBER[11]</property>
+		<item id="12">
+			<property name="id">$NUMBER[12]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13011]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4759,8 +4869,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="12">
-			<property name="id">$NUMBER[12]</property>
+		<item id="13">
+			<property name="id">$NUMBER[13]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13010]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4777,8 +4887,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="13">
-			<property name="id">$NUMBER[13]</property>
+		<item id="14">
+			<property name="id">$NUMBER[14]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13013]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4795,8 +4905,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="14">
-			<property name="id">$NUMBER[14]</property>
+		<item id="15">
+			<property name="id">$NUMBER[15]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20126]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4813,8 +4923,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="15">
-			<property name="id">$NUMBER[15]</property>
+		<item id="16">
+			<property name="id">$NUMBER[16]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20046]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4831,8 +4941,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="16">
-			<property name="id">$NUMBER[16]</property>
+		<item id="17">
+			<property name="id">$NUMBER[17]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13017]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4849,8 +4959,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="17">
-			<property name="id">$NUMBER[17]</property>
+		<item id="18">
+			<property name="id">$NUMBER[18]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[13018]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4867,8 +4977,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="18">
-			<property name="id">$NUMBER[18]</property>
+		<item id="19">
+			<property name="id">$NUMBER[19]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20150]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4885,8 +4995,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="19">
-			<property name="id">$NUMBER[19]</property>
+		<item id="20">
+			<property name="id">$NUMBER[20]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20151]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -4903,8 +5013,8 @@
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="20">
-			<property name="id">$NUMBER[20]</property>
+		<item id="21">
+			<property name="id">$NUMBER[21]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Power Menu Shortcut</label2>
@@ -5333,7 +5443,7 @@
 			<param name="target" value="" />
 			<param name="content" value="" />
 			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
+			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
@@ -5477,25 +5587,7 @@
 			<param name="target" value="" />
 			<param name="content" value="" />
 			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
-			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="false" />
-			<param name="iconcondition" value="false" />
-			<param name="bannercondition" value="false" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),num-b-movies-b) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-movies-b)</visible>
-			<visible>String.IsEqual(Container(302).ListItem.Property(id),$NUMBER[9])</visible>
-			<onup>302</onup>
-			<onback condition="Window.IsVisible(Home)">301</onback>
-			<ondown>noop</ondown>
-		</include>
-		<include content="Object_Widget_Spotlight">
-			<param name="labelinclude" value="Defs_Null" />
-			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
-			<param name="label2" value="ListItem.TvShowTitle" />
-			<param name="target" value="" />
-			<param name="content" value="" />
-			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
+			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
@@ -5693,7 +5785,7 @@
 			<param name="target" value="" />
 			<param name="content" value="" />
 			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
+			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
@@ -5711,7 +5803,7 @@
 			<param name="target" value="" />
 			<param name="content" value="" />
 			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
+			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
@@ -7593,7 +7685,7 @@
 		<include content="View_Cast_Toplabel">
 			<param name="groupid" value="67501" />
 			<param name="id" value="63101" />
-			<param name="label" value="Weather" />
+			<param name="label" value="Movies" />
 			<param name="spinner-visible" value="String.IsEmpty(Container($PARAM[63101]).ListItem.Label)" />
 			<visible>String.IsEqual(Container(301).ListItem.Property(id),6)</visible>
 		</include>
@@ -7609,12 +7701,12 @@
 			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
 			<param name="label2" value="ListItem.TvShowTitle" />
 			<param name="target" value="videos" />
-			<param name="content" value="Weather" />
+			<param name="content" value="plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True" />
 			<param name="limit" value="" />
 			<param name="sortby" value="" />
 			<param name="sortorder" value="" />
 			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
+			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
@@ -7639,12 +7731,12 @@
 			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
 			<param name="label2" value="ListItem.TvShowTitle" />
 			<param name="target" value="videos" />
-			<param name="content" value="Weather" />
+			<param name="content" value="plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True" />
 			<param name="limit" value="" />
 			<param name="sortby" value="" />
 			<param name="sortorder" value="" />
 			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
+			<param name="squarecondition" value="true" />
 			<param name="smalllandscapecondition" value="false" />
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
@@ -7652,6 +7744,73 @@
 			<onback>SetFocus(63101)</onback>
 			<onback>301</onback>
 			<visible>Integer.IsGreater(Container(63101).NumItems,0) | Container(63101).IsUpdating</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),6)</visible>
+			<include content="Defs_AutoScroll">
+				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
+			</include>
+		</include>
+		<include content="View_Cast_Toplabel">
+			<param name="groupid" value="67502" />
+			<param name="id" value="63102" />
+			<param name="label" value="TV Shows" />
+			<param name="spinner-visible" value="String.IsEmpty(Container($PARAM[63102]).ListItem.Label)" />
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),6)</visible>
+		</include>
+		<include condition="!Skin.HasSetting(FixedWidgets)" content="Object_Widget_Spotlight">
+			<param name="controltype" value="list" />
+			<param name="id" value="63102" />
+			<param name="top" value="52" />
+			<param name="left" value="0" />
+			<param name="right" value="-30" />
+			<param name="height" value="item_cast_height" />
+			<param name="orientation" value="horizontal" />
+			<param name="labelinclude" value="Defs_Null" />
+			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
+			<param name="label2" value="ListItem.TvShowTitle" />
+			<param name="target" value="videos" />
+			<param name="content" value="plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True" />
+			<param name="limit" value="" />
+			<param name="sortby" value="" />
+			<param name="sortorder" value="" />
+			<param name="smallsquarecondition" value="false" />
+			<param name="squarecondition" value="true" />
+			<param name="smalllandscapecondition" value="false" />
+			<param name="landscapecondition" value="false" />
+			<param name="iconcondition" value="false" />
+			<param name="bannercondition" value="false" />
+			<onback>SetFocus(63101)</onback>
+			<onback>301</onback>
+			<visible>Integer.IsGreater(Container(63102).NumItems,0) | Container(63102).IsUpdating</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(id),6)</visible>
+			<include content="Defs_AutoScroll">
+				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
+			</include>
+		</include>
+		<include condition="Skin.HasSetting(FixedWidgets)" content="Object_Widget_Spotlight">
+			<param name="controltype" value="fixedlist" />
+			<param name="id" value="63102" />
+			<param name="top" value="52" />
+			<param name="left" value="0" />
+			<param name="right" value="-30" />
+			<param name="height" value="item_cast_height" />
+			<param name="orientation" value="horizontal" />
+			<param name="labelinclude" value="Defs_Null" />
+			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
+			<param name="label2" value="ListItem.TvShowTitle" />
+			<param name="target" value="videos" />
+			<param name="content" value="plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True" />
+			<param name="limit" value="" />
+			<param name="sortby" value="" />
+			<param name="sortorder" value="" />
+			<param name="smallsquarecondition" value="false" />
+			<param name="squarecondition" value="true" />
+			<param name="smalllandscapecondition" value="false" />
+			<param name="landscapecondition" value="false" />
+			<param name="iconcondition" value="false" />
+			<param name="bannercondition" value="false" />
+			<onback>SetFocus(63101)</onback>
+			<onback>301</onback>
+			<visible>Integer.IsGreater(Container(63102).NumItems,0) | Container(63102).IsUpdating</visible>
 			<visible>String.IsEqual(Container(301).ListItem.Property(id),6)</visible>
 			<include content="Defs_AutoScroll">
 				<param name="condition" value="!ControlGroup(3000).HasFocus() + System.IdleTime(1) + !Skin.HasSetting(DisableAutoScrollWidgets) + Integer.IsEqual(Container(3000).NumItems,1)" />
@@ -8019,43 +8178,7 @@
 			<param name="landscapecondition" value="false" />
 			<param name="iconcondition" value="false" />
 			<param name="bannercondition" value="false" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-search-b) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-livetv-b) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),plugin-video-themoviedb-helper) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-settings-b)</visible>
-			<onup>302</onup>
-			<onback condition="Window.IsVisible(Home)">301</onback>
-			<ondown>noop</ondown>
-			<visible>String.IsEmpty(Container(302).ListItem.Property(widgetPath))</visible>
-		</include>
-		<include content="Object_Widget_Spotlight">
-			<param name="labelinclude" value="Defs_Null" />
-			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
-			<param name="label2" value="ListItem.TvShowTitle" />
-			<param name="target" value="videos" />
-			<param name="content" value="plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]" />
-			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
-			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="false" />
-			<param name="iconcondition" value="false" />
-			<param name="bannercondition" value="false" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-movies-b)</visible>
-			<onup>302</onup>
-			<onback condition="Window.IsVisible(Home)">301</onback>
-			<ondown>noop</ondown>
-			<visible>String.IsEmpty(Container(302).ListItem.Property(widgetPath))</visible>
-		</include>
-		<include content="Object_Widget_Spotlight">
-			<param name="labelinclude" value="Defs_Null" />
-			<param name="landscapelabelinclude" value="View_Widget_LandscapeLabel" />
-			<param name="label2" value="ListItem.TvShowTitle" />
-			<param name="target" value="videos" />
-			<param name="content" value="plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]" />
-			<param name="smallsquarecondition" value="false" />
-			<param name="squarecondition" value="false" />
-			<param name="smalllandscapecondition" value="false" />
-			<param name="landscapecondition" value="false" />
-			<param name="iconcondition" value="false" />
-			<param name="bannercondition" value="false" />
-			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-shows-b)</visible>
+			<visible>String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-search-b) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-movies-b) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-shows-b) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-livetv-b) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),plugin-video-themoviedb-helper) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),) | String.IsEqual(Container(301).ListItem.Property(submenuVisibility),b-settings-b)</visible>
 			<onup>302</onup>
 			<onback condition="Window.IsVisible(Home)">301</onback>
 			<ondown>noop</ondown>

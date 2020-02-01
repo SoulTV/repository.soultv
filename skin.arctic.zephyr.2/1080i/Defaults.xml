@@ -244,6 +244,7 @@
 
     <include name="Defaults_RobotoFonts">
         <!-- Plot Font -->
+# Loading spinner text - enabled | disabled tags on addon lists
         <font>
             <name>font_plotbox</name>
             <filename>Roboto-Regular-Linespacing.ttf</filename>
