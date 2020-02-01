@@ -4,7 +4,7 @@
 
     <default type="label">
         <aligny>center</aligny>
-        <font>font_small</font>
+        <font>font_medium</font>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>dialog_fg_70</focusedcolor>
         <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
@@ -14,7 +14,7 @@
     <default type="edit">
         <align>center</align>
         <aligny>center</aligny>
-        <font>font_small</font>
+        <font>font_medium</font>
         <textoffsetx>30</textoffsetx>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
@@ -28,7 +28,7 @@
     <default type="fadelabel">
         <align>left</align>
         <aligny>center</aligny>
-        <font>font_small</font>
+        <font>font_medium</font>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
         <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
@@ -43,7 +43,7 @@
     <default type="button">
         <align>center</align>
         <aligny>center</aligny>
-        <font>font_small</font>
+        <font>font_medium</font>
         <textoffsetx>30</textoffsetx>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
@@ -57,7 +57,7 @@
     <default type="togglebutton">
         <align>center</align>
         <aligny>center</aligny>
-        <font>font_small</font>
+        <font>font_medium</font>
         <textoffsetx>30</textoffsetx>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
@@ -73,10 +73,10 @@
     <default type="radiobutton">
         <align>center</align>
         <aligny>center</aligny>
-        <font>font_small</font>
+        <font>font_medium</font>
         <radioposx>1250</radioposx>
-        <radiowidth>32</radiowidth>
-        <radioheight>32</radioheight>
+        <radiowidth>40</radiowidth>
+        <radioheight>40</radioheight>
         <textoffsetx>30</textoffsetx>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
@@ -95,9 +95,9 @@
     </default>
 
     <default type="spincontrolex">
-        <font>font_small</font>
-        <spinwidth>32</spinwidth>
-        <spinheight>32</spinheight>
+        <font>font_medium</font>
+        <spinwidth>40</spinwidth>
+        <spinheight>40</spinheight>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
         <disabledcolor>dialog_fg_12</disabledcolor>
@@ -118,9 +118,9 @@
     </default>
 
     <default type="spincontrol">
-        <font>font_small</font>
-        <spinwidth>32</spinwidth>
-        <spinheight>32</spinheight>
+        <font>font_medium</font>
+        <spinwidth>40</spinwidth>
+        <spinheight>40</spinheight>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
         <disabledcolor>dialog_fg_12</disabledcolor>
@@ -171,7 +171,7 @@
         <texturesliderbar colordiffuse="dialog_fg_12" border="6">slider/slider_bg.png</texturesliderbar>
         <textureslidernib colordiffuse="dialog_fg_30" border="6">slider/slider_nib.png</textureslidernib>
         <textureslidernibfocus colordiffuse="Selected" border="6">slider/slider_nib.png</textureslidernibfocus>
-        <font>font_small</font>
+        <font>font_medium</font>
         <aligny>center</aligny>
         <textcolor>dialog_fg_70</textcolor>
         <focusedcolor>Selected</focusedcolor>
@@ -194,7 +194,7 @@
 
 
     <default type="textbox">
-        <font>font_small</font>
+        <font>font_medium</font>
         <textcolor>dialog_fg_70</textcolor>
         <shadowcolor/>
         <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
@@ -218,7 +218,7 @@
         <font>
             <name>font_plotbox</name>
             <filename>Faune-Text_Regular.ttf</filename>
-            <size>30</size>
+            <size>36</size>
             <aspect>0.9</aspect>
         </font>
         <font>
@@ -248,13 +248,13 @@
             <name>font_plotbox</name>
             <filename>Roboto-Regular-Linespacing.ttf</filename>
             <linespacing>1</linespacing>
-            <size>29</size>
+            <size>36</size>
             <aspect>0.9</aspect>
         </font>
         <font>
             <name>font_weather_small</name>
             <filename>Roboto-Regular-Linespacing.ttf</filename>
-            <size>26</size>
+            <size>36</size>
             <aspect>0.9</aspect>
         </font>
         <font>

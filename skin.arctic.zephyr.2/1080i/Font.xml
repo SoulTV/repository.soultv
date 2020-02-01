@@ -160,11 +160,11 @@
 
 
         <!-- Showcase title font -->
-## Info dialog text title size
+## Info dialog text title size - 68 is max
         <font>
             <name>font_title_large</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
-            <size>72</size>
+            <size>68</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
