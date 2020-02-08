@@ -1,10 +1,13 @@
-1.7.3
-- fixed crash issue when a subtitle with a language unknown to this plugin was found
-- improved title matching for series
-- improved title matching when searching by filename
+1.8.2
+- Fix python 3 tv show subtitle search
 
-1.7.2
-- support for series with more than 29 seasons (thanks thiagofigueiro)
+1.8.1
+- Kodi 19 / Python 3 compatibility
+- Add line break after subtitle title and before subtitle comments 
+- Change comment colour to silver for improved contrast of selected entries
+
+1.8.0
+- fix searching for subtitles
 
 1.7.1
 - better download handling

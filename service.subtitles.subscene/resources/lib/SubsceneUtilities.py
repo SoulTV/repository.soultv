@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
+import os, sys
 import gzip
 import time
-from StringIO import StringIO
+if sys.version_info.major == 3:
+    import urllib.request, urllib.error, urllib.parse
+else:
+    from StringIO import StringIO
+    import urllib2
 import xbmc
-import urllib2
 import re
-import sys
 
 subscene_languages = {
     'Albanian': {'id': 1, '3let': 'alb', '2let': 'sq', 'name': 'Albanian'},
@@ -55,7 +58,10 @@ def get_language_codes(languages):
     for lang in subscene_languages:
         if subscene_languages[lang]['3let'] in languages:
             codes[str(subscene_languages[lang]['id'])] = 1
-    keys = codes.keys()
+    if sys.version_info.major == 3:
+        keys = list(codes.keys())
+    else:
+        keys = codes.keys()
     return keys
 
 
@@ -78,25 +84,39 @@ subscene_start = time.time()
 
 def log(module, msg):
     global subscene_start
-    xbmc.log((u"### [%s] %f - %s" % (module, time.time() - subscene_start, msg,)).encode('utf-8'), level=xbmc.LOGDEBUG)
+    loglevel=xbmc.LOGDEBUG
+#    loglevel=xbmc.LOGWARNING
+    if sys.version_info.major == 3:
+        xbmc.log("### [%s] %f - %s" % (module, time.time() - subscene_start, msg,), level=loglevel)
+    else:
+        xbmc.log((u"### [%s] %f - %s" % (module, time.time() - subscene_start, msg,)).encode('utf-8'), level=loglevel)
 
 
 def geturl(url, cookies=None):
     log(__name__, "Getting url: %s" % url)
     try:
-        request = urllib2.Request(url)
-        request.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
-        request.add_header('Accept-Encoding', 'gzip')
-        request.add_header('Accept-Language', 'en-US;q=0.5,en;q=0.3')
+        if sys.version_info.major == 3:
+            request = urllib.request.Request(url)
+        else:
+            request = urllib2.Request(url)
+        request.add_header('Accept-encoding', 'gzip')
         if cookies:
             request.add_header('Cookie', cookies)
-        request.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0')
-        response = urllib2.urlopen(request)
+        request.add_header('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:41.0) Gecko/20100101 Firefox/41.0')
+        if sys.version_info.major == 3:
+            response = urllib.request.urlopen(request)
+        else:
+            response = urllib2.urlopen(request)
         log(__name__, "request done")
         if response.info().get('Content-Encoding') == 'gzip':
-            buf = StringIO(response.read())
-            f = gzip.GzipFile(fileobj=buf)
+            if sys.version_info.major == 3:
+                f = gzip.GzipFile(fileobj=response)
+            else:
+                buf = StringIO(response.read())
+                f = gzip.GzipFile(fileobj=buf)
             content = f.read()
+            #content is binary, decoding into string
+            content = content.decode("utf-8")
         else:
             content = response.read()
         log(__name__, "read done")
@@ -105,12 +125,9 @@ def geturl(url, cookies=None):
         content = strip_unicode.sub('', content)
         return_url = response.geturl()
         log(__name__, "fetching done")
-    except urllib2.HTTPError as e:
-        log(__name__, "Failed to get url: %s Exception urllib2.HTTPError: %s" % (url, e.code))
-        content = None
-        return_url = None
     except:
-        log(__name__, "Failed to get url: %s Exception %s" % (url, sys.exc_info()[0]))
+        log(__name__, "Failed to get url: %s" % url)
         content = None
         return_url = None
     return content, return_url
+
