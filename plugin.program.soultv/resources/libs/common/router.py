@@ -75,8 +75,8 @@ class Router:
         elif mode == 'install':  # Builds -> Fresh Install/Standard Install/Apply guifix
             from resources.libs.wizard import Wizard
 
-            if action in ['fresh', 'normal']:
-                Wizard().build(action, name)
+            if action == 'build':
+                Wizard().build(name)
             elif action == 'gui':
                 Wizard().gui(name)
             elif action == 'theme':  # Builds -> "Your Build" -> "Your Theme"
@@ -95,6 +95,8 @@ class Router:
                 MaintenanceMenu().backup_menu()
             elif name == 'tweaks':
                 MaintenanceMenu().tweaks_menu()
+            elif name == 'logging':
+                MaintenanceMenu().logging_menu()
             elif name is None:
                 MaintenanceMenu().get_listing()
 

@@ -912,7 +912,7 @@ v5.2.14 (2017-01-23)
     </extension>
 </addon>
 
-<addon id="plugin.program.soultv" name="[COLOR silver][B]Soul TV[/B] [/COLOR]Helper" version="1.2.8" provider-name="Seoul">
+<addon id="plugin.program.soultv" name="[COLOR silver][B]Soul TV[/B] [/COLOR]Helper" version="1.2.9.1" provider-name="Seoul">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
         <import addon="script.module.requests" />
@@ -932,6 +932,12 @@ v5.2.14 (2017-01-23)
         <reuselanguageinvoker>false</reuselanguageinvoker>
         <source>https://soultv.github.io/repo</source>
         <news>
+        1.2.9
+         - Fix NuMb3r5 cache clearing
+         - Fix hang during repo force check
+         - Fix logins being restored every startup
+         - Fix some file permission errors
+         - Fix OS X backup errors
         1.2.8
          - Add Gaia PM OAuth
          - Fix binary add-on restoration
