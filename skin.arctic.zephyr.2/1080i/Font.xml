@@ -195,7 +195,7 @@
 ## This is text in top left "Home" and size of selected main menu text
         <font>
             <name>font_topbar</name>
-            <filename>RobotoCondensed-Regular.ttf</filename>
+            <filename>RobotoCondensed-Bold.ttf</filename>
             <size>55</size>
             #49 ia where it was
             <aspect>0.9</aspect>
