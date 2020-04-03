@@ -270,7 +270,7 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
 	</extension>
 </addon>
 
-<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.011" provider-name="Soul TV">
+<addon id="repository.soultv" name="Soul TV Repository" version="1.0.0.012" provider-name="Soul TV">
     <extension point="xbmc.addon.repository" name="Soul TV Repository">
 
         <dir>
@@ -393,6 +393,11 @@ Other languages with a great number of subtitles are: Danish, French, Swedish, D
             <checksum>https://raw.githubusercontent.com/ruinernin/foxymeta/repo/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/ruinernin/foxymeta/repo/zips/</datadir>
 		</dir>
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
+        </dir>
    ###THECREW.XML.START
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/thecrewwh/zips/master/_zip/addons.xml</info>
@@ -617,7 +622,7 @@ More minor bugfixes (honestly could not list them all)
 </addon>
 
 <!-- BINGIE -->
-<addon id="skin.titan.bingie" version="9.0.3.01" name="NETFLIX" provider-name="cartman.dos">
+<addon id="skin.titan.bingie" version="9.0.3.02" name="NETFLIX" provider-name="cartman.dos">
 	<requires>
 		<import version="5.14.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.0.0"/>
