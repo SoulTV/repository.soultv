@@ -1,7 +1,7 @@
 id="plugin.program.soultv"
 
 name="Soul Solo"
-version="1.0.1.005oh "
+version="1.2"
 url="https://www.dropbox.com/s/0cnkj31fesyezin/soulsolo.zip?dl=1"
 minor="http://"
 gui="http://"
